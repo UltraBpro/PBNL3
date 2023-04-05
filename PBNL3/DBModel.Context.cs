@@ -33,5 +33,6 @@ namespace PBNL3
         public virtual DbSet<LoaiPhong> LoaiPhongs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDichVuDat">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -85,6 +85,15 @@
           <Property Name="MaLoaiPhong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ViTri" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="MaTK" />
+          </Key>
+          <Property Name="MaTK" Type="int" Nullable="false" />
+          <Property Name="username" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="MaNhanVien" Type="int" />
         </EntityType>
         <Association Name="FK_DichVu_ChiTietDichVuDat">
           <End Role="LoaiDichVu" Type="Self.LoaiDichVu" Multiplicity="1" />
@@ -170,6 +179,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NhanVien_TK">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Phong_ChiTietPhongDat">
           <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
           <End Role="ChiTietPhongDat" Type="Self.ChiTietPhongDat" Multiplicity="*" />
@@ -191,6 +212,7 @@
           <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DichVu_ChiTietDichVuDat" Association="Self.FK_DichVu_ChiTietDichVuDat">
             <End Role="LoaiDichVu" EntitySet="LoaiDichVu" />
             <End Role="ChiTietDichVuDat" EntitySet="ChiTietDichVuDat" />
@@ -219,13 +241,16 @@
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="DonDatPhong" EntitySet="DonDatPhong" />
           </AssociationSet>
+          <AssociationSet Name="FK_NhanVien_TK" Association="Self.FK_NhanVien_TK">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+          </AssociationSet>
           <AssociationSet Name="FK_Phong_ChiTietPhongDat" Association="Self.FK_Phong_ChiTietPhongDat">
             <End Role="Phong" EntitySet="Phong" />
             <End Role="ChiTietPhongDat" EntitySet="ChiTietPhongDat" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -314,6 +339,7 @@
           <Property Name="NgayNhanViec" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="DonDatPhongs" Relationship="Self.FK_NhanVien_DonDatPhong_ThanhToan" FromRole="NhanVien" ToRole="DonDatPhong" />
           <NavigationProperty Name="DonDatPhongs1" Relationship="Self.FK_NhanVien_DonDatPhong_ThucHien" FromRole="NhanVien" ToRole="DonDatPhong" />
+          <NavigationProperty Name="TaiKhoans" Relationship="DBModel.FK_NhanVien_TK" FromRole="NhanVien" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="Phong">
           <Key>
@@ -463,7 +489,34 @@
             <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
             <End Role="Phong" EntitySet="Phongs" />
           </AssociationSet>
+          <EntitySet Name="TaiKhoans" EntityType="DBModel.TaiKhoan" />
+          <AssociationSet Name="FK_NhanVien_TK" Association="DBModel.FK_NhanVien_TK">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="MaTK" />
+          </Key>
+          <Property Name="MaTK" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MaNhanVien" Type="Int32" />
+          <NavigationProperty Name="NhanVien" Relationship="DBModel.FK_NhanVien_TK" FromRole="TaiKhoan" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK_NhanVien_TK">
+          <End Type="DBModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="DBModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -554,6 +607,16 @@
                 <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
                 <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="DBModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="MaTK" ColumnName="MaTK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -19,6 +19,7 @@ namespace PBNL3
         {
             this.DonDatPhongs = new HashSet<DonDatPhong>();
             this.DonDatPhongs1 = new HashSet<DonDatPhong>();
+            this.TaiKhoans = new HashSet<TaiKhoan>();
         }
     
         public int MaNhanVien { get; set; }
@@ -32,5 +33,7 @@ namespace PBNL3
         public virtual ICollection<DonDatPhong> DonDatPhongs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonDatPhong> DonDatPhongs1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
     }
 }

@@ -21,6 +21,8 @@
         <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThanhToan" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThucHien" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_LoaiPhong_Phong" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel.TaiKhoan" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_TK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
