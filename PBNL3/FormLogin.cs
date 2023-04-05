@@ -22,6 +22,7 @@ namespace PBNL3
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            File.Delete("LoginInfo.txt");
             Application.Exit();
         }
         private void LuuDangNhap(string username, string password)
@@ -63,6 +64,7 @@ namespace PBNL3
                     if (s.password == password)
                     {
                         if (SwitchRemember.Checked) LuuDangNhap(username, password);
+                        else File.Delete("LoginInfo.txt");
                         MessageBox.Show("Đăng nhập thành công, sẽ thêm hàm gọi form các thứ sau.");
                     }
                     else MessageBox.Show("Sai tài khoản hoặc mật khẩu.");
@@ -70,5 +72,6 @@ namespace PBNL3
                 catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
             }
         }
+
     }
 }

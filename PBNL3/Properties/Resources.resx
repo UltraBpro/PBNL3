@@ -121,4 +121,13 @@
   <data name="YoruWall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\res\yoruwall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MamaNobu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\MamaNobu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nobu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\Nobu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SummerNobu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\res\SummerNobu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
