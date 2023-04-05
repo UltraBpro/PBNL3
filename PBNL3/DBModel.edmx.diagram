@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="726f21117b08497aab0bea92bda8e688" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.ChiTietDichVuDat" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ChiTietPhongDat" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DonDatPhong" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Khach" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LoaiDichVu" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LoaiPhong" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.NhanVien" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Phong" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_DichVu_ChiTietDichVuDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DonDatPhong_ChiTietDichVuDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DonDatPhong_ChiTietPhongDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Phong_ChiTietPhongDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Khach_DonDatPhong" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThanhToan" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThucHien" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_LoaiPhong_Phong" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
