@@ -77,3 +77,10 @@ CREATE TABLE ChiTietDichVuDat (
     CONSTRAINT FK_DichVu_ChiTietDichVuDat FOREIGN KEY (MaDichVu) REFERENCES LoaiDichVu(MaLoaiDichVu),
     CONSTRAINT FK_DonDatPhong_ChiTietDichVuDat FOREIGN KEY (MaDonDatPhong) REFERENCES DonDatPhong(MaDonDatPhong)
 );
+CREATE TABLE TaiKhoan(
+	MaTK INT PRIMARY KEY,
+	username varchar(50) NOT NULL,
+	password varchar(50) NOT NULL,
+	MaNhanVien INT,
+	CONSTRAINT FK_NhanVien_TK FOREIGN KEY (MaNhanVien) REFERENCES NhanVien(MaNhanVien)
+);
