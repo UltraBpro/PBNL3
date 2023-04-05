@@ -30,6 +30,7 @@ namespace PBNL3
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -41,6 +42,7 @@ namespace PBNL3
             this.ButtonLogin = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +74,7 @@ namespace PBNL3
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(21)))));
+            this.guna2Panel1.Controls.Add(this.guna2ImageButton1);
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.ButtonLogin);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -85,6 +88,7 @@ namespace PBNL3
             // 
             // TextBoxPass
             // 
+            this.TextBoxPass.Animated = true;
             this.TextBoxPass.AutoRoundedCorners = true;
             this.TextBoxPass.BackColor = System.Drawing.Color.Transparent;
             this.TextBoxPass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -102,14 +106,16 @@ namespace PBNL3
             this.TextBoxPass.Location = new System.Drawing.Point(31, 162);
             this.TextBoxPass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TextBoxPass.Name = "TextBoxPass";
-            this.TextBoxPass.PasswordChar = '\0';
+            this.TextBoxPass.PasswordChar = '●';
             this.TextBoxPass.PlaceholderText = "Pass?";
             this.TextBoxPass.SelectedText = "";
             this.TextBoxPass.Size = new System.Drawing.Size(233, 34);
             this.TextBoxPass.TabIndex = 6;
+            this.TextBoxPass.UseSystemPasswordChar = true;
             // 
             // TextBoxUsername
             // 
+            this.TextBoxUsername.Animated = true;
             this.TextBoxUsername.AutoRoundedCorners = true;
             this.TextBoxUsername.BackColor = System.Drawing.Color.Transparent;
             this.TextBoxUsername.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -136,6 +142,8 @@ namespace PBNL3
             // 
             // SwitchRemember
             // 
+            this.SwitchRemember.Animated = true;
+            this.SwitchRemember.Checked = true;
             this.SwitchRemember.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SwitchRemember.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SwitchRemember.CheckedState.InnerBorderColor = System.Drawing.Color.White;
@@ -207,6 +215,19 @@ namespace PBNL3
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageButton1.Image")));
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.Location = new System.Drawing.Point(114, 34);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(64, 54);
+            this.guna2ImageButton1.TabIndex = 11;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +257,7 @@ namespace PBNL3
         private Guna.UI2.WinForms.Guna2ToggleSwitch SwitchRemember;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }
 

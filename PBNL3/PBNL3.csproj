@@ -156,6 +156,12 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="res\MamaNobu.jpg" />
+    <Content Include="res\Nobu.png" />
+    <Content Include="res\SummerNobu.jpg" />
+    <Content Include="res\Waifu1.ico" />
+    <Content Include="res\Waifu2.ico" />
+    <Content Include="res\Waifu3.ico" />
     <Content Include="res\YoruWall.jpg" />
   </ItemGroup>
   <ItemGroup>
