@@ -33,7 +33,6 @@ namespace PBNL3
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonLogin = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,7 @@ namespace PBNL3
             this.TextBoxPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -70,23 +70,7 @@ namespace PBNL3
             this.guna2Panel1.Location = new System.Drawing.Point(-18, -1);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(272, 435);
-            this.guna2Panel1.TabIndex = 4;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.Image = global::PBNL3.Properties.Resources.SummerNobu;
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Image = global::PBNL3.Properties.Resources.Nobu;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 13);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.Image = global::PBNL3.Properties.Resources.MamaNobu;
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
-            this.guna2ImageButton1.TabIndex = 11;
+            this.guna2Panel1.TabIndex = 32;
             // 
             // guna2Button1
             // 
@@ -104,7 +88,7 @@ namespace PBNL3
             this.guna2Button1.Location = new System.Drawing.Point(31, 294);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(91, 45);
-            this.guna2Button1.TabIndex = 10;
+            this.guna2Button1.TabIndex = 4;
             this.guna2Button1.Text = "Thoát";
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
@@ -125,7 +109,7 @@ namespace PBNL3
             this.ButtonLogin.Location = new System.Drawing.Point(128, 294);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(136, 45);
-            this.ButtonLogin.TabIndex = 9;
+            this.ButtonLogin.TabIndex = 3;
             this.ButtonLogin.Text = "Đăng nhập";
             this.ButtonLogin.UseTransparentBackground = true;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
@@ -152,7 +136,7 @@ namespace PBNL3
             this.SwitchRemember.Location = new System.Drawing.Point(31, 258);
             this.SwitchRemember.Name = "SwitchRemember";
             this.SwitchRemember.Size = new System.Drawing.Size(35, 20);
-            this.SwitchRemember.TabIndex = 7;
+            this.SwitchRemember.TabIndex = 3;
             this.SwitchRemember.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.SwitchRemember.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.SwitchRemember.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
@@ -184,7 +168,7 @@ namespace PBNL3
             this.TextBoxPass.PlaceholderText = "Pass?";
             this.TextBoxPass.SelectedText = "";
             this.TextBoxPass.Size = new System.Drawing.Size(233, 34);
-            this.TextBoxPass.TabIndex = 6;
+            this.TextBoxPass.TabIndex = 2;
             this.TextBoxPass.UseSystemPasswordChar = true;
             // 
             // TextBoxUsername
@@ -212,25 +196,42 @@ namespace PBNL3
             this.TextBoxUsername.PlaceholderText = "Username?";
             this.TextBoxUsername.SelectedText = "";
             this.TextBoxUsername.Size = new System.Drawing.Size(233, 34);
-            this.TextBoxUsername.TabIndex = 5;
+            this.TextBoxUsername.TabIndex = 1;
             // 
             // guna2ShadowForm1
             // 
             this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.Navy;
             this.guna2ShadowForm1.TargetForm = this;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.Image = global::PBNL3.Properties.Resources.SummerNobu;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Image = global::PBNL3.Properties.Resources.Nobu;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 13);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.Image = global::PBNL3.Properties.Resources.MamaNobu;
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
+            this.guna2ImageButton1.TabIndex = 11;
+            // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Enabled = false;
-            this.guna2PictureBox1.Image = global::PBNL3.Properties.Resources.YoruWall;
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::PBNL3.Properties.Resources.YoruGif;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.InitialImage = global::PBNL3.Properties.Resources.YoruWall;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(12, -1);
+            this.guna2PictureBox1.InitialImage = null;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(-29, -10);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(588, 396);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(649, 404);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 1;
+            this.guna2PictureBox1.TabIndex = 95;
             this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
             // 
             // FormLogin
             // 
