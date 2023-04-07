@@ -93,6 +93,16 @@ namespace PBNL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap YoruGif {
+            get {
+                object obj = ResourceManager.GetObject("YoruGif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap YoruWall {
             get {
                 object obj = ResourceManager.GetObject("YoruWall", resourceCulture);

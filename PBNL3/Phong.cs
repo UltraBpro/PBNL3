@@ -23,7 +23,8 @@ namespace PBNL3
         public int MaPhong { get; set; }
         public int MaLoaiPhong { get; set; }
         public string TinhTrang { get; set; }
-        public string ViTri { get; set; }
+        public int Tang { get; set; }
+        public int ThuTu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhongDat> ChiTietPhongDats { get; set; }
