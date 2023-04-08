@@ -4,7 +4,6 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDichVuDat">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -204,7 +203,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBModelStoreContainer">
+        <EntityContainer Name="PBL3ModelStoreContainer">
           <EntitySet Name="ChiTietDichVuDat" EntityType="Self.ChiTietDichVuDat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiTietPhongDat" EntityType="Self.ChiTietPhongDat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonDatPhong" EntityType="Self.DonDatPhong" Schema="dbo" store:Type="Tables" />
@@ -255,7 +254,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChiTietDichVuDat">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -525,9 +524,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="DBEntities">
           <EntitySetMapping Name="ChiTietDichVuDats">
-            <EntityTypeMapping TypeName="DBModel.ChiTietDichVuDat">
+            <EntityTypeMapping TypeName="PBL3Model.ChiTietDichVuDat">
               <MappingFragment StoreEntitySet="ChiTietDichVuDat">
                 <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
                 <ScalarProperty Name="GiaDichVuDat" ColumnName="GiaDichVuDat" />
@@ -537,7 +536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChiTietPhongDats">
-            <EntityTypeMapping TypeName="DBModel.ChiTietPhongDat">
+            <EntityTypeMapping TypeName="PBL3Model.ChiTietPhongDat">
               <MappingFragment StoreEntitySet="ChiTietPhongDat">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaDonDatPhong" ColumnName="MaDonDatPhong" />
@@ -546,7 +545,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DonDatPhongs">
-            <EntityTypeMapping TypeName="DBModel.DonDatPhong">
+            <EntityTypeMapping TypeName="PBL3Model.DonDatPhong">
               <MappingFragment StoreEntitySet="DonDatPhong">
                 <ScalarProperty Name="MaDonDatPhong" ColumnName="MaDonDatPhong" />
                 <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
@@ -560,7 +559,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Khaches">
-            <EntityTypeMapping TypeName="DBModel.Khach">
+            <EntityTypeMapping TypeName="PBL3Model.Khach">
               <MappingFragment StoreEntitySet="Khach">
                 <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
                 <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
@@ -571,7 +570,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiDichVus">
-            <EntityTypeMapping TypeName="DBModel.LoaiDichVu">
+            <EntityTypeMapping TypeName="PBL3Model.LoaiDichVu">
               <MappingFragment StoreEntitySet="LoaiDichVu">
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
@@ -580,7 +579,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiPhongs">
-            <EntityTypeMapping TypeName="DBModel.LoaiPhong">
+            <EntityTypeMapping TypeName="PBL3Model.LoaiPhong">
               <MappingFragment StoreEntitySet="LoaiPhong">
                 <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
                 <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
@@ -592,7 +591,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="DBModel.NhanVien">
+            <EntityTypeMapping TypeName="PBL3Model.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
@@ -604,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Phongs">
-            <EntityTypeMapping TypeName="DBModel.Phong">
+            <EntityTypeMapping TypeName="PBL3Model.Phong">
               <MappingFragment StoreEntitySet="Phong">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
@@ -615,7 +614,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="DBModel.TaiKhoan">
+            <EntityTypeMapping TypeName="PBL3Model.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
                 <ScalarProperty Name="MaTK" ColumnName="MaTK" />
                 <ScalarProperty Name="username" ColumnName="username" />
