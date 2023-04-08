@@ -97,6 +97,12 @@
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormDatPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatPhong.Designer.cs">
+      <DependentUpon>FormDatPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,7 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +141,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoTheoPhong.resx">
       <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
+      </EmbeddedResource>
+
+    <EmbeddedResource Include="FormDatPhong.resx">
+      <DependentUpon>FormDatPhong.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -190,6 +202,7 @@
     <Content Include="res\Waifu1.ico" />
     <Content Include="res\Waifu2.ico" />
     <Content Include="res\Waifu3.ico" />
+    <Content Include="res\YoruGif.gif" />
     <Content Include="res\YoruWall.jpg" />
   </ItemGroup>
   <ItemGroup>
