@@ -67,6 +67,12 @@
     <Compile Include="BaoCaoHoaDon.Designer.cs">
       <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaoCaoTheoPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoTheoPhong.Designer.cs">
+      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChiTietDichVuDat.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +132,9 @@
     <EmbeddedResource Include="BaoCaoHoaDon.resx">
       <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoTheoPhong.resx">
+      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,10 +173,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Screenshot 2023-04-07 002722.png" />
     <Content Include="DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
       <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DBModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

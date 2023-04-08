@@ -18,6 +18,11 @@ namespace PBNL3
             InitializeComponent();       
             label8.Text = ngayden.ToString("dd/MM/yyyy");
             label7.Text = ngaydi.ToString("dd/MM/yyyy");
-        }        
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

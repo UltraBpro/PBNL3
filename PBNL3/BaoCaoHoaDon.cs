@@ -28,14 +28,42 @@ namespace PBNL3
                 //var query = db.DonDatPhongs
                 //    .Where(d => d.TinhTrangThanhToan == "Done" && d.NgayDat >= start && d.NgayTra < end.AddDays(1))
                 //    .Join(db.Khaches, d => d.MaKhach, k => k.MaKhach,
-                //    (d, k) => new {d.MaDonDatPhong, k.TenKhach, d.NgayDat, d.NgayTra, d.GiaTien}).ToList();
+                //    (d, k) => new {d.MaDonDatPhong, k.TenKhach, d.NgayDat, d.NgayTra, d.GiaTien}).ToList();               
                 Test test = new Test(start, end);                
-                test.Show();
+                test.Show();      
+                this.Hide();
             }
             else
             {
                 MessageBox.Show("Sai ngày rồi kìa!!!");
             }
-        }        
+        }
+
+        private void ActiveButton_MouseEnter(object sender, EventArgs e)
+        {           
+            ActiveButton.ForeColor = Color.Black;                 
+        }
+
+        private void ActiveButton_MouseLeave(object sender, EventArgs e)
+        {          
+            ActiveButton.ForeColor = Color.LightCyan;                  
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ExitButton_MouseEnter(object sender, EventArgs e)
+        {
+            ExitButton.ForeColor = Color.Black;
+        }
+
+        private void ExitButton_MouseLeave(object sender, EventArgs e)
+        {
+            ExitButton.ForeColor = Color.LightCyan;
+        }
+
+       
     }
 }

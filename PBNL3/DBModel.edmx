@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PBL3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietDichVuDat">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -84,15 +84,16 @@
           <Property Name="MaPhong" Type="int" Nullable="false" />
           <Property Name="MaLoaiPhong" Type="int" Nullable="false" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ViTri" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tang" Type="int" Nullable="false" />
+          <Property Name="ThuTu" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TaiKhoan">
           <Key>
             <PropertyRef Name="MaTK" />
           </Key>
           <Property Name="MaTK" Type="int" Nullable="false" />
-          <Property Name="username" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MaNhanVien" Type="int" />
         </EntityType>
         <Association Name="FK_DichVu_ChiTietDichVuDat">
@@ -203,7 +204,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBModelStoreContainer">
+        <EntityContainer Name="PBL3ModelStoreContainer">
           <EntitySet Name="ChiTietDichVuDat" EntityType="Self.ChiTietDichVuDat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiTietPhongDat" EntityType="Self.ChiTietPhongDat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DonDatPhong" EntityType="Self.DonDatPhong" Schema="dbo" store:Type="Tables" />
@@ -250,10 +251,11 @@
             <End Role="ChiTietPhongDat" EntitySet="ChiTietPhongDat" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ChiTietDichVuDat">
           <Key>
             <PropertyRef Name="MaDichVu" />
@@ -339,7 +341,7 @@
           <Property Name="NgayNhanViec" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="DonDatPhongs" Relationship="Self.FK_NhanVien_DonDatPhong_ThanhToan" FromRole="NhanVien" ToRole="DonDatPhong" />
           <NavigationProperty Name="DonDatPhongs1" Relationship="Self.FK_NhanVien_DonDatPhong_ThucHien" FromRole="NhanVien" ToRole="DonDatPhong" />
-          <NavigationProperty Name="TaiKhoans" Relationship="DBModel.FK_NhanVien_TK" FromRole="NhanVien" ToRole="TaiKhoan" />
+          <NavigationProperty Name="TaiKhoans" Relationship="Self.FK_NhanVien_TK" FromRole="NhanVien" ToRole="TaiKhoan" />
         </EntityType>
         <EntityType Name="Phong">
           <Key>
@@ -348,9 +350,20 @@
           <Property Name="MaPhong" Type="Int32" Nullable="false" />
           <Property Name="MaLoaiPhong" Type="Int32" Nullable="false" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ViTri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tang" Type="Int32" Nullable="false" />
+          <Property Name="ThuTu" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ChiTietPhongDats" Relationship="Self.FK_Phong_ChiTietPhongDat" FromRole="Phong" ToRole="ChiTietPhongDat" />
           <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_LoaiPhong_Phong" FromRole="Phong" ToRole="LoaiPhong" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="MaTK" />
+          </Key>
+          <Property Name="MaTK" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaNhanVien" Type="Int32" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_NhanVien_TK" FromRole="TaiKhoan" ToRole="NhanVien" />
         </EntityType>
         <Association Name="FK_DichVu_ChiTietDichVuDat">
           <End Role="LoaiDichVu" Type="Self.LoaiDichVu" Multiplicity="1" />
@@ -448,6 +461,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NhanVien_TK">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNhanVien" />
+            </Principal>
+            <Dependent Role="TaiKhoan">
+              <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChiTietDichVuDats" EntityType="Self.ChiTietDichVuDat" />
           <EntitySet Name="ChiTietPhongDats" EntityType="Self.ChiTietPhongDat" />
@@ -457,6 +482,7 @@
           <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
           <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
           <EntitySet Name="Phongs" EntityType="Self.Phong" />
+          <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
           <AssociationSet Name="FK_DichVu_ChiTietDichVuDat" Association="Self.FK_DichVu_ChiTietDichVuDat">
             <End Role="LoaiDichVu" EntitySet="LoaiDichVus" />
             <End Role="ChiTietDichVuDat" EntitySet="ChiTietDichVuDats" />
@@ -489,42 +515,19 @@
             <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
             <End Role="Phong" EntitySet="Phongs" />
           </AssociationSet>
-          <EntitySet Name="TaiKhoans" EntityType="DBModel.TaiKhoan" />
-          <AssociationSet Name="FK_NhanVien_TK" Association="DBModel.FK_NhanVien_TK">
+          <AssociationSet Name="FK_NhanVien_TK" Association="Self.FK_NhanVien_TK">
             <End Role="NhanVien" EntitySet="NhanViens" />
             <End Role="TaiKhoan" EntitySet="TaiKhoans" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="TaiKhoan">
-          <Key>
-            <PropertyRef Name="MaTK" />
-          </Key>
-          <Property Name="MaTK" Type="Int32" Nullable="false" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="NhanVien" Relationship="DBModel.FK_NhanVien_TK" FromRole="TaiKhoan" ToRole="NhanVien" />
-        </EntityType>
-        <Association Name="FK_NhanVien_TK">
-          <End Type="DBModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
-          <End Type="DBModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="MaNhanVien" />
-            </Principal>
-            <Dependent Role="TaiKhoan">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities">
+        <EntityContainerMapping StorageEntityContainer="PBL3ModelStoreContainer" CdmEntityContainer="DBEntities">
           <EntitySetMapping Name="ChiTietDichVuDats">
-            <EntityTypeMapping TypeName="DBModel.ChiTietDichVuDat">
+            <EntityTypeMapping TypeName="PBL3Model.ChiTietDichVuDat">
               <MappingFragment StoreEntitySet="ChiTietDichVuDat">
                 <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
                 <ScalarProperty Name="GiaDichVuDat" ColumnName="GiaDichVuDat" />
@@ -534,7 +537,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChiTietPhongDats">
-            <EntityTypeMapping TypeName="DBModel.ChiTietPhongDat">
+            <EntityTypeMapping TypeName="PBL3Model.ChiTietPhongDat">
               <MappingFragment StoreEntitySet="ChiTietPhongDat">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaDonDatPhong" ColumnName="MaDonDatPhong" />
@@ -543,7 +546,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DonDatPhongs">
-            <EntityTypeMapping TypeName="DBModel.DonDatPhong">
+            <EntityTypeMapping TypeName="PBL3Model.DonDatPhong">
               <MappingFragment StoreEntitySet="DonDatPhong">
                 <ScalarProperty Name="MaDonDatPhong" ColumnName="MaDonDatPhong" />
                 <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
@@ -557,7 +560,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Khaches">
-            <EntityTypeMapping TypeName="DBModel.Khach">
+            <EntityTypeMapping TypeName="PBL3Model.Khach">
               <MappingFragment StoreEntitySet="Khach">
                 <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
                 <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
@@ -568,7 +571,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiDichVus">
-            <EntityTypeMapping TypeName="DBModel.LoaiDichVu">
+            <EntityTypeMapping TypeName="PBL3Model.LoaiDichVu">
               <MappingFragment StoreEntitySet="LoaiDichVu">
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
@@ -577,7 +580,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiPhongs">
-            <EntityTypeMapping TypeName="DBModel.LoaiPhong">
+            <EntityTypeMapping TypeName="PBL3Model.LoaiPhong">
               <MappingFragment StoreEntitySet="LoaiPhong">
                 <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
                 <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
@@ -589,7 +592,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
-            <EntityTypeMapping TypeName="DBModel.NhanVien">
+            <EntityTypeMapping TypeName="PBL3Model.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
@@ -601,22 +604,23 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Phongs">
-            <EntityTypeMapping TypeName="DBModel.Phong">
+            <EntityTypeMapping TypeName="PBL3Model.Phong">
               <MappingFragment StoreEntitySet="Phong">
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-                <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+                <ScalarProperty Name="Tang" ColumnName="Tang" />
+                <ScalarProperty Name="ThuTu" ColumnName="ThuTu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TaiKhoans">
-            <EntityTypeMapping TypeName="DBModel.TaiKhoan">
+            <EntityTypeMapping TypeName="PBL3Model.TaiKhoan">
               <MappingFragment StoreEntitySet="TaiKhoan">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
