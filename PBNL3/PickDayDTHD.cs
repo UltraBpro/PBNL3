@@ -11,27 +11,21 @@ using System.Windows.Forms;
 
 namespace PBNL3
 {
-    public partial class BaoCaoHoaDon : Form
+    public partial class PickDayDTHD : Form
     {
-        public BaoCaoHoaDon()
+        public PickDayDTHD()
         {
             InitializeComponent();           
         }
-        
+        public DateTime start { get; set; }
+        public DateTime end { get; set; }
         private void ActiveButton_Click(object sender, EventArgs e)
-        {           
-            DBEntities db = new DBEntities();
-            DateTime start = StartDate.Value;
-            DateTime end = EndDate.Value;
-            if (start.CompareTo(end) < 0)
-            {
-                //var query = db.DonDatPhongs
-                //    .Where(d => d.TinhTrangThanhToan == "Done" && d.NgayDat >= start && d.NgayTra < end.AddDays(1))
-                //    .Join(db.Khaches, d => d.MaKhach, k => k.MaKhach,
-                //    (d, k) => new {d.MaDonDatPhong, k.TenKhach, d.NgayDat, d.NgayTra, d.GiaTien}).ToList();               
-                Test test = new Test(start, end);                
-                test.Show();      
-                this.Hide();
+        {                       
+            start = StartDate.Value;
+            end = EndDate.Value;
+            if (start.CompareTo(end) <= 0)
+            {                    
+                this.Close();
             }
             else
             {
@@ -51,6 +45,8 @@ namespace PBNL3
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            start = DateTime.MinValue;
+            end = DateTime.MinValue;
             this.Close();
         }
 
@@ -62,8 +58,6 @@ namespace PBNL3
         private void ExitButton_MouseLeave(object sender, EventArgs e)
         {
             ExitButton.ForeColor = Color.LightCyan;
-        }
-
-       
+        }     
     }
 }

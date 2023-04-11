@@ -61,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaoCaoHoaDon.cs">
+    <Compile Include="PickDayDTHD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaoCaoHoaDon.Designer.cs">
-      <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
+    <Compile Include="PickDayDTHD.Designer.cs">
+      <DependentUpon>PickDayDTHD.cs</DependentUpon>
     </Compile>
     <Compile Include="BaoCaoTheoPhong.cs">
       <SubType>Form</SubType>
@@ -97,6 +97,12 @@
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTHD.Designer.cs">
+      <DependentUpon>DTHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,17 +129,20 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
+    <Compile Include="BaoCaoHD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
+    <Compile Include="BaoCaoHD.Designer.cs">
+      <DependentUpon>BaoCaoHD.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BaoCaoHoaDon.resx">
-      <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
+    <EmbeddedResource Include="PickDayDTHD.resx">
+      <DependentUpon>PickDayDTHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoTheoPhong.resx">
       <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTHD.resx">
+      <DependentUpon>DTHD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -148,8 +157,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="BaoCaoHD.resx">
+      <DependentUpon>BaoCaoHD.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -184,6 +193,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Bill.png" />
     <Content Include="res\MamaNobu.jpg" />
     <Content Include="res\Nobu.png" />
     <Content Include="res\SummerNobu.jpg" />

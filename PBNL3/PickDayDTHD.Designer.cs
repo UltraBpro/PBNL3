@@ -1,6 +1,6 @@
 ﻿namespace PBNL3
 {
-    partial class BaoCaoHoaDon
+    partial class PickDayDTHD
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaoCaoHoaDon));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PickDayDTHD));
             this.ActiveButton = new Guna.UI2.WinForms.Guna2Button();
             this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.EndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -66,13 +66,13 @@
             this.StartDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.StartDate.ForeColor = System.Drawing.Color.White;
             this.StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.StartDate.Location = new System.Drawing.Point(54, 256);
+            this.StartDate.Location = new System.Drawing.Point(56, 256);
             this.StartDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.StartDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(214, 36);
             this.StartDate.TabIndex = 7;
-            this.StartDate.Value = new System.DateTime(2023, 4, 7, 0, 2, 42, 517);
+            this.StartDate.Value = new System.DateTime(2023, 4, 8, 0, 0, 0, 0);
             // 
             // EndDate
             // 
@@ -81,13 +81,13 @@
             this.EndDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EndDate.ForeColor = System.Drawing.Color.White;
             this.EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.EndDate.Location = new System.Drawing.Point(552, 256);
+            this.EndDate.Location = new System.Drawing.Point(535, 256);
             this.EndDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.EndDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(212, 36);
             this.EndDate.TabIndex = 8;
-            this.EndDate.Value = new System.DateTime(2023, 4, 7, 0, 2, 42, 517);
+            this.EndDate.Value = new System.DateTime(2023, 4, 8, 0, 0, 0, 0);
             // 
             // label3
             // 
