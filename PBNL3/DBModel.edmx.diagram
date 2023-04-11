@@ -4,6 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+
       <Diagram DiagramId="3b2e0bf4bc2d46ef89ac25d0af12d6f7" Name="Diagram1">
         <EntityTypeShape EntityType="PBL3Model.ChiTietDichVuDat" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PBL3Model.ChiTietPhongDat" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
@@ -23,6 +24,27 @@
         <AssociationConnector Association="PBL3Model.FK_NhanVien_DonDatPhong_ThucHien" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3Model.FK_LoaiPhong_Phong" ManuallyRouted="false" />
         <AssociationConnector Association="PBL3Model.FK_NhanVien_TK" ManuallyRouted="false" />
+
+      <Diagram DiagramId="4b672e66bf6747618848674b55b5ca8b" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.ChiTietDichVuDat" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ChiTietPhongDat" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.DonDatPhong" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Khach" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LoaiDichVu" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.LoaiPhong" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.NhanVien" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Phong" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TaiKhoan" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_DichVu_ChiTietDichVuDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DonDatPhong_ChiTietDichVuDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_DonDatPhong_ChiTietPhongDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Phong_ChiTietPhongDat" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Khach_DonDatPhong" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThanhToan" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_DonDatPhong_ThucHien" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_LoaiPhong_Phong" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_NhanVien_TK" ManuallyRouted="false" />
+
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
