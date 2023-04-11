@@ -65,13 +65,14 @@ namespace PBNL3
                     {
                         if (SwitchRemember.Checked) LuuDangNhap(username, password);
                         else File.Delete("LoginInfo.txt");
-                        MessageBox.Show("Đăng nhập thành công, sẽ thêm hàm gọi form các thứ sau.");
+                        FormManHinhChinh fMainMenu = new FormManHinhChinh(s.MaTK);
+                        fMainMenu.Show();
+                        this.Close();
                     }
                     else MessageBox.Show("Sai tài khoản hoặc mật khẩu.");
                 }
                 catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
             }
         }
-
     }
 }

@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Interop;
-//using System.Windows.Media;
 using FontAwesome.Sharp;
 
 namespace PBNL3
@@ -19,18 +18,28 @@ namespace PBNL3
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        public FormManHinhChinh()
+        public FormManHinhChinh(int MaTaiKhoan)
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
             panel2.Controls.Add(leftBorderBtn);
+            LoadNhanVien(MaTaiKhoan);
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
-
+        private void LoadNhanVien(int MaTaiKhoan) {
+            using (DBEntities db = new DBEntities())
+            {
+                var TK = db.TaiKhoans.Find(MaTaiKhoan);
+                var NV = db.NhanViens.Find(TK.MaNhanVien);
+                labelMaNV.Text = NV.MaNhanVien.ToString();
+                labelTenNV.Text = NV.TenNhanVien;
+                labelChucVu.Text = NV.ChucVu;
+            }
+        }
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);

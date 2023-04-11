@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManHinhChinh));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelChucVu = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelTenNV = new System.Windows.Forms.Label();
+            this.labelMaNV = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -68,10 +68,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.labelChucVu);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.labelTenNV);
+            this.panel2.Controls.Add(this.labelMaNV);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.monthCalendar1);
@@ -88,16 +88,16 @@
             this.panel2.Size = new System.Drawing.Size(230, 595);
             this.panel2.TabIndex = 1;
             // 
-            // label8
+            // labelChucVu
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(120, 549);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 18);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "label4";
+            this.labelChucVu.AutoSize = true;
+            this.labelChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChucVu.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelChucVu.Location = new System.Drawing.Point(120, 549);
+            this.labelChucVu.Name = "labelChucVu";
+            this.labelChucVu.Size = new System.Drawing.Size(56, 18);
+            this.labelChucVu.TabIndex = 4;
+            this.labelChucVu.Text = "BLANK";
             // 
             // label6
             // 
@@ -110,27 +110,27 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Chức vụ:";
             // 
-            // label9
+            // labelTenNV
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(120, 511);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 18);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "label4";
+            this.labelTenNV.AutoSize = true;
+            this.labelTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenNV.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelTenNV.Location = new System.Drawing.Point(120, 511);
+            this.labelTenNV.Name = "labelTenNV";
+            this.labelTenNV.Size = new System.Drawing.Size(56, 18);
+            this.labelTenNV.TabIndex = 4;
+            this.labelTenNV.Text = "BLANK";
             // 
-            // label7
+            // labelMaNV
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(120, 478);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 18);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "label4";
+            this.labelMaNV.AutoSize = true;
+            this.labelMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaNV.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelMaNV.Location = new System.Drawing.Point(120, 478);
+            this.labelMaNV.Name = "labelMaNV";
+            this.labelMaNV.Size = new System.Drawing.Size(56, 18);
+            this.labelMaNV.TabIndex = 4;
+            this.labelMaNV.Text = "BLANK";
             // 
             // label5
             // 
@@ -279,7 +279,7 @@
             this.panel1.Location = new System.Drawing.Point(230, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 40);
+            this.panel1.Size = new System.Drawing.Size(643, 44);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -409,7 +409,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(230, 40);
+            this.panel3.Location = new System.Drawing.Point(230, 44);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(643, 9);
             this.panel3.TabIndex = 2;
@@ -419,9 +419,9 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(230, 49);
+            this.panel4.Location = new System.Drawing.Point(230, 53);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(643, 546);
+            this.panel4.Size = new System.Drawing.Size(643, 542);
             this.panel4.TabIndex = 3;
             // 
             // pictureBox2
@@ -431,7 +431,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(643, 546);
+            this.pictureBox2.Size = new System.Drawing.Size(643, 542);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -481,10 +481,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelChucVu;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelTenNV;
+        private System.Windows.Forms.Label labelMaNV;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MenuStrip menuStrip1;
