@@ -85,11 +85,11 @@
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Pick.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Pick.Designer.cs">
+      <DependentUpon>Pick.cs</DependentUpon>
     </Compile>
     <Compile Include="Khach.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -135,8 +135,8 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Pick.resx">
+      <DependentUpon>Pick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PickDayDTHD.resx">
       <DependentUpon>PickDayDTHD.cs</DependentUpon>
