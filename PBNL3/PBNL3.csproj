@@ -129,7 +129,6 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaoCaoTheoPhong.resx">
       <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
-      </EmbeddedResource>
-
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDatPhong.resx">
       <DependentUpon>FormDatPhong.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
