@@ -30,21 +30,18 @@ namespace PBNL3
         private void InitializeComponent()
         {
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.guna2DateTimePicker2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
             // 
-            this.guna2GradientPanel1.Controls.Add(this.guna2DateTimePicker2);
             this.guna2GradientPanel1.Controls.Add(this.label2);
             this.guna2GradientPanel1.Controls.Add(this.guna2DateTimePicker1);
             this.guna2GradientPanel1.Controls.Add(this.guna2Button3);
@@ -52,15 +49,24 @@ namespace PBNL3
             this.guna2GradientPanel1.Controls.Add(this.guna2Button2);
             this.guna2GradientPanel1.Controls.Add(this.guna2Button1);
             this.guna2GradientPanel1.Controls.Add(this.label4);
-            this.guna2GradientPanel1.Controls.Add(this.label5);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.DarkCyan;
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(471, 207);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(471, 170);
             this.guna2GradientPanel1.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(23, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "Thời gian nhận";
             // 
             // guna2DateTimePicker1
             // 
@@ -69,11 +75,10 @@ namespace PBNL3
             this.guna2DateTimePicker1.BackColor = System.Drawing.Color.Transparent;
             this.guna2DateTimePicker1.BorderRadius = 14;
             this.guna2DateTimePicker1.Checked = true;
-            this.guna2DateTimePicker1.CustomFormat = " ";
-            this.guna2DateTimePicker1.Enabled = false;
+            this.guna2DateTimePicker1.CustomFormat = " dd/MM/yyyy HH:mm";
             this.guna2DateTimePicker1.FillColor = System.Drawing.Color.Cyan;
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.guna2DateTimePicker1.Location = new System.Drawing.Point(142, 83);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -82,7 +87,8 @@ namespace PBNL3
             this.guna2DateTimePicker1.Size = new System.Drawing.Size(310, 31);
             this.guna2DateTimePicker1.TabIndex = 34;
             this.guna2DateTimePicker1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2DateTimePicker1.Value = new System.DateTime(2023, 4, 7, 23, 16, 46, 538);            // 
+            this.guna2DateTimePicker1.Value = new System.DateTime(2023, 4, 7, 23, 16, 46, 538);
+            // 
             // guna2Button3
             // 
             this.guna2Button3.Animated = true;
@@ -141,7 +147,7 @@ namespace PBNL3
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(272, 157);
+            this.guna2Button1.Location = new System.Drawing.Point(272, 120);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(180, 41);
             this.guna2Button1.TabIndex = 30;
@@ -157,53 +163,11 @@ namespace PBNL3
             this.label4.TabIndex = 25;
             this.label4.Text = "Khách";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(23, 92);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Ngày nhận";
-            // 
-            // guna2DateTimePicker2
-            // 
-            this.guna2DateTimePicker2.Animated = true;
-            this.guna2DateTimePicker2.AutoRoundedCorners = true;
-            this.guna2DateTimePicker2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2DateTimePicker2.BorderRadius = 14;
-            this.guna2DateTimePicker2.Checked = true;
-            this.guna2DateTimePicker2.CustomFormat = "";
-            this.guna2DateTimePicker2.Enabled = false;
-            this.guna2DateTimePicker2.FillColor = System.Drawing.Color.Cyan;
-            this.guna2DateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.guna2DateTimePicker2.Location = new System.Drawing.Point(142, 120);
-            this.guna2DateTimePicker2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePicker2.Name = "guna2DateTimePicker2";
-            this.guna2DateTimePicker2.ShowUpDown = true;
-            this.guna2DateTimePicker2.Size = new System.Drawing.Size(310, 31);
-            this.guna2DateTimePicker2.TabIndex = 36;
-            this.guna2DateTimePicker2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.guna2DateTimePicker2.Value = new System.DateTime(2023, 4, 7, 23, 16, 46, 538);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(23, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Thời gian nhận";
-            // 
             // FormDatPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 207);
+            this.ClientSize = new System.Drawing.Size(471, 170);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Name = "FormDatPhong";
             this.Text = "FormDatPhong";
@@ -218,12 +182,10 @@ namespace PBNL3
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker2;
         private System.Windows.Forms.Label label2;
     }
 }
