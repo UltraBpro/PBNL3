@@ -13,12 +13,26 @@ namespace PBNL3
 {
     public partial class DTHD : Form
     {
-        public DTHD()
+        public DTHD(int type)
         {
             InitializeComponent();
+            SetLable(type);
             SetCBBItem();
         }
+        private void SetLable(int type)
+        {
+            switch (type)
+            {
+                case 0:
+                    label1.Text = "Doanh thu hóa đơn";
 
+                    break;
+                case 1:
+                    label1.Text = "Doanh thu tiền phòng";
+                    break;
+            }
+            
+        }
         private void SetCBBItem()
         {
             cbbsetday.Items.Clear();

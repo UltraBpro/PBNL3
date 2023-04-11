@@ -61,17 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="PickDayDTHD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PickDayDTHD.Designer.cs">
       <DependentUpon>PickDayDTHD.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BaoCaoTheoPhong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BaoCaoTheoPhong.Designer.cs">
-      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="ChiTietDichVuDat.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -135,11 +135,11 @@
     <Compile Include="BaoCaoHD.Designer.cs">
       <DependentUpon>BaoCaoHD.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PickDayDTHD.resx">
       <DependentUpon>PickDayDTHD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BaoCaoTheoPhong.resx">
-      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DTHD.resx">
       <DependentUpon>DTHD.cs</DependentUpon>
