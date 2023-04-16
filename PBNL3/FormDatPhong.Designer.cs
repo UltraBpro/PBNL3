@@ -106,6 +106,7 @@ namespace PBNL3
             this.guna2Button3.Size = new System.Drawing.Size(310, 29);
             this.guna2Button3.TabIndex = 33;
             this.guna2Button3.Text = "Chọn phòng";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // label1
             // 
@@ -134,6 +135,7 @@ namespace PBNL3
             this.guna2Button2.Size = new System.Drawing.Size(310, 29);
             this.guna2Button2.TabIndex = 31;
             this.guna2Button2.Text = "Chọn khách";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 

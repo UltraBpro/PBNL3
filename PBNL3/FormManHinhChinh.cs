@@ -116,7 +116,6 @@ namespace PBNL3
             ActivateButton(sender, RGBColors.color3);
         }
 
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]

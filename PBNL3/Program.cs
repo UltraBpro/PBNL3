@@ -16,8 +16,8 @@ namespace PBNL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var FormKhoiDau = new FormLogin();
-            if(!FormKhoiDau.IsDisposed)FormKhoiDau.Show();
+            var FormStart = new FormLogin();
+            if(!FormStart.IsDisposed) FormStart.Show();
             Application.Run();
         }
     }
