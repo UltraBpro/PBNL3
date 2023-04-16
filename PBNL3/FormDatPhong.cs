@@ -23,7 +23,7 @@ namespace PBNL3
             
         }
 
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void ButtonChonKhach_Click(object sender, EventArgs e)
         {
             FormChonKhach chonKhach = new FormChonKhach();
             chonKhach.GuiKhachDi += NhanDSKhach;
@@ -31,7 +31,7 @@ namespace PBNL3
             this.Hide();
             chonKhach.Show();
         }
-        private void guna2Button3_Click(object sender, EventArgs e)
+        private void ButtonChonPhong_Click(object sender, EventArgs e)
         {
             FormChonPhong chonPhong = new FormChonPhong();
             chonPhong.GuiPhongDi += NhanDSPhong;
@@ -39,13 +39,35 @@ namespace PBNL3
             this.Hide();           
             chonPhong.Show();
         }
+
+        private void ButtonConfirm_Click(object sender, EventArgs e)
+        {
+                int khachduocchon = Convert.ToInt32(ButtonChonKhach.Text.Substring(0, ButtonChonKhach.Text.Length - 1).Split(':')[1].Trim());
+                int phongduocchon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                using (DBEntities db = new DBEntities())
+            {
+                DonDatPhong newdon = new DonDatPhong();
+                newdon.MaDonDatPhong = db.DonDatPhongs.Max(x => (int?)x.MaDonDatPhong) ?? 0 + 1;
+                newdon.MaNhanVienThucHien = NhanVienThucHien.MaNhanVien;
+                newdon.NgayDat = guna2DateTimePicker1.Value;
+                newdon.MaKhach=khachduocchon ;
+                newdon.TinhTrangThanhToan = "Chưa thanh toán";
+                db.DonDatPhongs.Add(newdon);db.SaveChanges();
+                ChiTietPhongDat phongdat = new ChiTietPhongDat();
+                phongdat.MaDonDatPhong = newdon.MaDonDatPhong;
+                phongdat.MaPhong = phongduocchon;
+                phongdat.GiaPhongDat = db.LoaiPhongs.Find(db.Phongs.Find(phongdat.MaPhong).MaLoaiPhong).GiaTien;
+                db.ChiTietPhongDats.Add(phongdat);db.SaveChanges();
+            }
+            this.Close();
+        }
         private void NhanDSKhach(object sender, int e)
         {
-            guna2Button2.Text = "Mã khách đã chọn: " + e.ToString()+".";
+            ButtonChonKhach.Text = "Mã khách đã chọn: " + e.ToString()+".";
         }
         private void NhanDSPhong(object sender, int e)
         {
-            guna2Button3.Text = "Mã phòng đã chọn: "+e.ToString() + ".";
+            ButtonChonPhong.Text = "Mã phòng đã chọn: "+e.ToString() + ".";
         }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {

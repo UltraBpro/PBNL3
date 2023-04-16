@@ -17,6 +17,9 @@ namespace PBNL3
         public FormLogin()
         {
             InitializeComponent();
+            timer.Interval = 500;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
             LoadDangNhap();
         }
 
@@ -73,6 +76,14 @@ namespace PBNL3
                 }
                 catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
             }
+        }
+        private Timer timer = new Timer();
+        bool nah = false;
+        private void timer_Tick(object sender, EventArgs e)
+        {if(nah)
+                guna2ImageButton1.Image = Properties.Resources.Cheems2;
+        else guna2ImageButton1.Image = Properties.Resources.Cheems0;
+            nah = !nah;
         }
     }
 }

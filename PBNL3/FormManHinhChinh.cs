@@ -13,6 +13,7 @@ using FontAwesome.Sharp;
 
 namespace PBNL3
 {
+
     public partial class FormManHinhChinh : Form
     {
         private IconButton currentBtn;
@@ -35,6 +36,7 @@ namespace PBNL3
             {
                 var TK = db.TaiKhoans.Find(MaTaiKhoan);
                 var NV = db.NhanViens.Find(TK.MaNhanVien);
+                NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
                 labelMaNV.Text = NV.MaNhanVien.ToString();
                 labelTenNV.Text = NV.TenNhanVien;
                 labelChucVu.Text = NV.ChucVu;
@@ -150,6 +152,15 @@ namespace PBNL3
             ResetMouseEventArgs();
             label2.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
+        }
+    }
+    public static class NhanVienThucHien
+    {
+        public static int MaNhanVien { get; set; }
+        static NhanVienThucHien()
+        {
+            // Tạm thời 
+            MaNhanVien = -1;
         }
     }
 }
