@@ -56,6 +56,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.đặtPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dùngDịchVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trảPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -260,7 +263,7 @@
             this.iconButton1.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
             this.iconButton1.Size = new System.Drawing.Size(230, 38);
             this.iconButton1.TabIndex = 0;
-            this.iconButton1.Text = "Thuê phòng";
+            this.iconButton1.Text = "Đặt phòng";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = true;
@@ -389,6 +392,10 @@
             // 
             // chứcNăngToolStripMenuItem
             // 
+            this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.đặtPhòngToolStripMenuItem,
+            this.dùngDịchVụToolStripMenuItem,
+            this.trảPhòngToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chứcNăngToolStripMenuItem.ForeColor = System.Drawing.Color.Gainsboro;
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
@@ -435,6 +442,24 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            // 
+            // đặtPhòngToolStripMenuItem
+            // 
+            this.đặtPhòngToolStripMenuItem.Name = "đặtPhòngToolStripMenuItem";
+            this.đặtPhòngToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.đặtPhòngToolStripMenuItem.Text = "Đặt phòng";
+            // 
+            // dùngDịchVụToolStripMenuItem
+            // 
+            this.dùngDịchVụToolStripMenuItem.Name = "dùngDịchVụToolStripMenuItem";
+            this.dùngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.dùngDịchVụToolStripMenuItem.Text = "Dùng dịch vụ";
+            // 
+            // trảPhòngToolStripMenuItem
+            // 
+            this.trảPhòngToolStripMenuItem.Name = "trảPhòngToolStripMenuItem";
+            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.trảPhòngToolStripMenuItem.Text = "Trả phòng";
             // 
             // FormManHinhChinh
             // 
@@ -491,6 +516,9 @@
         private System.Windows.Forms.ToolStripMenuItem danhMụcTừĐiểnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem chứcNăngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thốngKêToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đặtPhòngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dùngDịchVụToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem trảPhòngToolStripMenuItem;
     }
 }
 
