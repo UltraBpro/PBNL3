@@ -54,6 +54,7 @@
           <Property Name="MaLoaiDichVu" Type="int" Nullable="false" />
           <Property Name="TenDichVu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DonGia" Type="float" Nullable="false" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiPhong">
           <Key>
@@ -315,6 +316,7 @@
           <Property Name="MaLoaiDichVu" Type="Int32" Nullable="false" />
           <Property Name="TenDichVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DonGia" Type="Double" Nullable="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChiTietDichVuDats" Relationship="Self.FK_DichVu_ChiTietDichVuDat" FromRole="LoaiDichVu" ToRole="ChiTietDichVuDat" />
         </EntityType>
         <EntityType Name="LoaiPhong">
@@ -576,6 +578,7 @@
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

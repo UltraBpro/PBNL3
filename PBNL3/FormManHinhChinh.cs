@@ -153,7 +153,30 @@ namespace PBNL3
             label2.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
         }
+        // Đoạn sau được viết bởi thằng l*n Tuấn
+        private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDatPhong DatPhong = new FormDatPhong();
+            DatPhong.Show();
+            this.Enabled = false;
+            DatPhong.FormClosed += FormHoiSinh;
+        }
+
+        private void DungDichVuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormDungDichVu DungDichVu = new FormDungDichVu();
+            DungDichVu.Show();
+            this.Enabled = false;
+            DungDichVu.FormClosed += FormHoiSinh;
+        }
+        private void FormHoiSinh(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+            this.Focus();
+        }
+
     }
+    // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien
     {
         public static int MaNhanVien { get; set; }

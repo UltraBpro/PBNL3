@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ButtonConfirm = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,6 @@
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.guna2DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -97,6 +97,7 @@
             // 
             this.ButtonConfirm.Animated = true;
             this.ButtonConfirm.AutoRoundedCorners = true;
+            this.ButtonConfirm.BackColor = System.Drawing.Color.Transparent;
             this.ButtonConfirm.BorderRadius = 17;
             this.ButtonConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -109,7 +110,19 @@
             this.ButtonConfirm.Size = new System.Drawing.Size(128, 36);
             this.ButtonConfirm.TabIndex = 1;
             this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.UseTransparentBackground = true;
             this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.DarkCyan;
+            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(602, 306);
+            this.guna2GradientPanel1.TabIndex = 2;
             // 
             // FormChonKhach
             // 
@@ -118,7 +131,9 @@
             this.ClientSize = new System.Drawing.Size(602, 306);
             this.Controls.Add(this.ButtonConfirm);
             this.Controls.Add(this.guna2DataGridView1);
+            this.Controls.Add(this.guna2GradientPanel1);
             this.Name = "FormChonKhach";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChonKhach";
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -129,5 +144,6 @@
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2Button ButtonConfirm;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
     }
 }

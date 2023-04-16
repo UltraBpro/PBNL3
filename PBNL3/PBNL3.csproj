@@ -98,6 +98,18 @@
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormChonDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonDichVu.Designer.cs">
+      <DependentUpon>FormChonDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChonDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonDon.Designer.cs">
+      <DependentUpon>FormChonDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChonKhach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     </Compile>
     <Compile Include="FormChonPhong.Designer.cs">
       <DependentUpon>FormChonPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDungDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDungDichVu.Designer.cs">
+      <DependentUpon>FormDungDichVu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormManHinhChinh.cs">
       <SubType>Form</SubType>
@@ -154,11 +172,20 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormChonDichVu.resx">
+      <DependentUpon>FormChonDichVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonDon.resx">
+      <DependentUpon>FormChonDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChonKhach.resx">
       <DependentUpon>FormChonKhach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChonPhong.resx">
       <DependentUpon>FormChonPhong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDungDichVu.resx">
+      <DependentUpon>FormDungDichVu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormManHinhChinh.resx">
       <DependentUpon>FormManHinhChinh.cs</DependentUpon>

@@ -173,6 +173,7 @@ namespace PBNL3
             this.ClientSize = new System.Drawing.Size(471, 170);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Name = "FormDatPhong";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDatPhong";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();

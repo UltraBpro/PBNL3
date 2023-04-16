@@ -12,9 +12,14 @@ namespace PBNL3
 {
     public partial class FormDatPhong : Form
     {
-        public FormDatPhong()
+        public FormDatPhong(int? MaPhong=null)
         {
             InitializeComponent();
+            if (MaPhong != null)
+            {
+                ButtonChonKhach.Enabled = false;
+                ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
+            }
         }
 
     private void LoadFormDatPhong()
@@ -33,7 +38,7 @@ namespace PBNL3
         }
         private void ButtonChonPhong_Click(object sender, EventArgs e)
         {
-            FormChonPhong chonPhong = new FormChonPhong();
+            FormChonPhong chonPhong = new FormChonPhong("DatPhong");
             chonPhong.GuiPhongDi += NhanDSPhong;
             chonPhong.FormClosed += FormHoiSinh;
             this.Hide();           
@@ -56,8 +61,10 @@ namespace PBNL3
                 ChiTietPhongDat phongdat = new ChiTietPhongDat();
                 phongdat.MaDonDatPhong = newdon.MaDonDatPhong;
                 phongdat.MaPhong = phongduocchon;
-                phongdat.GiaPhongDat = db.LoaiPhongs.Find(db.Phongs.Find(phongdat.MaPhong).MaLoaiPhong).GiaTien;
+                var PhongDangThaoTac=db.Phongs.Find(phongdat.MaPhong);
+                phongdat.GiaPhongDat = db.LoaiPhongs.Find(PhongDangThaoTac.MaLoaiPhong).GiaTien;
                 db.ChiTietPhongDats.Add(phongdat);db.SaveChanges();
+                PhongDangThaoTac.TinhTrang = "Kín";db.SaveChanges();
             }
             this.Close();
         }

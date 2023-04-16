@@ -13,12 +13,26 @@ namespace PBNL3
     public partial class FormChonPhong : Form
     {
         public event EventHandler<int> GuiPhongDi;
-        public FormChonPhong()
+        public FormChonPhong(string kieuload)
         {
             InitializeComponent();
-            using (DBEntities db = new DBEntities())
+            LoadForm(kieuload);
+        }
+
+        private void ButtonConfirm_Click(object sender, EventArgs e)
+        {
+            int selectedPhong = -1;
+            foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
             {
-                guna2DataGridView1.DataSource = db.Phongs
+                selectedPhong=Convert.ToInt32(row.Cells["MaPhong"].Value);
+            }
+            GuiPhongDi?.Invoke(this, selectedPhong);
+            this.Close();
+        }
+        private void LoadForm(string kieuload)
+        {
+            using (DBEntities db = new DBEntities())
+            { var DSPhong = db.Phongs
                     .Join(db.LoaiPhongs,
               phong => phong.MaLoaiPhong,
               loaiPhong => loaiPhong.MaLoaiPhong,
@@ -37,24 +51,25 @@ namespace PBNL3
                 p.TinhTrang,
                 p.Tang,
                 p.ThuTu,
-            p.TenLoaiPhong,
-            p.DienTich,
-            p.SoGiuong,
-            p.GiaTien           
-        })
-        .ToList();
+                p.TenLoaiPhong,
+                p.DienTich,
+                p.SoGiuong,
+                p.GiaTien
+            });
+                switch (kieuload)
+                {
+                    case "DatPhong":
+                        guna2DataGridView1.DataSource = DSPhong.Where(p => p.TinhTrang == "Trống").ToList();
+                        break;
+                    case "GoiDichVu":
+                        guna2DataGridView1.DataSource = DSPhong.Where(p => p.TinhTrang == "Kín").ToList();
+                        break;
+                    case "LietKe":
+                        guna2DataGridView1.DataSource = DSPhong.ToList();
+                        break;
+                }
+                
             }
-        }
-
-        private void ButtonConfirm_Click(object sender, EventArgs e)
-        {
-            int selectedPhong = -1;
-            foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
-            {
-                selectedPhong=Convert.ToInt32(row.Cells["MaPhong"].Value);
-            }
-            GuiPhongDi?.Invoke(this, selectedPhong);
-            this.Close();
         }
     }
 }
