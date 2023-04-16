@@ -27,6 +27,7 @@ namespace PBNL3
         {
             FormChonKhach chonKhach = new FormChonKhach();
             chonKhach.GuiKhachDi += NhanDSKhach;
+            chonKhach.FormClosed += FormHoiSinh;
             this.Hide();
             chonKhach.Show();
         }
@@ -34,27 +35,21 @@ namespace PBNL3
         {
             FormChonPhong chonPhong = new FormChonPhong();
             chonPhong.GuiPhongDi += NhanDSPhong;
-            this.Hide();
+            chonPhong.FormClosed += FormHoiSinh;
+            this.Hide();           
             chonPhong.Show();
         }
-        private void NhanDSKhach(object sender, List<int> e)
+        private void NhanDSKhach(object sender, int e)
         {
-            this.Show();
-            guna2Button2.Text = "Mã khách đã chọn: ";
-            foreach (int makhach in e)
-            {
-                guna2Button2.Text += makhach.ToString();
-            }
+            guna2Button2.Text = "Mã khách đã chọn: " + e.ToString()+".";
         }
-        private void NhanDSPhong(object sender, List<int> e)
+        private void NhanDSPhong(object sender, int e)
+        {
+            guna2Button3.Text = "Mã phòng đã chọn: "+e.ToString() + ".";
+        }
+        private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Show();
-            guna2Button3.Text = "Mã các phòng đã chọn: ";
-            foreach (int maphong in e)
-            {
-                guna2Button3.Text += maphong.ToString()+", ";
-            }
-            guna2Button3.Text=guna2Button3.Text.Substring(0, guna2Button3.Text.Length - 2)+".";
         }
     }
 }

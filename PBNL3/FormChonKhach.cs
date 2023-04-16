@@ -12,7 +12,7 @@ namespace PBNL3
 {
     public partial class FormChonKhach : Form
     {
-        public event EventHandler<List<int>> GuiKhachDi;
+        public event EventHandler<int> GuiKhachDi;
         public FormChonKhach()
         {
             InitializeComponent();
@@ -30,12 +30,12 @@ namespace PBNL3
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
-            List<int> selectedKhachList = new List<int>();
+            int selectedKhach=-1;
             foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
             {
-                selectedKhachList.Add(Convert.ToInt32(row.Cells["MaKhach"].Value));
+                selectedKhach=Convert.ToInt32(row.Cells["MaKhach"].Value);
             }
-            GuiKhachDi?.Invoke(this,selectedKhachList);
+            GuiKhachDi?.Invoke(this, selectedKhach);
             this.Close();
         }
     }

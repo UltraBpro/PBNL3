@@ -12,7 +12,7 @@ namespace PBNL3
 {
     public partial class FormChonPhong : Form
     {
-        public event EventHandler<List<int>> GuiPhongDi;
+        public event EventHandler<int> GuiPhongDi;
         public FormChonPhong()
         {
             InitializeComponent();
@@ -41,19 +41,19 @@ namespace PBNL3
             p.DienTich,
             p.SoGiuong,
             p.GiaTien           
-        }).Where(p=>p.TinhTrang=="Trống")
+        })
         .ToList();
             }
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
-            List<int> selectedPhongList = new List<int>();
+            int selectedPhong = -1;
             foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
             {
-                selectedPhongList.Add(Convert.ToInt32(row.Cells["MaPhong"].Value));
+                selectedPhong=Convert.ToInt32(row.Cells["MaPhong"].Value);
             }
-            GuiPhongDi?.Invoke(this, selectedPhongList);
+            GuiPhongDi?.Invoke(this, selectedPhong);
             this.Close();
         }
     }
