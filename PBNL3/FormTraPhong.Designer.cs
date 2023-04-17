@@ -133,7 +133,8 @@ namespace PBNL3
             this.ButtonXacNhan.Name = "ButtonXacNhan";
             this.ButtonXacNhan.Size = new System.Drawing.Size(180, 41);
             this.ButtonXacNhan.TabIndex = 30;
-            this.ButtonXacNhan.Text = "Xác nhận đặt";
+            this.ButtonXacNhan.Text = "Xác nhận thanh toán";
+            this.ButtonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
             // 
             // FormTraPhong
             // 

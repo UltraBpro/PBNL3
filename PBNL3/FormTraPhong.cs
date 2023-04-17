@@ -55,9 +55,31 @@ namespace PBNL3
                 guna2TextBox1.Text = DonDat.TongTien.ToString();
             }
         }
+        private void ButtonXacNhan_Click(object sender, EventArgs e)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
+              don => don.MaDonDatPhong,
+              phongdat => phongdat.MaDonDatPhong,
+              (don, phongdat) => new
+              {
+                  don.MaDonDatPhong,
+                  phongdat.MaPhong,
+                  don.TinhTrangThanhToan
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
+                var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
+                DonDat.TinhTrangThanhToan = "Đã thanh toán";db.SaveChanges();
+                db.Phongs.Find(phongduochon).TinhTrang = "Trống"; db.SaveChanges();
+                this.Close();
+                }
+            }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Show();
         }
+
+
     }
 }
