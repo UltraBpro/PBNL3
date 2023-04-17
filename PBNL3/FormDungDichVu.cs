@@ -13,9 +13,14 @@ namespace PBNL3
     public partial class FormDungDichVu : Form
     {
         DataTable dt = new DataTable();
-        public FormDungDichVu()
+        public FormDungDichVu(int? MaPhong = null)
         {
             InitializeComponent();
+            if (MaPhong != null)
+            {
+                ButtonChonPhong.Enabled = false;
+                ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
+            }
             dt.Columns.Add("Mã dịch vụ", typeof(int));
             dt.Columns.Add("Tên dịch vụ", typeof(string));
             dt.Columns.Add("Đơn giá", typeof(float));
@@ -74,7 +79,34 @@ namespace PBNL3
                 newRow["Đơn vị"] = DVDaChon.DonVi;
                 newRow["Số lượng"] = guna2NumericUpDown1.Value;
                 dt.Rows.Add(newRow);
-                ButtonThemDichVu.Enabled = false;
+                ButtonThemDichVu.Enabled = false;labelDonVi.Text = "ĐƠN VỊ";ButtonChonDichVu.Text = "Chọn dịch vụ";
+            }
+        }
+
+        private void ButtonXacNhan_Click(object sender, EventArgs e)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                int phongduochon= Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
+              don => don.MaDonDatPhong,
+              phongdat => phongdat.MaDonDatPhong,
+              (don, phongdat) => new
+              {
+                  don.MaDonDatPhong,
+                  phongdat.MaPhong,
+                  don.TinhTrangThanhToan
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán"&&p.MaPhong==phongduochon).FirstOrDefault();
+                foreach(DataRow dtr in dt.Rows)
+                {
+                    ChiTietDichVuDat datdichvuchodon = new ChiTietDichVuDat();
+                    datdichvuchodon.MaDonDatPhong = TimDonDatDichVu.MaDonDatPhong;
+                    datdichvuchodon.MaDichVu = Convert.ToInt32(dtr["Mã dịch vụ"]);
+                    datdichvuchodon.SoLuong = Convert.ToInt32(dtr["Số lượng"]);
+                    datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
+                    db.ChiTietDichVuDats.Add(datdichvuchodon);db.SaveChanges();
+                }
+                dt.Clear();
             }
         }
     }

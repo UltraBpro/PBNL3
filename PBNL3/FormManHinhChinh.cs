@@ -169,12 +169,20 @@ namespace PBNL3
             this.Enabled = false;
             DungDichVu.FormClosed += FormHoiSinh;
         }
+
+
+        private void TraPhongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTraPhong TraPhong = new FormTraPhong();
+            TraPhong.Show();
+            this.Enabled = false;
+            TraPhong.FormClosed += FormHoiSinh;
+        }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Focus();
         }
-
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

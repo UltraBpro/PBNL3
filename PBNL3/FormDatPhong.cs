@@ -17,7 +17,7 @@ namespace PBNL3
             InitializeComponent();
             if (MaPhong != null)
             {
-                ButtonChonKhach.Enabled = false;
+                ButtonChonPhong.Enabled = false;
                 ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
             }
         }

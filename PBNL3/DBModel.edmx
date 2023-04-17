@@ -11,7 +11,7 @@
             <PropertyRef Name="MaDonDatPhong" />
           </Key>
           <Property Name="MaDichVu" Type="int" Nullable="false" />
-          <Property Name="GiaDichVuDat" Type="int" Nullable="false" />
+          <Property Name="GiaDichVuDat" Type="float" Nullable="false" />
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="int" Nullable="false" />
         </EntityType>
@@ -263,7 +263,7 @@
             <PropertyRef Name="MaDonDatPhong" />
           </Key>
           <Property Name="MaDichVu" Type="Int32" Nullable="false" />
-          <Property Name="GiaDichVuDat" Type="Int32" Nullable="false" />
+          <Property Name="GiaDichVuDat" Type="Double" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="Int32" Nullable="false" />
           <NavigationProperty Name="LoaiDichVu" Relationship="Self.FK_DichVu_ChiTietDichVuDat" FromRole="ChiTietDichVuDat" ToRole="LoaiDichVu" />
