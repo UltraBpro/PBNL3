@@ -263,6 +263,7 @@
     <None Include="res\Cheems0.png" />
     <None Include="res\Cheems1.png" />
     <None Include="res\Cheems2.png" />
+    <None Include="res\BonkSoundEffect.wav" />
     <Content Include="res\MamaNobu.jpg" />
     <Content Include="res\Nobu.png" />
     <Content Include="res\SummerNobu.jpg" />

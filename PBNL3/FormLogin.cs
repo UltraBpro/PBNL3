@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace PBNL3
 {
@@ -30,7 +31,7 @@ namespace PBNL3
         }
         private void LuuDangNhap(string username, string password)
         {
-            byte[] encryptedData = ProtectedData.Protect(Encoding.UTF8.GetBytes(username + "|" + password), null, DataProtectionScope.CurrentUser);
+            byte[] encryptedData = ProtectedData.Protect(Encoding.UTF8.GetBytes(username + "|" + password+"|" + SwitchRemember.Checked.ToString()), null, DataProtectionScope.CurrentUser);
             File.WriteAllBytes("LoginInfo.txt", encryptedData);
         }
         private bool LoadDangNhap()
@@ -40,10 +41,11 @@ namespace PBNL3
                 byte[] encryptedData = File.ReadAllBytes("LoginInfo.txt");
                 byte[] decryptedData = ProtectedData.Unprotect(encryptedData, null, DataProtectionScope.CurrentUser);
                 string[] loginInfo = Encoding.UTF8.GetString(decryptedData).Split('|');
-                if (loginInfo.Length == 2)
+                if (loginInfo.Length == 3)
                 {
                     string username = loginInfo[0];
                     string password = loginInfo[1];
+                    SwitchRemember.Checked = bool.Parse(loginInfo[2]);
                     Login(username, password);
                 }
             }
@@ -84,6 +86,12 @@ namespace PBNL3
                 guna2ImageButton1.Image = Properties.Resources.Cheems2;
         else guna2ImageButton1.Image = Properties.Resources.Cheems0;
             nah = !nah;
+        }
+
+        private void guna2ImageButton1_MouseDown(object sender, MouseEventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
+            player.Play();
         }
     }
 }

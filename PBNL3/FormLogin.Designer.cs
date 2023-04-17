@@ -128,7 +128,6 @@ namespace PBNL3
             // SwitchRemember
             // 
             this.SwitchRemember.Animated = true;
-            this.SwitchRemember.Checked = true;
             this.SwitchRemember.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SwitchRemember.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SwitchRemember.CheckedState.InnerBorderColor = System.Drawing.Color.White;
@@ -217,6 +216,7 @@ namespace PBNL3
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
             this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
             this.guna2ImageButton1.TabIndex = 11;
+            this.guna2ImageButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2ImageButton1_MouseDown);
             // 
             // guna2PictureBox1
             // 

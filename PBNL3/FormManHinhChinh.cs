@@ -31,17 +31,6 @@ namespace PBNL3
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
-        private void LoadNhanVien(int MaTaiKhoan) {
-            using (DBEntities db = new DBEntities())
-            {
-                var TK = db.TaiKhoans.Find(MaTaiKhoan);
-                var NV = db.NhanViens.Find(TK.MaNhanVien);
-                NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
-                labelMaNV.Text = NV.MaNhanVien.ToString();
-                labelTenNV.Text = NV.TenNhanVien;
-                labelChucVu.Text = NV.ChucVu;
-            }
-        }
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -154,6 +143,18 @@ namespace PBNL3
             iconPictureBox1.IconChar = IconChar.Home;
         }
         // Đoạn sau được viết bởi thằng l*n Tuấn
+        private void LoadNhanVien(int MaTaiKhoan)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                var TK = db.TaiKhoans.Find(MaTaiKhoan);
+                var NV = db.NhanViens.Find(TK.MaNhanVien);
+                NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
+                labelMaNV.Text = NV.MaNhanVien.ToString();
+                labelTenNV.Text = NV.TenNhanVien;
+                labelChucVu.Text = NV.ChucVu;
+            }
+        }
         private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormDatPhong DatPhong = new FormDatPhong();
@@ -178,11 +179,29 @@ namespace PBNL3
             this.Enabled = false;
             TraPhong.FormClosed += FormHoiSinh;
         }
+
+
+        private void DSKhachToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChonKhach TraPhong = new FormChonKhach();
+            TraPhong.Show();
+            this.Enabled = false;
+            TraPhong.FormClosed += FormHoiSinh;
+        }
+
+        private void DSPhongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChonPhong TraPhong = new FormChonPhong("LietKe");
+            TraPhong.Show();
+            this.Enabled = false;
+            TraPhong.FormClosed += FormHoiSinh;
+        }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Focus();
         }
+
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien
