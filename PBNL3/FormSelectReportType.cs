@@ -10,22 +10,28 @@ using System.Windows.Forms;
 
 namespace PBNL3
 {
-    public partial class Form1 : Form
+    public partial class FormSelectReportType : Form
     {
-        public Form1()
+        public FormSelectReportType()
         {
             InitializeComponent();
         }
 
         private void BCHDButton_Click(object sender, EventArgs e)
         {
-            DTHD dTHD = new DTHD(0);
+            PickDate dTHD = new PickDate(0);
             dTHD.ShowDialog();
         }
 
         private void BCPButton_Click(object sender, EventArgs e)
         {
-            DTHD dTHD = new DTHD(1);
+            PickDate dTHD = new PickDate(1);
+            dTHD.ShowDialog();
+        }
+
+        private void BCDVButton_Click(object sender, EventArgs e)
+        {
+            PickDate dTHD = new PickDate(2);
             dTHD.ShowDialog();
         }
     }

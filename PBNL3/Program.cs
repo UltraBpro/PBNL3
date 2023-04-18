@@ -16,7 +16,7 @@ namespace PBNL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pick());
+            Application.Run(new FormSelectReportType());
         }
     }
 }

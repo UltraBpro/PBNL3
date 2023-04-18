@@ -1,6 +1,6 @@
 ﻿namespace PBNL3
 {
-    partial class PickDayDTHD
+    partial class FormSelectReportOptionDate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PickDayDTHD));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectReportOptionDate));
             this.ActiveButton = new Guna.UI2.WinForms.Guna2Button();
             this.StartDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.EndDate = new Guna.UI2.WinForms.Guna2DateTimePicker();

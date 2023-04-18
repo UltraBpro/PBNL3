@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PBNL3
 {
-    public partial class PickDayDTHD : Form
+    public partial class FormSelectReportOptionDate : Form
     {
-        public PickDayDTHD()
+        public FormSelectReportOptionDate()
         {
             InitializeComponent();           
         }

@@ -73,6 +73,26 @@ namespace PBNL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bill1 {
+            get {
+                object obj = ResourceManager.GetObject("Bill1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bill2 {
+            get {
+                object obj = ResourceManager.GetObject("Bill2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MamaNobu {
             get {
                 object obj = ResourceManager.GetObject("MamaNobu", resourceCulture);
@@ -93,9 +113,29 @@ namespace PBNL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Room {
+            get {
+                object obj = ResourceManager.GetObject("Room", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2023_04_07_002722 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2023-04-07 002722", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Service2 {
+            get {
+                object obj = ResourceManager.GetObject("Service2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

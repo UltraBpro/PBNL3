@@ -25,10 +25,10 @@ namespace PBNL3
         public int MaKhach { get; set; }
         public string TinhTrangThanhToan { get; set; }
         public System.DateTime NgayDat { get; set; }
-        public System.DateTime NgayTra { get; set; }
-        public double GiaTien { get; set; }
+        public Nullable<System.DateTime> NgayTra { get; set; }
+        public Nullable<double> TongTien { get; set; }
         public int MaNhanVienThucHien { get; set; }
-        public int MaNhanVienThanhToan { get; set; }
+        public Nullable<int> MaNhanVienThanhToan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDichVuDat> ChiTietDichVuDats { get; set; }
