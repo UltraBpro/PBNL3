@@ -97,21 +97,6 @@
     <Compile Include="NhanVien.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PBL3.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PBL3.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PBL3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Phong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -175,13 +160,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <EntityDeploy Include="PBL3.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PBL3.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="PBL3.edmx.diagram">
-      <DependentUpon>PBL3.edmx</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -210,16 +188,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="PBL3.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-      <LastGenOutput>PBL3.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="PBL3.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PBL3.edmx</DependentUpon>
-      <LastGenOutput>PBL3.cs</LastGenOutput>
     </Content>
     <Content Include="res\MamaNobu.jpg" />
     <Content Include="res\Nobu.png" />
