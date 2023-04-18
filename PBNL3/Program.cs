@@ -16,7 +16,9 @@ namespace PBNL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BaoCaoHoaDon());
+            var FormStart = new FormLogin();
+            if(!FormStart.IsDisposed) FormStart.Show();
+            Application.Run();
         }
     }
 }

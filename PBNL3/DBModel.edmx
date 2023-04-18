@@ -11,7 +11,7 @@
             <PropertyRef Name="MaDonDatPhong" />
           </Key>
           <Property Name="MaDichVu" Type="int" Nullable="false" />
-          <Property Name="GiaDichVuDat" Type="int" Nullable="false" />
+          <Property Name="GiaDichVuDat" Type="float" Nullable="false" />
           <Property Name="SoLuong" Type="int" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="int" Nullable="false" />
         </EntityType>
@@ -22,7 +22,7 @@
           </Key>
           <Property Name="MaPhong" Type="int" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="int" Nullable="false" />
-          <Property Name="GiaPhongDat" Type="int" Nullable="false" />
+          <Property Name="GiaPhongDat" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="DonDatPhong">
           <Key>
@@ -32,10 +32,10 @@
           <Property Name="MaKhach" Type="int" Nullable="false" />
           <Property Name="TinhTrangThanhToan" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NgayDat" Type="datetime" Nullable="false" />
-          <Property Name="NgayTra" Type="datetime" Nullable="false" />
-          <Property Name="GiaTien" Type="float" Nullable="false" />
+          <Property Name="NgayTra" Type="datetime" />
+          <Property Name="TongTien" Type="float" />
           <Property Name="MaNhanVienThucHien" Type="int" Nullable="false" />
-          <Property Name="MaNhanVienThanhToan" Type="int" Nullable="false" />
+          <Property Name="MaNhanVienThanhToan" Type="int" />
         </EntityType>
         <EntityType Name="Khach">
           <Key>
@@ -54,6 +54,7 @@
           <Property Name="MaLoaiDichVu" Type="int" Nullable="false" />
           <Property Name="TenDichVu" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DonGia" Type="float" Nullable="false" />
+          <Property Name="DonVi" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiPhong">
           <Key>
@@ -157,7 +158,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_DonDatPhong_ThanhToan">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
           <End Role="DonDatPhong" Type="Self.DonDatPhong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
@@ -262,7 +263,7 @@
             <PropertyRef Name="MaDonDatPhong" />
           </Key>
           <Property Name="MaDichVu" Type="Int32" Nullable="false" />
-          <Property Name="GiaDichVuDat" Type="Int32" Nullable="false" />
+          <Property Name="GiaDichVuDat" Type="Double" Nullable="false" />
           <Property Name="SoLuong" Type="Int32" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="Int32" Nullable="false" />
           <NavigationProperty Name="LoaiDichVu" Relationship="Self.FK_DichVu_ChiTietDichVuDat" FromRole="ChiTietDichVuDat" ToRole="LoaiDichVu" />
@@ -275,7 +276,7 @@
           </Key>
           <Property Name="MaPhong" Type="Int32" Nullable="false" />
           <Property Name="MaDonDatPhong" Type="Int32" Nullable="false" />
-          <Property Name="GiaPhongDat" Type="Int32" Nullable="false" />
+          <Property Name="GiaPhongDat" Type="Double" Nullable="false" />
           <NavigationProperty Name="DonDatPhong" Relationship="Self.FK_DonDatPhong_ChiTietPhongDat" FromRole="ChiTietPhongDat" ToRole="DonDatPhong" />
           <NavigationProperty Name="Phong" Relationship="Self.FK_Phong_ChiTietPhongDat" FromRole="ChiTietPhongDat" ToRole="Phong" />
         </EntityType>
@@ -287,10 +288,10 @@
           <Property Name="MaKhach" Type="Int32" Nullable="false" />
           <Property Name="TinhTrangThanhToan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="NgayTra" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="GiaTien" Type="Double" Nullable="false" />
+          <Property Name="NgayTra" Type="DateTime" Precision="3" />
+          <Property Name="TongTien" Type="Double" />
           <Property Name="MaNhanVienThucHien" Type="Int32" Nullable="false" />
-          <Property Name="MaNhanVienThanhToan" Type="Int32" Nullable="false" />
+          <Property Name="MaNhanVienThanhToan" Type="Int32" />
           <NavigationProperty Name="ChiTietDichVuDats" Relationship="Self.FK_DonDatPhong_ChiTietDichVuDat" FromRole="DonDatPhong" ToRole="ChiTietDichVuDat" />
           <NavigationProperty Name="ChiTietPhongDats" Relationship="Self.FK_DonDatPhong_ChiTietPhongDat" FromRole="DonDatPhong" ToRole="ChiTietPhongDat" />
           <NavigationProperty Name="Khach" Relationship="Self.FK_Khach_DonDatPhong" FromRole="DonDatPhong" ToRole="Khach" />
@@ -315,6 +316,7 @@
           <Property Name="MaLoaiDichVu" Type="Int32" Nullable="false" />
           <Property Name="TenDichVu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DonGia" Type="Double" Nullable="false" />
+          <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="ChiTietDichVuDats" Relationship="Self.FK_DichVu_ChiTietDichVuDat" FromRole="LoaiDichVu" ToRole="ChiTietDichVuDat" />
         </EntityType>
         <EntityType Name="LoaiPhong">
@@ -426,7 +428,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NhanVien_DonDatPhong_ThanhToan">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
           <End Role="DonDatPhong" Type="Self.DonDatPhong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
@@ -553,7 +555,7 @@
                 <ScalarProperty Name="TinhTrangThanhToan" ColumnName="TinhTrangThanhToan" />
                 <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
                 <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
-                <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="MaNhanVienThucHien" ColumnName="MaNhanVienThucHien" />
                 <ScalarProperty Name="MaNhanVienThanhToan" ColumnName="MaNhanVienThanhToan" />
               </MappingFragment>
@@ -576,6 +578,7 @@
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="DonVi" ColumnName="DonVi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

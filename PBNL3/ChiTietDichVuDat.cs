@@ -15,7 +15,7 @@ namespace PBNL3
     public partial class ChiTietDichVuDat
     {
         public int MaDichVu { get; set; }
-        public int GiaDichVuDat { get; set; }
+        public double GiaDichVuDat { get; set; }
         public int SoLuong { get; set; }
         public int MaDonDatPhong { get; set; }
     

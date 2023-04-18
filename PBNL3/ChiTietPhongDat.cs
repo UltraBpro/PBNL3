@@ -16,7 +16,7 @@ namespace PBNL3
     {
         public int MaPhong { get; set; }
         public int MaDonDatPhong { get; set; }
-        public int GiaPhongDat { get; set; }
+        public double GiaPhongDat { get; set; }
     
         public virtual DonDatPhong DonDatPhong { get; set; }
         public virtual Phong Phong { get; set; }
