@@ -51,7 +51,10 @@ namespace PBNL3
                 DonDat.NgayTra = DateTime.Now;
                 int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays;
                 DonDat.TongTien = songay * PhongDat.GiaPhongDat;
-                foreach (ChiTietDichVuDat DVSD in DSDichVuSD) DonDat.TongTien += DVSD.GiaDichVuDat*DVSD.SoLuong;
+                TextBoxTienPhong.Text = songay.ToString()+" ngày: "+(songay * PhongDat.GiaPhongDat).ToString();
+                int sodichvu = 0;
+                foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;sodichvu++; }
+                TextBoxTienDV.Text = sodichvu.ToString()+" dịch vụ: "+(DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
                 guna2TextBox1.Text = DonDat.TongTien.ToString();
             }
         }

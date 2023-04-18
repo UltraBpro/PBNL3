@@ -183,25 +183,31 @@ namespace PBNL3
 
         private void DSKhachToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormChonKhach TraPhong = new FormChonKhach();
-            TraPhong.Show();
+            FormChonKhach DSKhach = new FormChonKhach();
+            DSKhach.Show();
             this.Enabled = false;
-            TraPhong.FormClosed += FormHoiSinh;
+            DSKhach.FormClosed += FormHoiSinh;
         }
 
         private void DSPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormChonPhong TraPhong = new FormChonPhong("LietKe");
-            TraPhong.Show();
+            FormChonPhong DSPhong = new FormChonPhong("LietKe");
+            DSPhong.Show();
             this.Enabled = false;
-            TraPhong.FormClosed += FormHoiSinh;
+            DSPhong.FormClosed += FormHoiSinh;
+        }
+        private void DanhSachDonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChonDichVu DSDichVu = new FormChonDichVu();
+            DSDichVu.Show();
+            this.Enabled = false;
+            DSDichVu.FormClosed += FormHoiSinh;
         }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Focus();
         }
-
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

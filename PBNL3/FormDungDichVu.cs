@@ -75,14 +75,18 @@ namespace PBNL3
             using (DBEntities db = new DBEntities())
             {
                 var DVDaChon = db.LoaiDichVus.Find(MaDVDangChon);
-                DataRow newRow = dt.NewRow();
-                newRow["Mã dịch vụ"] = MaDVDangChon;
-                newRow["Tên dịch vụ"] = DVDaChon.TenDichVu;
-                newRow["Đơn giá"] = DVDaChon.DonGia;
-                newRow["Đơn vị"] = DVDaChon.DonVi;
-                newRow["Số lượng"] = guna2NumericUpDown1.Value;
-                dt.Rows.Add(newRow);
-                ButtonThemDichVu.Enabled = false;labelDonVi.Text = "ĐƠN VỊ";ButtonChonDichVu.Text = "Chọn dịch vụ";
+                DataRow KtraDVDaCoChua =dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
+                if (KtraDVDaCoChua == null) {
+                    DataRow newRow = dt.NewRow();
+                    newRow["Mã dịch vụ"] = MaDVDangChon;
+                    newRow["Tên dịch vụ"] = DVDaChon.TenDichVu;
+                    newRow["Đơn giá"] = DVDaChon.DonGia;
+                    newRow["Đơn vị"] = DVDaChon.DonVi;
+                    newRow["Số lượng"] = guna2NumericUpDown1.Value;
+                    dt.Rows.Add(newRow);
+                }
+                else KtraDVDaCoChua["Số lượng"]= Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) +guna2NumericUpDown1.Value;
+                ButtonThemDichVu.Enabled = false; labelDonVi.Text = "ĐƠN VỊ"; ButtonChonDichVu.Text = "Chọn dịch vụ";guna2NumericUpDown1.Value = 1;
             }
         }
 
