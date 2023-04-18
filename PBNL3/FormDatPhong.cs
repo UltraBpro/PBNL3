@@ -52,7 +52,7 @@ namespace PBNL3
                 using (DBEntities db = new DBEntities())
             {
                 DonDatPhong newdon = new DonDatPhong();
-                newdon.MaDonDatPhong = db.DonDatPhongs.Max(x => (int?)x.MaDonDatPhong) ?? 0 + 1;
+                newdon.MaDonDatPhong = (db.DonDatPhongs.Max(x => (int?)x.MaDonDatPhong) ?? 0) + 1;
                 newdon.MaNhanVienThucHien = NhanVienThucHien.MaNhanVien;
                 newdon.NgayDat = guna2DateTimePicker1.Value;
                 newdon.MaKhach=khachduocchon ;
