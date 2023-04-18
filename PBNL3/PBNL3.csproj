@@ -85,12 +85,6 @@
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pick.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pick.Designer.cs">
-      <DependentUpon>Pick.cs</DependentUpon>
-    </Compile>
     <Compile Include="Khach.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -103,49 +97,62 @@
     <Compile Include="NhanVien.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PBL3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PBL3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Phong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PickDayDTHD.cs">
+    <Compile Include="SelectReportTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PickDayDTHD.Designer.cs">
-      <DependentUpon>PickDayDTHD.cs</DependentUpon>
+    <Compile Include="SelectReportTypeForm.Designer.cs">
+      <DependentUpon>SelectReportTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DTHD.cs">
+    <Compile Include="SelectReportOptionDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DTHD.Designer.cs">
-      <DependentUpon>DTHD.cs</DependentUpon>
+    <Compile Include="SelectReportOptionDateForm.Designer.cs">
+      <DependentUpon>SelectReportOptionDateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="SelectReportDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <Compile Include=".Designer.cs">
+      <DependentUpon>SelectReportDateForm.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BaoCaoHD.cs">
+    <Compile Include="ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaoCaoHD.Designer.cs">
-      <DependentUpon>BaoCaoHD.cs</DependentUpon>
+    <Compile Include="ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Pick.resx">
-      <DependentUpon>Pick.cs</DependentUpon>
+    <EmbeddedResource Include="SelectReportTypeForm.resx">
+      <DependentUpon>SelectReportTypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PickDayDTHD.resx">
-      <DependentUpon>PickDayDTHD.cs</DependentUpon>
+    <EmbeddedResource Include="SelectReportOptionDateForm.resx">
+      <DependentUpon>SelectReportOptionDateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DTHD.resx">
-      <DependentUpon>DTHD.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
+    <EmbeddedResource Include="SelectReportDateForm.resx">
+      <DependentUpon>SelectReportDateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -157,8 +164,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="BaoCaoHD.resx">
-      <DependentUpon>BaoCaoHD.cs</DependentUpon>
+    <EmbeddedResource Include="ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -168,6 +175,13 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="PBL3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PBL3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="PBL3.edmx.diagram">
+      <DependentUpon>PBL3.edmx</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -184,6 +198,9 @@
   <ItemGroup>
     <None Include="Resources\Screenshot 2023-04-07 002722.png" />
     <None Include="Resources\Bill.png" />
+    <None Include="Resources\Bill2.jpg" />
+    <None Include="Resources\Service2.png" />
+    <None Include="Resources\Bill1.png" />
     <Content Include="DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
@@ -194,8 +211,19 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="PBL3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+      <LastGenOutput>PBL3.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="PBL3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PBL3.edmx</DependentUpon>
+      <LastGenOutput>PBL3.cs</LastGenOutput>
+    </Content>
     <Content Include="res\MamaNobu.jpg" />
     <Content Include="res\Nobu.png" />
+    <None Include="res\Room.png" />
     <Content Include="res\SummerNobu.jpg" />
     <Content Include="res\Waifu1.ico" />
     <Content Include="res\Waifu2.ico" />

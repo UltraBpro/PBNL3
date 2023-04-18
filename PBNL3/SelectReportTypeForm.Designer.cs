@@ -1,6 +1,6 @@
 ﻿namespace PBNL3
 {
-    partial class Form1
+    partial class SelectReportTypeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,7 @@
         {
             this.BCHDButton = new Guna.UI2.WinForms.Guna2Button();
             this.BCPButton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.BCDVButton = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // BCHDButton
@@ -46,7 +45,7 @@
             this.BCHDButton.Name = "BCHDButton";
             this.BCHDButton.Size = new System.Drawing.Size(180, 45);
             this.BCHDButton.TabIndex = 0;
-            this.BCHDButton.Text = "BaoCaoHoaDon";
+            this.BCHDButton.Text = "Báo Cáo Hóa Đơn ";
             this.BCHDButton.Click += new System.EventHandler(this.BCHDButton_Click);
             // 
             // BCPButton
@@ -57,51 +56,38 @@
             this.BCPButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BCPButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.BCPButton.ForeColor = System.Drawing.Color.White;
-            this.BCPButton.Location = new System.Drawing.Point(287, 134);
+            this.BCPButton.Location = new System.Drawing.Point(287, 143);
             this.BCPButton.Name = "BCPButton";
             this.BCPButton.Size = new System.Drawing.Size(180, 45);
             this.BCPButton.TabIndex = 1;
-            this.BCPButton.Text = "BaoCaoTienPhong";
+            this.BCPButton.Text = "Báo Cáo Phòng ";
             this.BCPButton.Click += new System.EventHandler(this.BCPButton_Click);
             // 
-            // guna2Button3
+            // BCDVButton
             // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(287, 235);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.Text = "c";
+            this.BCDVButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BCDVButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BCDVButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BCDVButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BCDVButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BCDVButton.ForeColor = System.Drawing.Color.White;
+            this.BCDVButton.Location = new System.Drawing.Point(287, 235);
+            this.BCDVButton.Name = "BCDVButton";
+            this.BCDVButton.Size = new System.Drawing.Size(180, 45);
+            this.BCDVButton.TabIndex = 2;
+            this.BCDVButton.Text = "Báo Cáo Dịch Vụ";
+            this.BCDVButton.Click += new System.EventHandler(this.BCDVButton_Click);
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(287, 336);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button4.TabIndex = 3;
-            this.guna2Button4.Text = "c";
-            // 
-            // Form1
+            // SelectReportTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.guna2Button4);
-            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.BCDVButton);
             this.Controls.Add(this.BCPButton);
             this.Controls.Add(this.BCHDButton);
-            this.Name = "Form1";
+            this.Name = "SelectReportTypeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -111,7 +97,6 @@
 
         private Guna.UI2.WinForms.Guna2Button BCHDButton;
         private Guna.UI2.WinForms.Guna2Button BCPButton;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private Guna.UI2.WinForms.Guna2Button BCDVButton;
     }
 }

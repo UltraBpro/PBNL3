@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PBNL3
 {
-    public partial class DTHD : Form
-    {
-        public DTHD(int type)
+    public partial class PickDate : Form
+    {        
+        public PickDate(int type)
         {
             InitializeComponent();
             SetLable(type);
@@ -21,17 +22,25 @@ namespace PBNL3
         }
         private void SetLable(int type)
         {
+            t = type;
             switch (type)
             {
                 case 0:
+                    this.Text = "Bill";
                     label1.Text = "Doanh thu hóa đơn";
-
+                    this.pictureBox1.Image = global::PBNL3.Properties.Resources.Bill1;             
                     break;
                 case 1:
-                    label1.Text = "Doanh thu tiền phòng";
+                    this.Text = "Room";
+                    label1.Text = "Doanh thu phòng";
+                    this.pictureBox1.Image = global::PBNL3.Properties.Resources.Room;                 
                     break;
-            }
-            
+                default:
+                    this.Text = "Service";
+                    label1.Text = "Doanh thu dịch vụ";
+                    this.pictureBox1.Image = global::PBNL3.Properties.Resources.Service2;                  
+                    break;
+            }           
         }
         private void SetCBBItem()
         {
@@ -57,12 +66,13 @@ namespace PBNL3
         }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
+        public int t { get; set; }
         private void cbbsetday_SelectedIndexChanged(object sender, EventArgs e)
         {            
             if (cbbsetday.SelectedItem.ToString() == "Tùy chọn")
             {
                 SetCBBItem();
-                PickDayDTHD selectDateForm = new PickDayDTHD();
+                SelectReportOptionDateForm selectDateForm = new SelectReportOptionDateForm();
                 selectDateForm.ShowDialog();
                 if (selectDateForm.start != DateTime.MinValue && selectDateForm.end != DateTime.MinValue)
                 {                      
@@ -76,10 +86,17 @@ namespace PBNL3
         }
 
         private void confirmbutton_Click(object sender, EventArgs e)
-        {           
-            BaoCaoHD baoCaoHD = new BaoCaoHD(cbbsetday.SelectedIndex, start, end);
-            baoCaoHD.Show();
-            this.Hide();
-        }       
+        {
+            if (cbbsetday.Text == "Vui lòng chọn ngày" || cbbsetday.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn ngày khảo sát!!!");
+            }
+            else
+            {
+                ReportForm baoCaoHD = new ReportForm(cbbsetday.SelectedIndex, t, start, end);
+                baoCaoHD.Show();
+                this.Hide();
+            }
+        }     
     }
 }
