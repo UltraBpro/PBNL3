@@ -196,7 +196,7 @@ namespace PBNL3
             this.Enabled = false;
             DSPhong.FormClosed += FormHoiSinh;
         }
-        private void DanhSachDonToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DanhSachDVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormChonDichVu DSDichVu = new FormChonDichVu();
             DSDichVu.Show();
