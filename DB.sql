@@ -62,7 +62,7 @@ CREATE TABLE DonDatPhong (
 CREATE TABLE ChiTietPhongDat (
     MaPhong INT NOT NULL,
     MaDonDatPhong INT NOT NULL,
-	GiaPhongDat INT NOT NULL,
+	GiaPhongDat FLOAT NOT NULL,
     PRIMARY KEY (MaPhong, MaDonDatPhong),
     CONSTRAINT FK_Phong_ChiTietPhongDat FOREIGN KEY (MaPhong) REFERENCES Phong(MaPhong),
     CONSTRAINT FK_DonDatPhong_ChiTietPhongDat FOREIGN KEY (MaDonDatPhong) REFERENCES DonDatPhong(MaDonDatPhong)
@@ -70,7 +70,7 @@ CREATE TABLE ChiTietPhongDat (
 
 CREATE TABLE ChiTietDichVuDat (
     MaDichVu INT NOT NULL,
-	GiaDichVuDat INT NOT NULL,
+	GiaDichVuDat FLOAT NOT NULL,
     SoLuong INT NOT NULL,
     MaDonDatPhong INT NOT NULL,
     PRIMARY KEY (MaDichVu, MaDonDatPhong),

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormManHinhChinh));
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelChucVu = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -325,7 +327,7 @@
             this.iconButton6.IconColor = System.Drawing.Color.White;
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 20;
-            this.iconButton6.Location = new System.Drawing.Point(558, 6);
+            this.iconButton6.Location = new System.Drawing.Point(547, 11);
             this.iconButton6.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(24, 27);
@@ -343,7 +345,7 @@
             this.iconButton5.IconColor = System.Drawing.Color.White;
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 25;
-            this.iconButton5.Location = new System.Drawing.Point(587, 11);
+            this.iconButton5.Location = new System.Drawing.Point(575, 11);
             this.iconButton5.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(24, 27);
@@ -362,7 +364,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.White;
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 29;
-            this.iconButton4.Location = new System.Drawing.Point(615, 11);
+            this.iconButton4.Location = new System.Drawing.Point(603, 11);
             this.iconButton4.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(24, 27);
@@ -425,21 +427,21 @@
             // đặtPhòngToolStripMenuItem
             // 
             this.đặtPhòngToolStripMenuItem.Name = "đặtPhòngToolStripMenuItem";
-            this.đặtPhòngToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.đặtPhòngToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.đặtPhòngToolStripMenuItem.Text = "Đặt phòng";
             this.đặtPhòngToolStripMenuItem.Click += new System.EventHandler(this.DatPhongToolStripMenuItem_Click);
             // 
             // dùngDịchVụToolStripMenuItem
             // 
             this.dùngDịchVụToolStripMenuItem.Name = "dùngDịchVụToolStripMenuItem";
-            this.dùngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.dùngDịchVụToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.dùngDịchVụToolStripMenuItem.Text = "Dùng dịch vụ";
             this.dùngDịchVụToolStripMenuItem.Click += new System.EventHandler(this.DungDichVuToolStripMenuItem_Click);
             // 
             // trảPhòngToolStripMenuItem
             // 
             this.trảPhòngToolStripMenuItem.Name = "trảPhòngToolStripMenuItem";
-            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.trảPhòngToolStripMenuItem.Size = new System.Drawing.Size(165, 24);
             this.trảPhòngToolStripMenuItem.Text = "Trả phòng";
             this.trảPhòngToolStripMenuItem.Click += new System.EventHandler(this.TraPhongToolStripMenuItem_Click);
             // 
@@ -483,6 +485,11 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 50;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // FormManHinhChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -492,10 +499,10 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormManHinhChinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -543,6 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem trảPhòngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchKháchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchPhòngToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
 

@@ -33,6 +33,7 @@ namespace PBNL3
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonLogin = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace PBNL3
             this.TextBoxPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -71,6 +71,22 @@ namespace PBNL3
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(272, 435);
             this.guna2Panel1.TabIndex = 32;
+            // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Image = global::PBNL3.Properties.Resources.Cheems0;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 13);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.Image = global::PBNL3.Properties.Resources.Bonk;
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
+            this.guna2ImageButton1.TabIndex = 11;
+            this.guna2ImageButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2ImageButton1_MouseDown);
             // 
             // guna2Button1
             // 
@@ -202,31 +218,16 @@ namespace PBNL3
             this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.Navy;
             this.guna2ShadowForm1.TargetForm = this;
             // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Image = global::PBNL3.Properties.Resources.Cheems0;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 13);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.Image = global::PBNL3.Properties.Resources.Bonk;
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
-            this.guna2ImageButton1.TabIndex = 11;
-            this.guna2ImageButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2ImageButton1_MouseDown);
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PictureBox1.Image = global::PBNL3.Properties.Resources.YoruGif;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.InitialImage = null;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(-18, -16);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(649, 404);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(568, 388);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 95;
             this.guna2PictureBox1.TabStop = false;

@@ -66,7 +66,10 @@ namespace PBNL3
         {
             this.Show();
         }
-
+        private void ButtonThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void ButtonThemDichVu_Click(object sender, EventArgs e)
         {
             using (DBEntities db = new DBEntities())
@@ -109,5 +112,6 @@ namespace PBNL3
                 dt.Clear();
             }
         }
+
     }
 }
