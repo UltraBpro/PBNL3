@@ -49,11 +49,12 @@ namespace PBNL3
                 var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
                 var PhongDat=db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
                 DonDat.NgayTra = DateTime.Now;
-                int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays;
+                int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays+1;
                 DonDat.TongTien = songay * PhongDat.GiaPhongDat;
                 TextBoxTienPhong.Text = songay.ToString()+" ngày: "+(songay * PhongDat.GiaPhongDat).ToString();
                 int sodichvu = 0;
                 foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;sodichvu++; }
+                DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien;db.SaveChanges();
                 TextBoxTienDV.Text = sodichvu.ToString()+" dịch vụ: "+(DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
                 guna2TextBox1.Text = DonDat.TongTien.ToString();
             }

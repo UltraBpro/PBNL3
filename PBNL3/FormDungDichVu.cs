@@ -113,7 +113,7 @@ namespace PBNL3
                     datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
                     db.ChiTietDichVuDats.Add(datdichvuchodon);db.SaveChanges();
                 }
-                dt.Clear();
+                this.Close();
             }
         }
 

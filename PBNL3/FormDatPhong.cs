@@ -15,6 +15,7 @@ namespace PBNL3
         public FormDatPhong(int? MaPhong=null)
         {
             InitializeComponent();
+            guna2DateTimePicker1.Value = DateTime.Now;
             if (MaPhong != null)
             {
                 ButtonChonPhong.Enabled = false;
