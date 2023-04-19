@@ -128,7 +128,7 @@ namespace PBNL3
                 NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
                 labelMaNV.Text = NV.MaNhanVien.ToString();
                 labelTenNV.Text = NV.TenNhanVien;
-                labelChucVu.Text = NV.ChucVu;if (NV.ChucVu == "Quản lý" || NV.ChucVu == "Admin") quảnLýToolStripMenuItem.Enabled = true;
+                labelChucVu.Text = NV.ChucVu;if (NV.ChucVu == "Quản lý") quảnLýToolStripMenuItem.Enabled = true;
             }
         }
         private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,6 +208,8 @@ namespace PBNL3
             this.Enabled = true;
             this.Focus();
         }
+
+
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

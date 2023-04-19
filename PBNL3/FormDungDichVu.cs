@@ -42,6 +42,7 @@ namespace PBNL3
         private void NhanDSPhong(object sender, int e)
         {
             ButtonChonPhong.Text = "Mã phòng đã chọn: " + e.ToString() + ".";
+            ButtonXemChiTiet.Enabled = true;
         }
         private void ButtonChonDichVu_Click(object sender, EventArgs e)
         {
@@ -106,16 +107,42 @@ namespace PBNL3
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán"&&p.MaPhong==phongduochon).FirstOrDefault();
                 foreach(DataRow dtr in dt.Rows)
                 {
-                    ChiTietDichVuDat datdichvuchodon = new ChiTietDichVuDat();
-                    datdichvuchodon.MaDonDatPhong = TimDonDatDichVu.MaDonDatPhong;
-                    datdichvuchodon.MaDichVu = Convert.ToInt32(dtr["Mã dịch vụ"]);
-                    datdichvuchodon.SoLuong = Convert.ToInt32(dtr["Số lượng"]);
-                    datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
-                    db.ChiTietDichVuDats.Add(datdichvuchodon);db.SaveChanges();
+                    int MaDV = Convert.ToInt32(dtr["Mã dịch vụ"]);
+                    var DichvuDaDat = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong&&p.MaDichVu==MaDV).FirstOrDefault();
+                    if (DichvuDaDat == null)
+                    {
+                        ChiTietDichVuDat datdichvuchodon = new ChiTietDichVuDat();
+                        datdichvuchodon.MaDonDatPhong = TimDonDatDichVu.MaDonDatPhong;
+                        datdichvuchodon.MaDichVu = MaDV;
+                        datdichvuchodon.SoLuong = Convert.ToInt32(dtr["Số lượng"]);
+                        datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
+                        db.ChiTietDichVuDats.Add(datdichvuchodon); 
+                    }
+                    else DichvuDaDat.SoLuong += Convert.ToInt32(dtr["Số lượng"]);
+                    db.SaveChanges();
                 }
                 this.Close();
             }
         }
 
+        private void ButtonXemChiTiet_Click(object sender, EventArgs e)
+        {
+            using (DBEntities db = new DBEntities()) {
+                int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
+              don => don.MaDonDatPhong,
+              phongdat => phongdat.MaDonDatPhong,
+              (don, phongdat) => new
+              {
+                  don.MaDonDatPhong,
+                  phongdat.MaPhong,
+                  don.TinhTrangThanhToan
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
+                this.Size = new Size(1337, 447);
+                userControlChiTietDonHang1.Visible = true;
+                userControlChiTietDonHang1.LoadDon(TimDonDatDichVu.MaDonDatPhong);
+                this.CenterToScreen();
+            }
+        }
     }
 }

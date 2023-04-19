@@ -29,9 +29,9 @@ namespace PBNL3
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ButtonThemDichVu = new Guna.UI2.WinForms.Guna2Button();
@@ -43,6 +43,8 @@ namespace PBNL3
             this.ButtonChonDichVu = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonXacNhan = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
+            this.ButtonXemChiTiet = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
@@ -50,6 +52,8 @@ namespace PBNL3
             // 
             // guna2GradientPanel1
             // 
+            this.guna2GradientPanel1.Controls.Add(this.ButtonXemChiTiet);
+            this.guna2GradientPanel1.Controls.Add(this.userControlChiTietDonHang1);
             this.guna2GradientPanel1.Controls.Add(this.guna2DataGridView1);
             this.guna2GradientPanel1.Controls.Add(this.ButtonThemDichVu);
             this.guna2GradientPanel1.Controls.Add(this.label3);
@@ -66,33 +70,33 @@ namespace PBNL3
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(530, 355);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(526, 354);
             this.guna2GradientPanel1.TabIndex = 24;
             // 
             // guna2DataGridView1
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.guna2DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.guna2DataGridView1.ColumnHeadersHeight = 40;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
             this.guna2DataGridView1.EnableHeadersVisualStyles = true;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(26, 135);
@@ -204,7 +208,7 @@ namespace PBNL3
             this.ButtonChonPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonChonPhong.Location = new System.Drawing.Point(94, 12);
             this.ButtonChonPhong.Name = "ButtonChonPhong";
-            this.ButtonChonPhong.Size = new System.Drawing.Size(375, 29);
+            this.ButtonChonPhong.Size = new System.Drawing.Size(248, 29);
             this.ButtonChonPhong.TabIndex = 33;
             this.ButtonChonPhong.Text = "Chọn phòng";
             this.ButtonChonPhong.Click += new System.EventHandler(this.ButtonChonPhong_Click);
@@ -267,11 +271,40 @@ namespace PBNL3
             this.label4.TabIndex = 25;
             this.label4.Text = "Phòng:";
             // 
+            // userControlChiTietDonHang1
+            // 
+            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
+            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(535, 12);
+            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
+            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
+            this.userControlChiTietDonHang1.TabIndex = 40;
+            this.userControlChiTietDonHang1.Visible = false;
+            // 
+            // ButtonXemChiTiet
+            // 
+            this.ButtonXemChiTiet.Animated = true;
+            this.ButtonXemChiTiet.AutoRoundedCorners = true;
+            this.ButtonXemChiTiet.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonXemChiTiet.BorderRadius = 13;
+            this.ButtonXemChiTiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXemChiTiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXemChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonXemChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonXemChiTiet.Enabled = false;
+            this.ButtonXemChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonXemChiTiet.ForeColor = System.Drawing.Color.White;
+            this.ButtonXemChiTiet.Location = new System.Drawing.Point(348, 12);
+            this.ButtonXemChiTiet.Name = "ButtonXemChiTiet";
+            this.ButtonXemChiTiet.Size = new System.Drawing.Size(121, 29);
+            this.ButtonXemChiTiet.TabIndex = 41;
+            this.ButtonXemChiTiet.Text = "Xem chi tiết đơn";
+            this.ButtonXemChiTiet.Click += new System.EventHandler(this.ButtonXemChiTiet_Click);
+            // 
             // FormDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 355);
+            this.ClientSize = new System.Drawing.Size(526, 354);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDungDichVu";
@@ -298,5 +331,7 @@ namespace PBNL3
         private System.Windows.Forms.Label labelDonVi;
         private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private UserControlChiTietDonHang userControlChiTietDonHang1;
+        private Guna.UI2.WinForms.Guna2Button ButtonXemChiTiet;
     }
 }

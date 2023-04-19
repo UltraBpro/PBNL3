@@ -45,6 +45,7 @@ namespace PBNL3
                   phongdat.MaPhong,
                   don.TinhTrangThanhToan
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
+                userControlChiTietDonHang1.LoadDon(TimDonDatDichVu.MaDonDatPhong);
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
                 var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
                 var PhongDat=db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
@@ -83,7 +84,6 @@ namespace PBNL3
         {
             this.Show();
         }
-
 
     }
 }
