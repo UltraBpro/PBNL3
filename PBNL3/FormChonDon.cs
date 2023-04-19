@@ -17,28 +17,19 @@ namespace PBNL3
             InitializeComponent();
             using (DBEntities db = new DBEntities())
             {
-                var result = db.DonDatPhongs
-    .Join(db.ChiTietPhongDats, ddp => ddp.MaDonDatPhong, ctpd => ctpd.MaDonDatPhong, (ddp, ctpd) => new { ddp, ctpd })
-    .Select(temp => new
-    {
-        MaDonDatPhong = temp.ddp.MaDonDatPhong,
-        MaKhach = temp.ddp.MaKhach,
-        TinhTrangThanhToan = temp.ddp.TinhTrangThanhToan,
-        NgayDat = temp.ddp.NgayDat,
-        NgayTra = temp.ddp.NgayTra,
-        NhanVienThucHien = temp.ddp.MaNhanVienThucHien,
-        NhanVienThanhToan = temp.ddp.MaNhanVienThanhToan,
-        TongTien = temp.ddp.TongTien,
-        MaPhongDat = temp.ctpd.MaPhong,
-        GiaPhongDat = temp.ctpd.GiaPhongDat,
-    }).ToList();
-                guna2DataGridView1.DataSource = result;
+                guna2DataGridView1.DataSource = db.DonDatPhongs.Select(p => new { p.MaDonDatPhong }).ToList();
             }
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void guna2DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try { userControlChiTietDonHang1.LoadDon(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells[0].Value)); }
+            catch { }
         }
     }
 }

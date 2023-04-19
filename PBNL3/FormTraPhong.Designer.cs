@@ -30,15 +30,15 @@ namespace PBNL3
         private void InitializeComponent()
         {
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.TextBoxTienDV = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TextBoxTienPhong = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonChonPhong = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonXacNhan = new Guna.UI2.WinForms.Guna2Button();
-            this.TextBoxTienPhong = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TextBoxTienDV = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,76 @@ namespace PBNL3
             this.guna2GradientPanel1.Size = new System.Drawing.Size(501, 257);
             this.guna2GradientPanel1.TabIndex = 24;
             // 
+            // TextBoxTienDV
+            // 
+            this.TextBoxTienDV.Animated = true;
+            this.TextBoxTienDV.AutoRoundedCorners = true;
+            this.TextBoxTienDV.BackColor = System.Drawing.Color.Transparent;
+            this.TextBoxTienDV.BorderRadius = 17;
+            this.TextBoxTienDV.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextBoxTienDV.DefaultText = "";
+            this.TextBoxTienDV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TextBoxTienDV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TextBoxTienDV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextBoxTienDV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextBoxTienDV.Enabled = false;
+            this.TextBoxTienDV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxTienDV.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TextBoxTienDV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TextBoxTienDV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxTienDV.Location = new System.Drawing.Point(142, 109);
+            this.TextBoxTienDV.Name = "TextBoxTienDV";
+            this.TextBoxTienDV.PasswordChar = '\0';
+            this.TextBoxTienDV.PlaceholderText = "";
+            this.TextBoxTienDV.SelectedText = "";
+            this.TextBoxTienDV.Size = new System.Drawing.Size(310, 36);
+            this.TextBoxTienDV.TabIndex = 40;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Location = new System.Drawing.Point(23, 123);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Tiền dịch vụ";
+            // 
+            // TextBoxTienPhong
+            // 
+            this.TextBoxTienPhong.Animated = true;
+            this.TextBoxTienPhong.AutoRoundedCorners = true;
+            this.TextBoxTienPhong.BackColor = System.Drawing.Color.Transparent;
+            this.TextBoxTienPhong.BorderRadius = 17;
+            this.TextBoxTienPhong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TextBoxTienPhong.DefaultText = "";
+            this.TextBoxTienPhong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.TextBoxTienPhong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.TextBoxTienPhong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextBoxTienPhong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.TextBoxTienPhong.Enabled = false;
+            this.TextBoxTienPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxTienPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TextBoxTienPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TextBoxTienPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxTienPhong.Location = new System.Drawing.Point(142, 67);
+            this.TextBoxTienPhong.Name = "TextBoxTienPhong";
+            this.TextBoxTienPhong.PasswordChar = '\0';
+            this.TextBoxTienPhong.PlaceholderText = "";
+            this.TextBoxTienPhong.SelectedText = "";
+            this.TextBoxTienPhong.Size = new System.Drawing.Size(310, 36);
+            this.TextBoxTienPhong.TabIndex = 38;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(23, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Tiền phòng";
+            // 
             // guna2TextBox1
             // 
             this.guna2TextBox1.Animated = true;
@@ -77,6 +147,7 @@ namespace PBNL3
             this.guna2TextBox1.Enabled = false;
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(142, 151);
             this.guna2TextBox1.Name = "guna2TextBox1";
@@ -143,74 +214,6 @@ namespace PBNL3
             this.ButtonXacNhan.TabIndex = 30;
             this.ButtonXacNhan.Text = "Xác nhận thanh toán";
             this.ButtonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
-            // 
-            // TextBoxTienPhong
-            // 
-            this.TextBoxTienPhong.Animated = true;
-            this.TextBoxTienPhong.AutoRoundedCorners = true;
-            this.TextBoxTienPhong.BackColor = System.Drawing.Color.Transparent;
-            this.TextBoxTienPhong.BorderRadius = 17;
-            this.TextBoxTienPhong.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxTienPhong.DefaultText = "";
-            this.TextBoxTienPhong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxTienPhong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxTienPhong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxTienPhong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxTienPhong.Enabled = false;
-            this.TextBoxTienPhong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxTienPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxTienPhong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxTienPhong.Location = new System.Drawing.Point(142, 67);
-            this.TextBoxTienPhong.Name = "TextBoxTienPhong";
-            this.TextBoxTienPhong.PasswordChar = '\0';
-            this.TextBoxTienPhong.PlaceholderText = "";
-            this.TextBoxTienPhong.SelectedText = "";
-            this.TextBoxTienPhong.Size = new System.Drawing.Size(310, 36);
-            this.TextBoxTienPhong.TabIndex = 38;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(23, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Tiền phòng";
-            // 
-            // TextBoxTienDV
-            // 
-            this.TextBoxTienDV.Animated = true;
-            this.TextBoxTienDV.AutoRoundedCorners = true;
-            this.TextBoxTienDV.BackColor = System.Drawing.Color.Transparent;
-            this.TextBoxTienDV.BorderRadius = 17;
-            this.TextBoxTienDV.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxTienDV.DefaultText = "";
-            this.TextBoxTienDV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxTienDV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxTienDV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxTienDV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxTienDV.Enabled = false;
-            this.TextBoxTienDV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxTienDV.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxTienDV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxTienDV.Location = new System.Drawing.Point(142, 109);
-            this.TextBoxTienDV.Name = "TextBoxTienDV";
-            this.TextBoxTienDV.PasswordChar = '\0';
-            this.TextBoxTienDV.PlaceholderText = "";
-            this.TextBoxTienDV.SelectedText = "";
-            this.TextBoxTienDV.Size = new System.Drawing.Size(310, 36);
-            this.TextBoxTienDV.TabIndex = 40;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(23, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 39;
-            this.label4.Text = "Tiền dịch vụ";
             // 
             // FormTraPhong
             // 

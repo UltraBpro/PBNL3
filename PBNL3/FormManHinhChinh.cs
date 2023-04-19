@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -26,7 +27,6 @@ namespace PBNL3
             panel2.Controls.Add(leftBorderBtn);
             OpenChildForm();
             LoadNhanVien(MaTaiKhoan);
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -93,9 +93,6 @@ namespace PBNL3
             iconPictureBox1.IconChar = iconButton3.IconChar;
             labelTrangThai.Text = iconButton3.Text;
         }
-
-
-
         private void iconButton6_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -119,6 +116,7 @@ namespace PBNL3
             ResetMouseEventArgs();
             labelTrangThai.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
+            DisableButton(); leftBorderBtn.Visible = false;
         }
         // Đoạn sau được viết bởi thằng l*n Tuấn
         private void LoadNhanVien(int MaTaiKhoan)
@@ -148,7 +146,6 @@ namespace PBNL3
             this.Enabled = false;
             DungDichVu.FormClosed += FormHoiSinh;
         }
-
 
         private void TraPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -184,6 +181,7 @@ namespace PBNL3
 
         private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            File.Delete("LoginInfo.txt");
             FormLogin LoginLai = new FormLogin();
             LoginLai.Show();
             this.Close();

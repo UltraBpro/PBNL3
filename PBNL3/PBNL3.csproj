@@ -184,6 +184,12 @@
     <Compile Include="TaiKhoan.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserControlChiTietDonHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlChiTietDonHang.Designer.cs">
+      <DependentUpon>UserControlChiTietDonHang.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormChonDichVu.resx">
       <DependentUpon>FormChonDichVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +249,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="UserControlChiTietDonHang.resx">
+      <DependentUpon>UserControlChiTietDonHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="DBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
