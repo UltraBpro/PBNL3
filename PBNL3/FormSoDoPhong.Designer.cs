@@ -35,17 +35,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonChonPhong3 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.buttonChonPhong4 = new System.Windows.Forms.Button();
-            this.buttonChonPhong6 = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.buttonChonPhong8 = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.buttonChonPhong7 = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.buttonChonPhong5 = new System.Windows.Forms.Button();
+            this.buttonChonPhong6 = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.buttonChonPhong9 = new System.Windows.Forms.Button();
-            this.buttonChonPhong8 = new System.Windows.Forms.Button();
-            this.buttonChonPhong7 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -124,6 +124,15 @@
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             // 
+            // buttonChonPhong4
+            // 
+            this.buttonChonPhong4.Location = new System.Drawing.Point(43, 28);
+            this.buttonChonPhong4.Name = "buttonChonPhong4";
+            this.buttonChonPhong4.Size = new System.Drawing.Size(64, 49);
+            this.buttonChonPhong4.TabIndex = 3;
+            this.buttonChonPhong4.UseVisualStyleBackColor = true;
+            this.buttonChonPhong4.Click += new System.EventHandler(this.ButtonPhong_Click);
+            // 
             // groupBox6
             // 
             this.groupBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -133,6 +142,15 @@
             this.groupBox6.Size = new System.Drawing.Size(154, 100);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
+            // 
+            // buttonChonPhong8
+            // 
+            this.buttonChonPhong8.Location = new System.Drawing.Point(46, 32);
+            this.buttonChonPhong8.Name = "buttonChonPhong8";
+            this.buttonChonPhong8.Size = new System.Drawing.Size(64, 49);
+            this.buttonChonPhong8.TabIndex = 7;
+            this.buttonChonPhong8.UseVisualStyleBackColor = true;
+            this.buttonChonPhong8.Click += new System.EventHandler(this.ButtonPhong_Click);
             // 
             // groupBox7
             // 
@@ -144,6 +162,15 @@
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             // 
+            // buttonChonPhong7
+            // 
+            this.buttonChonPhong7.Location = new System.Drawing.Point(43, 32);
+            this.buttonChonPhong7.Name = "buttonChonPhong7";
+            this.buttonChonPhong7.Size = new System.Drawing.Size(64, 49);
+            this.buttonChonPhong7.TabIndex = 8;
+            this.buttonChonPhong7.UseVisualStyleBackColor = true;
+            this.buttonChonPhong7.Click += new System.EventHandler(this.ButtonPhong_Click);
+            // 
             // groupBox9
             // 
             this.groupBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -154,14 +181,14 @@
             this.groupBox9.TabIndex = 12;
             this.groupBox9.TabStop = false;
             // 
-            // buttonChonPhong4
+            // buttonChonPhong5
             // 
-            this.buttonChonPhong4.Location = new System.Drawing.Point(43, 28);
-            this.buttonChonPhong4.Name = "buttonChonPhong4";
-            this.buttonChonPhong4.Size = new System.Drawing.Size(64, 49);
-            this.buttonChonPhong4.TabIndex = 3;
-            this.buttonChonPhong4.UseVisualStyleBackColor = true;
-            this.buttonChonPhong4.Click += new System.EventHandler(this.ButtonPhong_Click);
+            this.buttonChonPhong5.Location = new System.Drawing.Point(49, 28);
+            this.buttonChonPhong5.Name = "buttonChonPhong5";
+            this.buttonChonPhong5.Size = new System.Drawing.Size(64, 49);
+            this.buttonChonPhong5.TabIndex = 4;
+            this.buttonChonPhong5.UseVisualStyleBackColor = true;
+            this.buttonChonPhong5.Click += new System.EventHandler(this.ButtonPhong_Click);
             // 
             // buttonChonPhong6
             // 
@@ -171,15 +198,6 @@
             this.buttonChonPhong6.TabIndex = 5;
             this.buttonChonPhong6.UseVisualStyleBackColor = true;
             this.buttonChonPhong6.Click += new System.EventHandler(this.ButtonPhong_Click);
-            // 
-            // buttonChonPhong5
-            // 
-            this.buttonChonPhong5.Location = new System.Drawing.Point(49, 28);
-            this.buttonChonPhong5.Name = "buttonChonPhong5";
-            this.buttonChonPhong5.Size = new System.Drawing.Size(64, 49);
-            this.buttonChonPhong5.TabIndex = 4;
-            this.buttonChonPhong5.UseVisualStyleBackColor = true;
-            this.buttonChonPhong5.Click += new System.EventHandler(this.ButtonPhong_Click);
             // 
             // groupBox11
             // 
@@ -209,24 +227,6 @@
             this.buttonChonPhong9.TabIndex = 6;
             this.buttonChonPhong9.UseVisualStyleBackColor = true;
             this.buttonChonPhong9.Click += new System.EventHandler(this.ButtonPhong_Click);
-            // 
-            // buttonChonPhong8
-            // 
-            this.buttonChonPhong8.Location = new System.Drawing.Point(46, 32);
-            this.buttonChonPhong8.Name = "buttonChonPhong8";
-            this.buttonChonPhong8.Size = new System.Drawing.Size(64, 49);
-            this.buttonChonPhong8.TabIndex = 7;
-            this.buttonChonPhong8.UseVisualStyleBackColor = true;
-            this.buttonChonPhong8.Click += new System.EventHandler(this.ButtonPhong_Click);
-            // 
-            // buttonChonPhong7
-            // 
-            this.buttonChonPhong7.Location = new System.Drawing.Point(43, 32);
-            this.buttonChonPhong7.Name = "buttonChonPhong7";
-            this.buttonChonPhong7.Size = new System.Drawing.Size(64, 49);
-            this.buttonChonPhong7.TabIndex = 8;
-            this.buttonChonPhong7.UseVisualStyleBackColor = true;
-            this.buttonChonPhong7.Click += new System.EventHandler(this.ButtonPhong_Click);
             // 
             // FormSoDoPhong
             // 

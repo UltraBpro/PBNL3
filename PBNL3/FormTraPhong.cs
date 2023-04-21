@@ -30,9 +30,11 @@ namespace PBNL3
             this.Hide();
             chonPhong.Show();
         }
+        DateTime thoigiantinh;
         private void NhanDSPhongVaTinhTien(object sender, int e)
         {
             ButtonChonPhong.Text = "Mã phòng đã chọn: " + e.ToString() + ".";
+            ButtonXacNhan.Enabled = true;
             using (DBEntities db = new DBEntities())
             {
                 int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
@@ -49,7 +51,7 @@ namespace PBNL3
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
                 var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
                 var PhongDat=db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
-                DonDat.NgayTra = DateTime.Now;
+                thoigiantinh = DateTime.Now;
                 int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays+1;
                 DonDat.TongTien = songay * PhongDat.GiaPhongDat;
                 TextBoxTienPhong.Text = songay.ToString()+" ngày: "+(songay * PhongDat.GiaPhongDat).ToString();
@@ -75,6 +77,7 @@ namespace PBNL3
                   don.TinhTrangThanhToan
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
+                DonDat.NgayTra = thoigiantinh;
                 DonDat.TinhTrangThanhToan = "Đã thanh toán";db.SaveChanges();
                 db.Phongs.Find(phongduochon).TinhTrang = "Trống"; db.SaveChanges();
                 this.Close();

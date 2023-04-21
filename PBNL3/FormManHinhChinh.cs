@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,9 @@ namespace PBNL3
             panel2.Controls.Add(leftBorderBtn);
             OpenChildForm();
             LoadNhanVien(MaTaiKhoan);
+            timer.Interval = 500;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -111,20 +115,30 @@ namespace PBNL3
             Application.Exit();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        // Đoạn sau được viết bởi thằng l*n Tuấn
+        private Timer timer = new Timer();
+        bool nah = false;
+        private void timer_Tick(object sender, EventArgs e)
         {
-            ResetMouseEventArgs();
+            if (nah)
+                guna2ImageButton1.Image = Properties.Resources.Cheems2;
+            else guna2ImageButton1.Image = Properties.Resources.Cheems0;
+            nah = !nah;
+        }
+        private void guna2ImageButton1_MouseDown(object sender, EventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
+            player.Play();
             labelTrangThai.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
             DisableButton(); leftBorderBtn.Visible = false;
         }
-        // Đoạn sau được viết bởi thằng l*n Tuấn
         private void LoadNhanVien(int MaTaiKhoan)
         {
             using (DBEntities db = new DBEntities())
             {
-                var TK = db.TaiKhoans.Find(MaTaiKhoan);
-                var NV = db.NhanViens.Find(TK.MaNhanVien);
+                var NV = db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
                 NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
                 labelMaNV.Text = NV.MaNhanVien.ToString();
                 labelTenNV.Text = NV.TenNhanVien;
@@ -203,22 +217,23 @@ namespace PBNL3
             this.Enabled = false;
             ListDon.FormClosed += FormHoiSinh;
         }
+
+        private void QuanLyNVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChonNhanVien ListNV = new FormChonNhanVien();
+            ListNV.Show();
+            this.Enabled = false;
+            ListNV.FormClosed += FormHoiSinh;
+        }
         public void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Focus();
         }
-
-
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien
     {
         public static int MaNhanVien { get; set; }
-        static NhanVienThucHien()
-        {
-            // Tạm thời 
-            MaNhanVien = -1;
-        }
     }
 }

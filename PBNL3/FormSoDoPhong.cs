@@ -12,39 +12,72 @@ namespace PBNL3
 {
     public partial class FormSoDoPhong : Form
     {
+        List<Button> buttonList = new List<Button>();
         public FormSoDoPhong()
         {
             InitializeComponent();
+            buttonList.Add(buttonChonPhong1); buttonList.Add(buttonChonPhong2); buttonList.Add(buttonChonPhong3);
+            buttonList.Add(buttonChonPhong4); buttonList.Add(buttonChonPhong5); buttonList.Add(buttonChonPhong6);
+            buttonList.Add(buttonChonPhong7); buttonList.Add(buttonChonPhong8); buttonList.Add(buttonChonPhong9);
+            CheckTTrangPhong(null,null);
         }
-
+        public void CheckTTrangPhong(object sender, FormClosedEventArgs e)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                foreach (Button ButtonPhong in buttonList)
+                {
+                    if (db.Phongs.Find(Convert.ToInt32(ButtonPhong.Name.Substring(15))).TinhTrang == "Trống") ButtonPhong.BackColor = Color.Green;
+                    else ButtonPhong.BackColor = Color.Red;
+                }
+            }
+        }
         private void ButtonPhong_Click(object sender, EventArgs e)
         {
-            int MaPhong = int.Parse(((Button)sender).Name.Substring("ButtonChonPhong".Length));
+            int MaPhong = int.Parse(((Button)sender).Name.Substring(15));
+            Color TTrangPhong=((Button)sender).BackColor;
             string TrangThaiForm2 = ((FormManHinhChinh)this.Parent.Parent.Parent).labelTrangThai.Text;
             switch (TrangThaiForm2)
             {
                 case "Đặt phòng":
-                    FormDatPhong DatPhong = new FormDatPhong(MaPhong);
-                    DatPhong.Show();
-                    ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
-                    DatPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
-                    break;
+                    if (TTrangPhong != Color.Green) MessageBox.Show("Phòng này đã kín.");
+                    else
+                    {
+                        FormDatPhong DatPhong = new FormDatPhong(MaPhong);
+                        DatPhong.Show();
+                        ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
+                        DatPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
+                        DatPhong.FormClosed += CheckTTrangPhong;
+                    }
+                        break;
+                    
                 case "Sử dụng dịch vụ":
-                    FormDungDichVu DungDichVu = new FormDungDichVu(MaPhong);
-                    DungDichVu.Show();
-                    ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
-                    DungDichVu.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
+                    if (TTrangPhong != Color.Red) MessageBox.Show("Phòng này còn trống.");
+                    else
+                    {
+                        FormDungDichVu DungDichVu = new FormDungDichVu(MaPhong);
+                        DungDichVu.Show();
+                        ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
+                        DungDichVu.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
+                        DungDichVu.FormClosed += CheckTTrangPhong;
+                    }
                     break;
                 case "Trả phòng":
-                    FormTraPhong TraPhong = new FormTraPhong();
-                    TraPhong.Show();
-                    ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
-                    TraPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
+                    if (TTrangPhong != Color.Red) MessageBox.Show("Phòng này còn trống.");
+                    else
+                    {
+                        FormTraPhong TraPhong = new FormTraPhong();
+                        TraPhong.Show();
+                        ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
+                        TraPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
+                        TraPhong.FormClosed += CheckTTrangPhong;
+                    }
                     break;
                 default:
                     MessageBox.Show("Chưa chọn chức năng để thao tác trên sơ đồ phòng\nChọn ở tay trái màn hình hoặc sử dụng các chức năng ở thanh trên cùng.");
                     break;
             }
         }
+
     }
 }

@@ -10,26 +10,23 @@ using System.Windows.Forms;
 
 namespace PBNL3
 {
-    public partial class FormChonDon : Form
+    public partial class FormChonNhanVien : Form
     {
-        public FormChonDon()
+        public FormChonNhanVien()
         {
             InitializeComponent();
             using (DBEntities db = new DBEntities())
             {
-                guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
+                guna2DataGridView1.DataSource = db.NhanViens.Select(p => new
+                {
+                    p.MaNhanVien,p.TenNhanVien,p.GioiTinh,p.NgayNhanViec,p.ChucVu,p.Luong
+                }).ToList();
             }
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void guna2DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            try { userControlChiTietDonHang1.LoadDon(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells[0].Value)); }
-            catch { }
         }
     }
 }

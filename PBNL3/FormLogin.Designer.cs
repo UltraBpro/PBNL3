@@ -31,7 +31,6 @@ namespace PBNL3
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -50,12 +49,6 @@ namespace PBNL3
             // 
             this.guna2Elipse1.BorderRadius = 50;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // guna2Panel1
             // 
@@ -80,11 +73,11 @@ namespace PBNL3
             this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
             this.guna2ImageButton1.ImageRotate = 0F;
             this.guna2ImageButton1.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 13);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(75, 22);
             this.guna2ImageButton1.Name = "guna2ImageButton1";
             this.guna2ImageButton1.PressedState.Image = global::PBNL3.Properties.Resources.Bonk;
             this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(128, 128);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(159, 141);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(131, 129);
             this.guna2ImageButton1.TabIndex = 11;
             this.guna2ImageButton1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.guna2ImageButton1_MouseDown);
             // 
@@ -215,7 +208,8 @@ namespace PBNL3
             // 
             // guna2ShadowForm1
             // 
-            this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.Navy;
+            this.guna2ShadowForm1.BorderRadius = 50;
+            this.guna2ShadowForm1.ShadowColor = System.Drawing.Color.Cyan;
             this.guna2ShadowForm1.TargetForm = this;
             // 
             // guna2PictureBox1
@@ -254,7 +248,6 @@ namespace PBNL3
         #endregion
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxPass;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxUsername;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;

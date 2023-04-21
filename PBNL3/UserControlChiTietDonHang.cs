@@ -43,12 +43,20 @@ namespace PBNL3
                 labelNgaySinhKhach.Text = "Ngày sinh: " + Khach.NgaySinh.Date;labelSDTKhach.Text = "SDT: " + Khach.SoDienThoai;
                 labelNgayNhan.Text = "Ngày nhận: "+Don.NgayDat;labelMaNVDat.Text = "Mã nhân viên đặt            : " + NhanVienDat.MaNhanVien;
                 labelTenNVDat.Text = "Họ và tên: "+NhanVienDat.TenNhanVien;labelGTNVDat.Text = "Giới tính: "+NhanVienDat.GioiTinh;labelChucVuNVDat.Text = "Chức vụ: "+NhanVienDat.ChucVu;
+                int songay = (int)DateTime.Now.Subtract(Don.NgayDat).TotalDays + 1;
+                Don.TongTien = songay * PhongDat.GiaPhongDat;
+                foreach (ChiTietDichVuDat DVSD in DSDichVu) Don.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;
+                db.SaveChanges();
                 if (Don.NgayTra != null)
                 {
                     var NhanVienThanhToan = db.NhanViens.Find(Don.MaNhanVienThanhToan);
                     labelNgayTra.Text = "Ngày trả    : " + Don.NgayTra; labelMaNVThanhToan.Text = "Mã nhân viên thanh toán: " + NhanVienThanhToan.MaNhanVien;
                     labelTenNVThanhToan.Text = "Họ và tên: " + NhanVienThanhToan.TenNhanVien; labelGTNVThanhToan.Text = "Giới tính: "+NhanVienThanhToan.GioiTinh; labelChucVuNVThanhToan.Text = "Chức vụ: " + NhanVienThanhToan.ChucVu;
-                    labelTongTien.Text = "Tổng tiền: "+Don.TongTien.ToString();
+                }
+                else
+                {
+                    labelNgayTra.Text = "Ngày trả    : "; labelMaNVThanhToan.Text = "Mã nhân viên thanh toán: ";
+                    labelTenNVThanhToan.Text = "Họ và tên: "; labelGTNVThanhToan.Text = "Giới tính: "; labelChucVuNVThanhToan.Text = "Chức vụ: ";
                 }
                 labelTinhTrangTToan.Text= "Tình trạng thanh toán: "+Don.TinhTrangThanhToan;
                 foreach(ChiTietDichVuDat DVvaSL in DSDichVu) {
@@ -66,6 +74,22 @@ namespace PBNL3
                     }
                     else KtraDVDaCoChua["Số lượng"] = Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) + DVvaSL.SoLuong;
                 }
+            }
+        }
+        public void LoadPhong(int MaPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
+              don => don.MaDonDatPhong,
+              phongdat => phongdat.MaDonDatPhong,
+              (don, phongdat) => new
+              {
+                  don.MaDonDatPhong,
+                  phongdat.MaPhong,
+                  don.TinhTrangThanhToan
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == MaPhong).FirstOrDefault();
+                this.LoadDon(TimDonDatDichVu.MaDonDatPhong);
             }
         }
     }
