@@ -22,7 +22,6 @@ namespace PBNL3
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
             LoadDangNhap();
-            MessageBox.Show("DitMeMay");            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
