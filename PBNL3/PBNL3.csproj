@@ -74,6 +74,42 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaoCaoHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoHoaDon.Designer.cs">
+      <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaoCaoTheoPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaoCaoTheoPhong.Designer.cs">
+      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietDichVuDat.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietPhongDat.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DonDatPhong.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FormChonDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +164,21 @@
     <Compile Include="FormTraPhong.Designer.cs">
       <DependentUpon>FormTraPhong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Khach.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiDichVu.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiPhong.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phong.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormSoDoPhong.cs">
@@ -135,6 +186,9 @@
     </Compile>
     <Compile Include="FormSoDoPhong.Designer.cs">
       <DependentUpon>FormSoDoPhong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaiKhoan.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormChonDichVu.resx">
       <DependentUpon>FormChonDichVu.cs</DependentUpon>
@@ -153,6 +207,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormManHinhChinh.resx">
       <DependentUpon>FormManHinhChinh.cs</DependentUpon>
+      </EmbeddedResource>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaoCaoHoaDon.resx">
+      <DependentUpon>BaoCaoHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoTheoPhong.resx">
+      <DependentUpon>BaoCaoTheoPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDatPhong.resx">
       <DependentUpon>FormDatPhong.cs</DependentUpon>
@@ -177,11 +243,31 @@
       <DependentUpon>FormSoDoPhong.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="AppIcon.ico" />
+    <Content Include="DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -207,6 +293,16 @@
     <None Include="res\BonkSoundEffect.wav" />
     <None Include="Resources\BonkSoundEffect.wav" />
     <None Include="Resources\Screenshot 2023-04-07 002722.png" />
+    <Content Include="DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="res\MamaNobu.jpg" />
     <Content Include="res\Nobu.png" />
     <Content Include="res\SummerNobu.jpg" />
