@@ -230,6 +230,7 @@ namespace PBNL3
             this.Enabled = true;
             this.Focus();
         }
+
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

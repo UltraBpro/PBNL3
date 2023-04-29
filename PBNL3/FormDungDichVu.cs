@@ -21,7 +21,6 @@ namespace PBNL3
                 ButtonChonPhong.Enabled = false;
                 ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
                 ButtonXacNhan.Enabled = true;
-                ButtonXemChiTiet.Enabled = true;
             }
             dt.Columns.Add("Mã dịch vụ", typeof(int));
             dt.Columns.Add("Tên dịch vụ", typeof(string));
@@ -45,7 +44,7 @@ namespace PBNL3
         {
             ButtonChonPhong.Text = "Mã phòng đã chọn: " + e.ToString() + ".";
             ButtonXacNhan.Enabled = true;
-            ButtonXemChiTiet.Enabled = true;
+            userControlChiTietDonHang1.LoadPhong(Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim()));
         }
         private void ButtonChonDichVu_Click(object sender, EventArgs e)
         {
@@ -128,11 +127,10 @@ namespace PBNL3
             }
         }
 
-        private void ButtonXemChiTiet_Click(object sender, EventArgs e)
+        private void SwitchChiTiet_CheckedChanged(object sender, EventArgs e)
         {
-                this.Size = new Size(1337, 447);
-                userControlChiTietDonHang1.Visible = true;
-            userControlChiTietDonHang1.LoadPhong(Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim()));
+            if (SwitchChiTiet.Checked) { this.Size = new Size(1337, 447); userControlChiTietDonHang1.Visible = true; }
+            else { this.Size = new Size(539, 389); userControlChiTietDonHang1.Visible = false; }
                 this.CenterToScreen();
         }
     }

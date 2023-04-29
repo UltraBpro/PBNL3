@@ -33,8 +33,6 @@ namespace PBNL3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.ButtonXemChiTiet = new Guna.UI2.WinForms.Guna2Button();
-            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ButtonThemDichVu = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +43,9 @@ namespace PBNL3
             this.ButtonChonDichVu = new Guna.UI2.WinForms.Guna2Button();
             this.ButtonXacNhan = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
+            this.labelKhachmoi = new System.Windows.Forms.Label();
+            this.SwitchChiTiet = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2NumericUpDown1)).BeginInit();
@@ -52,7 +53,8 @@ namespace PBNL3
             // 
             // guna2GradientPanel1
             // 
-            this.guna2GradientPanel1.Controls.Add(this.ButtonXemChiTiet);
+            this.guna2GradientPanel1.Controls.Add(this.labelKhachmoi);
+            this.guna2GradientPanel1.Controls.Add(this.SwitchChiTiet);
             this.guna2GradientPanel1.Controls.Add(this.userControlChiTietDonHang1);
             this.guna2GradientPanel1.Controls.Add(this.guna2DataGridView1);
             this.guna2GradientPanel1.Controls.Add(this.ButtonThemDichVu);
@@ -70,41 +72,11 @@ namespace PBNL3
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(526, 354);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(523, 354);
             this.guna2GradientPanel1.TabIndex = 24;
-            // 
-            // ButtonXemChiTiet
-            // 
-            this.ButtonXemChiTiet.Animated = true;
-            this.ButtonXemChiTiet.AutoRoundedCorners = true;
-            this.ButtonXemChiTiet.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonXemChiTiet.BorderRadius = 13;
-            this.ButtonXemChiTiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonXemChiTiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonXemChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ButtonXemChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ButtonXemChiTiet.Enabled = false;
-            this.ButtonXemChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ButtonXemChiTiet.ForeColor = System.Drawing.Color.White;
-            this.ButtonXemChiTiet.Location = new System.Drawing.Point(348, 12);
-            this.ButtonXemChiTiet.Name = "ButtonXemChiTiet";
-            this.ButtonXemChiTiet.Size = new System.Drawing.Size(121, 29);
-            this.ButtonXemChiTiet.TabIndex = 41;
-            this.ButtonXemChiTiet.Text = "Xem chi tiết đơn";
-            this.ButtonXemChiTiet.Click += new System.EventHandler(this.ButtonXemChiTiet_Click);
-            // 
-            // userControlChiTietDonHang1
-            // 
-            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
-            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(535, 12);
-            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
-            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
-            this.userControlChiTietDonHang1.TabIndex = 40;
-            this.userControlChiTietDonHang1.Visible = false;
             // 
             // guna2DataGridView1
             // 
-            this.guna2DataGridView1.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
@@ -132,7 +104,7 @@ namespace PBNL3
             this.guna2DataGridView1.MultiSelect = false;
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(492, 162);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(473, 162);
             this.guna2DataGridView1.TabIndex = 39;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -284,7 +256,7 @@ namespace PBNL3
             this.ButtonXacNhan.Enabled = false;
             this.ButtonXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonXacNhan.ForeColor = System.Drawing.Color.White;
-            this.ButtonXacNhan.Location = new System.Drawing.Point(338, 302);
+            this.ButtonXacNhan.Location = new System.Drawing.Point(319, 303);
             this.ButtonXacNhan.Name = "ButtonXacNhan";
             this.ButtonXacNhan.Size = new System.Drawing.Size(180, 41);
             this.ButtonXacNhan.TabIndex = 30;
@@ -301,11 +273,49 @@ namespace PBNL3
             this.label4.TabIndex = 25;
             this.label4.Text = "Phòng:";
             // 
+            // userControlChiTietDonHang1
+            // 
+            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
+            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(535, 12);
+            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
+            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
+            this.userControlChiTietDonHang1.TabIndex = 40;
+            this.userControlChiTietDonHang1.Visible = false;
+            // 
+            // labelKhachmoi
+            // 
+            this.labelKhachmoi.AutoSize = true;
+            this.labelKhachmoi.BackColor = System.Drawing.Color.Transparent;
+            this.labelKhachmoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.labelKhachmoi.Location = new System.Drawing.Point(390, 18);
+            this.labelKhachmoi.Name = "labelKhachmoi";
+            this.labelKhachmoi.Size = new System.Drawing.Size(79, 17);
+            this.labelKhachmoi.TabIndex = 42;
+            this.labelKhachmoi.Text = "Chi tiết đơn";
+            // 
+            // SwitchChiTiet
+            // 
+            this.SwitchChiTiet.Animated = true;
+            this.SwitchChiTiet.BackColor = System.Drawing.Color.Transparent;
+            this.SwitchChiTiet.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SwitchChiTiet.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SwitchChiTiet.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.SwitchChiTiet.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.SwitchChiTiet.Location = new System.Drawing.Point(348, 16);
+            this.SwitchChiTiet.Name = "SwitchChiTiet";
+            this.SwitchChiTiet.Size = new System.Drawing.Size(35, 20);
+            this.SwitchChiTiet.TabIndex = 41;
+            this.SwitchChiTiet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.SwitchChiTiet.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.SwitchChiTiet.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.SwitchChiTiet.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.SwitchChiTiet.CheckedChanged += new System.EventHandler(this.SwitchChiTiet_CheckedChanged);
+            // 
             // FormDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 354);
+            this.ClientSize = new System.Drawing.Size(523, 354);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDungDichVu";
@@ -333,6 +343,7 @@ namespace PBNL3
         private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private UserControlChiTietDonHang userControlChiTietDonHang1;
-        private Guna.UI2.WinForms.Guna2Button ButtonXemChiTiet;
+        private System.Windows.Forms.Label labelKhachmoi;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch SwitchChiTiet;
     }
 }
