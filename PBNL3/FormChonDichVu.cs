@@ -32,12 +32,35 @@ namespace PBNL3
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             int selectedDichVu = -1;
-            foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
+            if (SwitchDVmoi.Checked)
+            {
+                using (DBEntities db = new DBEntities())
+                {
+                    LoaiDichVu newDV = new LoaiDichVu();
+                    newDV.MaLoaiDichVu = (db.LoaiDichVus.Max(x => (int?)x.MaLoaiDichVu) ?? 0) + 1;
+                    newDV.TenDichVu = TextBoxTenDV.Text;
+                    newDV.DonGia = Convert.ToDouble(TextBoxDonGia.Text);
+                    newDV.DonVi = TextBoxDonVi.Text.ToUpper();
+                    db.LoaiDichVus.Add(newDV); db.SaveChanges();
+                    selectedDichVu = newDV.MaLoaiDichVu;
+                }
+            }
+            else
+                foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
             {
                 selectedDichVu = Convert.ToInt32(row.Cells["MaLoaiDichVu"].Value);
             }
             GuiDichVuDi?.Invoke(this, selectedDichVu);
             this.Close();
+        }
+
+        private void SwitchDVmoi_CheckedChanged(object sender, EventArgs e)
+        {using (DBEntities db = new DBEntities()) {
+                if (SwitchDVmoi.Checked && db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu != "Quản lý") { SwitchDVmoi.Checked = false; MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này."); }
+                    }
+            if (SwitchDVmoi.Checked) { this.Size = new Size(618, 379);}
+            else { this.Size = new Size(618, 332);}
+            this.CenterToScreen();
         }
     }
 }

@@ -56,8 +56,8 @@ namespace PBNL3
 
         private void SwitchKhachMoi_CheckedChanged(object sender, EventArgs e)
         {
-            if (SwitchKhachMoi.Checked)this.Size = new Size(618, 430);
-            else this.Size = new Size(618, 332);
+            if (SwitchKhachMoi.Checked) { this.Size = new Size(618, 430); labelNgaySinh.Visible = true; }
+            else { this.Size = new Size(618, 332); labelNgaySinh.Visible = false; }
             this.CenterToScreen();
         }
     }

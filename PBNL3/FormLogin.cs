@@ -80,12 +80,12 @@ namespace PBNL3
             }
         }
         private Timer timer = new Timer();
-        bool nah = false;
+        bool nani = false;
         private void timer_Tick(object sender, EventArgs e)
-        {if(nah)
+        {if(nani)
                 guna2ImageButton1.Image = Properties.Resources.Cheems2;
         else guna2ImageButton1.Image = Properties.Resources.Cheems0;
-            nah = !nah;
+            nani = !nani;
         }
 
         private void guna2ImageButton1_MouseDown(object sender, MouseEventArgs e)
