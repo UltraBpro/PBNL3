@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace PBNL3
 {
@@ -207,12 +208,65 @@ namespace PBNL3
         }
         private void cbb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cbbsetmonths.SelectedIndex == 0)
-            {
-                SetText(false);
-            }
-            else { SetText(true); }
+            SetText(cbbsetmonths.SelectedIndex == 0 ? false : true);
         }
+        private void GetPDVDetails(bool type)
+        {
+            try
+            {
+                int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
+                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                FormChiTietThongKe formChiTietThongKe = new FormChiTietThongKe(selectedMonth, selectedYear, type);
+                formChiTietThongKe.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Chọn tháng và năm hợp lệ");
+            }
+        }
+        private void GetBillDetails()
+        {
+            try
+            {
+                DBEntities db = new DBEntities();
+                int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
+                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                var bill = db.DonDatPhongs
+                            .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && (selectedMonth == 0 || d.NgayTra.Value.Month == selectedMonth) && d.NgayTra.Value.Year == selectedYear)
+                            .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p => p.MaDonDatPhong, (d, p) => new { d, p })
+                            .Select(dp => new { dp.d.MaDonDatPhong, dp.p.MaPhong });
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("MaDonDatPhong", typeof(int));
+                dataTable.Columns.Add("MaPhong", typeof(int));
+                foreach (var item in bill)
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["MaDonDatPhong"] = item.MaDonDatPhong;
+                    row["MaPhong"] = item.MaPhong;
+                    dataTable.Rows.Add(row);
+                }
+                FormChonDon formChonDon = new FormChonDon(dataTable);
+                formChonDon.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Chọn tháng và năm hợp lệ");
+            }
+        }
+        private void ButtonPhong_Click(object sender, EventArgs e)
+        {
+            GetPDVDetails(true);
+        }
+
+        private void ButtonDV_Click(object sender, EventArgs e)
+        {
+            GetPDVDetails(false);
+        }
+
+        private void ButtonBill_Click(object sender, EventArgs e)
+        {
+            GetBillDetails();
+        }       
     }
 }
 
