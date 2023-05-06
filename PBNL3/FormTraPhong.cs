@@ -30,11 +30,9 @@ namespace PBNL3
             this.Hide();
             chonPhong.Show();
         }
-        DateTime thoigiantinh;
         private void NhanDSPhongVaTinhTien(object sender, int e)
         {
             ButtonChonPhong.Text = "Mã phòng đã chọn: " + e.ToString() + ".";
-            ButtonXacNhan.Enabled = true;
             using (DBEntities db = new DBEntities())
             {
                 int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
@@ -47,18 +45,13 @@ namespace PBNL3
                   phongdat.MaPhong,
                   don.TinhTrangThanhToan
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
-                userControlChiTietDonHang1.LoadDon(TimDonDatDichVu.MaDonDatPhong);
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
                 var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
                 var PhongDat=db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
-                thoigiantinh = DateTime.Now;
-                int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays+1;
+                DonDat.NgayTra = DateTime.Now;
+                int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays;
                 DonDat.TongTien = songay * PhongDat.GiaPhongDat;
-                TextBoxTienPhong.Text = songay.ToString()+" ngày: "+(songay * PhongDat.GiaPhongDat).ToString();
-                int sodichvu = 0;
-                foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;sodichvu++; }
-                DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien;db.SaveChanges();
-                TextBoxTienDV.Text = sodichvu.ToString()+" dịch vụ: "+(DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
+                foreach (ChiTietDichVuDat DVSD in DSDichVuSD) DonDat.TongTien += DVSD.GiaDichVuDat*DVSD.SoLuong;
                 guna2TextBox1.Text = DonDat.TongTien.ToString();
             }
         }
@@ -77,7 +70,6 @@ namespace PBNL3
                   don.TinhTrangThanhToan
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
-                DonDat.NgayTra = thoigiantinh;
                 DonDat.TinhTrangThanhToan = "Đã thanh toán";db.SaveChanges();
                 db.Phongs.Find(phongduochon).TinhTrang = "Trống"; db.SaveChanges();
                 this.Close();
@@ -87,6 +79,7 @@ namespace PBNL3
         {
             this.Show();
         }
+
 
     }
 }
