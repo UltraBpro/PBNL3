@@ -15,6 +15,7 @@ namespace PBNL3
         public FormDatPhong(int? MaPhong=null)
         {
             InitializeComponent();
+            guna2DateTimePicker1.Value = DateTime.Now;
             if (MaPhong != null)
             {
                 ButtonChonPhong.Enabled = false;
@@ -71,10 +72,12 @@ namespace PBNL3
         private void NhanDSKhach(object sender, int e)
         {
             ButtonChonKhach.Text = "Mã khách đã chọn: " + e.ToString()+".";
+            if (ButtonChonKhach.Text != "Chọn khách" && ButtonChonPhong.Text != "Chọn phòng") ButtonXacNhan.Enabled = true;
         }
         private void NhanDSPhong(object sender, int e)
         {
             ButtonChonPhong.Text = "Mã phòng đã chọn: "+e.ToString() + ".";
+            if (ButtonChonKhach.Text != "Chọn khách" && ButtonChonPhong.Text != "Chọn phòng") ButtonXacNhan.Enabled = true;
         }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {

@@ -33,6 +33,8 @@ namespace PBNL3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ButtonXemChiTiet = new Guna.UI2.WinForms.Guna2Button();
+            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ButtonThemDichVu = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,6 +52,8 @@ namespace PBNL3
             // 
             // guna2GradientPanel1
             // 
+            this.guna2GradientPanel1.Controls.Add(this.ButtonXemChiTiet);
+            this.guna2GradientPanel1.Controls.Add(this.userControlChiTietDonHang1);
             this.guna2GradientPanel1.Controls.Add(this.guna2DataGridView1);
             this.guna2GradientPanel1.Controls.Add(this.ButtonThemDichVu);
             this.guna2GradientPanel1.Controls.Add(this.label3);
@@ -66,8 +70,37 @@ namespace PBNL3
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(530, 355);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(526, 354);
             this.guna2GradientPanel1.TabIndex = 24;
+            // 
+            // ButtonXemChiTiet
+            // 
+            this.ButtonXemChiTiet.Animated = true;
+            this.ButtonXemChiTiet.AutoRoundedCorners = true;
+            this.ButtonXemChiTiet.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonXemChiTiet.BorderRadius = 13;
+            this.ButtonXemChiTiet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXemChiTiet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXemChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonXemChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonXemChiTiet.Enabled = false;
+            this.ButtonXemChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonXemChiTiet.ForeColor = System.Drawing.Color.White;
+            this.ButtonXemChiTiet.Location = new System.Drawing.Point(348, 12);
+            this.ButtonXemChiTiet.Name = "ButtonXemChiTiet";
+            this.ButtonXemChiTiet.Size = new System.Drawing.Size(121, 29);
+            this.ButtonXemChiTiet.TabIndex = 41;
+            this.ButtonXemChiTiet.Text = "Xem chi tiết đơn";
+            this.ButtonXemChiTiet.Click += new System.EventHandler(this.ButtonXemChiTiet_Click);
+            // 
+            // userControlChiTietDonHang1
+            // 
+            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
+            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(535, 12);
+            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
+            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
+            this.userControlChiTietDonHang1.TabIndex = 40;
+            this.userControlChiTietDonHang1.Visible = false;
             // 
             // guna2DataGridView1
             // 
@@ -204,7 +237,7 @@ namespace PBNL3
             this.ButtonChonPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonChonPhong.Location = new System.Drawing.Point(94, 12);
             this.ButtonChonPhong.Name = "ButtonChonPhong";
-            this.ButtonChonPhong.Size = new System.Drawing.Size(375, 29);
+            this.ButtonChonPhong.Size = new System.Drawing.Size(248, 29);
             this.ButtonChonPhong.TabIndex = 33;
             this.ButtonChonPhong.Text = "Chọn phòng";
             this.ButtonChonPhong.Click += new System.EventHandler(this.ButtonChonPhong_Click);
@@ -248,6 +281,7 @@ namespace PBNL3
             this.ButtonXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.ButtonXacNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonXacNhan.Enabled = false;
             this.ButtonXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonXacNhan.ForeColor = System.Drawing.Color.White;
             this.ButtonXacNhan.Location = new System.Drawing.Point(338, 302);
@@ -271,11 +305,12 @@ namespace PBNL3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 355);
+            this.ClientSize = new System.Drawing.Size(526, 354);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDungDichVu";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDungDichVu";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
@@ -297,5 +332,7 @@ namespace PBNL3
         private System.Windows.Forms.Label labelDonVi;
         private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private UserControlChiTietDonHang userControlChiTietDonHang1;
+        private Guna.UI2.WinForms.Guna2Button ButtonXemChiTiet;
     }
 }

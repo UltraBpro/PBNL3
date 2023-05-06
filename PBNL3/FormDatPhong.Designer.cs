@@ -147,6 +147,7 @@ namespace PBNL3
             this.ButtonXacNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonXacNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.ButtonXacNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonXacNhan.Enabled = false;
             this.ButtonXacNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonXacNhan.ForeColor = System.Drawing.Color.White;
             this.ButtonXacNhan.Location = new System.Drawing.Point(272, 120);
@@ -172,9 +173,10 @@ namespace PBNL3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 170);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDatPhong";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDatPhong";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             this.ResumeLayout(false);
