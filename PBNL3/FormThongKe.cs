@@ -204,7 +204,6 @@ namespace PBNL3
             }
             AddNewSeries("DTDV", dataDTDV);
             cbbsetmonths.Enabled = true;
-
         }
         private void cbb_SelectionChangeCommitted(object sender, EventArgs e)
         {

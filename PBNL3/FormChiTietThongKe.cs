@@ -23,7 +23,7 @@ namespace PBNL3
             using (DBEntities db = new DBEntities())
             {
                 if (type)
-                {
+                {                   
                     labeTitle.Text = "Chi tiết phòng: ";
                     var p = db.DonDatPhongs
                                         .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && (selectedMonth == 0 || d.NgayTra.Value.Month == selectedMonth) && d.NgayTra.Value.Year == selectedYear)
@@ -38,7 +38,7 @@ namespace PBNL3
                                             Tang = g.FirstOrDefault().dp2.p2.Tang,
                                             ThuTu = g.FirstOrDefault().dp2.p2.ThuTu,
                                             GiaPhongDat = g.FirstOrDefault().dp2.dp1.p1.GiaPhongDat,                                              
-                                        }).ToList();
+                                        });
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("Mã phòng", typeof(int));
                     dataTable.Columns.Add("Tên loại phòng", typeof(string));
