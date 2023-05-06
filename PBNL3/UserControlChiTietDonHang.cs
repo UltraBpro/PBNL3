@@ -42,21 +42,23 @@ namespace PBNL3
                 labelMaKhach.Text = "Mã khách: " + Khach.MaKhach;labelTenKhach.Text = "Họ và tên: " + Khach.TenKhach;labelGioiTinhKhach.Text = "Giới tính: " + Khach.GioiTinh;
                 labelNgaySinhKhach.Text = "Ngày sinh: " + Khach.NgaySinh.Date;labelSDTKhach.Text = "SDT: " + Khach.SoDienThoai;
                 labelNgayNhan.Text = "Ngày nhận: "+Don.NgayDat;labelMaNVDat.Text = "Mã nhân viên đặt            : " + NhanVienDat.MaNhanVien;
-                labelTenNVDat.Text = "Họ và tên: "+NhanVienDat.TenNhanVien;labelGTNVDat.Text = "Giới tính: "+NhanVienDat.GioiTinh;labelChucVuNVDat.Text = "Chức vụ: "+NhanVienDat.ChucVu;
-                int songay = (int)DateTime.Now.Subtract(Don.NgayDat).TotalDays + 1;
-                Don.TongTien = songay * PhongDat.GiaPhongDat;
-                foreach (ChiTietDichVuDat DVSD in DSDichVu) Don.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;
-                db.SaveChanges();
+                labelTenNVDat.Text = "Họ và tên: "+NhanVienDat.TenNhanVien;labelGTNVDat.Text = "Giới tính: "+NhanVienDat.GioiTinh;labelChucVuNVDat.Text = "Chức vụ: "+NhanVienDat.ChucVu;                
                 if (Don.NgayTra != null)
                 {
                     var NhanVienThanhToan = db.NhanViens.Find(Don.MaNhanVienThanhToan);
                     labelNgayTra.Text = "Ngày trả    : " + Don.NgayTra; labelMaNVThanhToan.Text = "Mã nhân viên thanh toán: " + NhanVienThanhToan.MaNhanVien;
                     labelTenNVThanhToan.Text = "Họ và tên: " + NhanVienThanhToan.TenNhanVien; labelGTNVThanhToan.Text = "Giới tính: "+NhanVienThanhToan.GioiTinh; labelChucVuNVThanhToan.Text = "Chức vụ: " + NhanVienThanhToan.ChucVu;
+                    labelTongTien.Text = "Tổng tiền: " + Don.TongTien;
                 }
                 else
                 {
                     labelNgayTra.Text = "Ngày trả    : "; labelMaNVThanhToan.Text = "Mã nhân viên thanh toán: ";
                     labelTenNVThanhToan.Text = "Họ và tên: "; labelGTNVThanhToan.Text = "Giới tính: "; labelChucVuNVThanhToan.Text = "Chức vụ: ";
+                    int songay = (int)DateTime.Now.Subtract(Don.NgayDat).TotalDays + 1;
+                    Don.TongTien = songay * PhongDat.GiaPhongDat;
+                    foreach (ChiTietDichVuDat DVSD in DSDichVu) Don.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;
+                    db.SaveChanges();
+                    labelTongTien.Text = "Tổng tiền: "+Don.TongTien;
                 }
                 labelTinhTrangTToan.Text= "Tình trạng thanh toán: "+Don.TinhTrangThanhToan;
                 foreach(ChiTietDichVuDat DVvaSL in DSDichVu) {

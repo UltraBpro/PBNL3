@@ -14,13 +14,11 @@ namespace PBNL3
     {
         public FormChonDon()
         {
-            InitializeComponent();       
-           
+            InitializeComponent();
                 using (DBEntities db = new DBEntities())
                 {
                     guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
                 }
-            
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
@@ -30,7 +28,7 @@ namespace PBNL3
 
         private void guna2DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            try { userControlChiTietDonHang1.LoadDon(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells[0].Value)); }
+            try { userControlChiTietDonHang1.LoadDon(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaDonDatPhong"].Value)); }
             catch { }
         }
     }
