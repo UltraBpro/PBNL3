@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +18,27 @@ namespace PBNL3
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private Form currentChildForm;
         public FormManHinhChinh(int MaTaiKhoan)
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 40);
+            leftBorderBtn.Size = new Size(7, 60);
             panel2.Controls.Add(leftBorderBtn);
-            OpenChildForm();
             LoadNhanVien(MaTaiKhoan);
-            timer.Interval = 500;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+        }
+        private struct RGBColors
+        {
+            public static Color color1 = Color.FromArgb(172, 126, 241);
+            public static Color color2 = Color.FromArgb(249, 118, 176);
+            public static Color color3 = Color.FromArgb(253, 138, 114);
+            //public static Color color4 = Color.FromArgb(95, 77, 221);
+            //public static Color color5 = Color.FromArgb(249, 88, 155);
+            //public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -65,9 +73,13 @@ namespace PBNL3
             }
         }
 
-        private void OpenChildForm()
+        private void OpenChildForm(Form childForm)
         {
-            FormSoDoPhong childForm = new FormSoDoPhong();
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -75,28 +87,36 @@ namespace PBNL3
             panel4.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+            label2.Text = childForm.Text;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(172, 126, 241));
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormSoDoPhong());
             iconPictureBox1.IconChar = iconButton1.IconChar;
-            labelTrangThai.Text = iconButton1.Text;
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(249, 118, 176));
-            iconPictureBox1.IconChar = iconButton2.IconChar;
-            labelTrangThai.Text = iconButton2.Text;
+            ActivateButton(sender, RGBColors.color2);
         }
 
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(253, 138, 114));
-            iconPictureBox1.IconChar = iconButton3.IconChar;
-            labelTrangThai.Text = iconButton3.Text;
+            ActivateButton(sender, RGBColors.color3);
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
         private void iconButton6_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
@@ -115,34 +135,24 @@ namespace PBNL3
             Application.Exit();
         }
 
-
-        // Đoạn sau được viết bởi thằng l*n Tuấn
-        private Timer timer = new Timer();
-        bool nah = false;
-        private void timer_Tick(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (nah)
-                guna2ImageButton1.Image = Properties.Resources.Cheems2;
-            else guna2ImageButton1.Image = Properties.Resources.Cheems0;
-            nah = !nah;
-        }
-        private void guna2ImageButton1_MouseDown(object sender, EventArgs e)
-        {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
-            player.Play();
-            labelTrangThai.Text = "Trang chủ";
+            currentChildForm.Close();
+            ResetMouseEventArgs();
+            label2.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
-            DisableButton(); leftBorderBtn.Visible = false;
         }
+        // Đoạn sau được viết bởi thằng l*n Tuấn
         private void LoadNhanVien(int MaTaiKhoan)
         {
             using (DBEntities db = new DBEntities())
             {
-                var NV = db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
+                var TK = db.TaiKhoans.Find(MaTaiKhoan);
+                var NV = db.NhanViens.Find(TK.MaNhanVien);
                 NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
                 labelMaNV.Text = NV.MaNhanVien.ToString();
                 labelTenNV.Text = NV.TenNhanVien;
-                labelChucVu.Text = NV.ChucVu;if (NV.ChucVu == "Admin") quảnLýToolStripMenuItem.Enabled = true;
+                labelChucVu.Text = NV.ChucVu;
             }
         }
         private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -161,6 +171,7 @@ namespace PBNL3
             DungDichVu.FormClosed += FormHoiSinh;
         }
 
+
         private void TraPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormTraPhong TraPhong = new FormTraPhong();
@@ -172,78 +183,34 @@ namespace PBNL3
 
         private void DSKhachToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormChonKhach DSKhach = new FormChonKhach();
-            DSKhach.Show();
+            FormChonKhach TraPhong = new FormChonKhach();
+            TraPhong.Show();
             this.Enabled = false;
-            DSKhach.FormClosed += FormHoiSinh;
+            TraPhong.FormClosed += FormHoiSinh;
         }
 
         private void DSPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormChonPhong DSPhong = new FormChonPhong("LietKe");
-            DSPhong.Show();
+            FormChonPhong TraPhong = new FormChonPhong("LietKe");
+            TraPhong.Show();
             this.Enabled = false;
-            DSPhong.FormClosed += FormHoiSinh;
+            TraPhong.FormClosed += FormHoiSinh;
         }
-        private void DanhSachDVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormChonDichVu DSDichVu = new FormChonDichVu();
-            DSDichVu.Show();
-            this.Enabled = false;
-            DSDichVu.FormClosed += FormHoiSinh;
-        }
-
-        private void LogOutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            File.Delete("LoginInfo.txt");
-            FormLogin LoginLai = new FormLogin();
-            LoginLai.Show();
-            this.Close();
-        }
-
-        private void DoiMKToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormDoiMK doiMK = new FormDoiMK();
-            doiMK.Show();
-            this.Enabled = false;
-            doiMK.FormClosed += FormHoiSinh;
-        }
-
-
-        private void DSDonToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormChonDon ListDon = new FormChonDon();
-            ListDon.Show();
-            this.Enabled = false;
-            ListDon.FormClosed += FormHoiSinh;
-        }
-
-        private void QuanLyNVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormChonNhanVien ListNV = new FormChonNhanVien();
-            ListNV.Show();
-            this.Enabled = false;
-            ListNV.FormClosed += FormHoiSinh;
-        }
-        public void FormHoiSinh(object sender, FormClosedEventArgs e)
+        private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Enabled = true;
             this.Focus();
         }
 
-        private void thốngKêToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FormThongKe childForm = new FormThongKe();
-            childForm.Dock = DockStyle.Fill;
-            panel4.Controls.Add(childForm);
-            panel4.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien
     {
         public static int MaNhanVien { get; set; }
+        static NhanVienThucHien()
+        {
+            // Tạm thời 
+            MaNhanVien = -1;
+        }
     }
 }

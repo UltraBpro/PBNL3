@@ -14,8 +14,7 @@ namespace PBNL3
     {
         public FormChonDon()
         {
-            InitializeComponent();
-            
+            InitializeComponent();       
            
                 using (DBEntities db = new DBEntities())
                 {
