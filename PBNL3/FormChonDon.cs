@@ -14,11 +14,13 @@ namespace PBNL3
     {
         public FormChonDon()
         {
-            InitializeComponent();
-            using (DBEntities db = new DBEntities())
-            {
-                guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
-            }
+            InitializeComponent();       
+           
+                using (DBEntities db = new DBEntities())
+                {
+                    guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
+                }
+            
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
