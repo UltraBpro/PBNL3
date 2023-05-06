@@ -243,9 +243,7 @@ namespace PBNL3
                     row["MaDonDatPhong"] = item.MaDonDatPhong;
                     row["MaPhong"] = item.MaPhong;
                     dataTable.Rows.Add(row);
-                }
-                FormChonDon formChonDon = new FormChonDon(dataTable);
-                formChonDon.ShowDialog();
+                }                              
             }
             catch
             {
