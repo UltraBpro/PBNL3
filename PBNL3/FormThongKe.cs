@@ -227,6 +227,7 @@ namespace PBNL3
         {
             try
             {
+                //:D
                 DBEntities db = new DBEntities();
                 int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
                 int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
