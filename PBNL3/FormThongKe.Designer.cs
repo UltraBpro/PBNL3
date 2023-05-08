@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.BillCount = new System.Windows.Forms.Label();
@@ -44,7 +44,6 @@
             this.moneyDV = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ButtonDV = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.moneyP = new System.Windows.Forms.Label();
             this.ButtonPhong = new Guna.UI2.WinForms.Guna2Button();
@@ -53,13 +52,14 @@
             this.cbbsetmonths = new Guna.UI2.WinForms.Guna2ComboBox();
             this.chartBDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartBDD = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GradientPanel5.SuspendLayout();
             this.guna2GradientPanel4.SuspendLayout();
-            this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDD)).BeginInit();
+            this.guna2GradientPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -68,11 +68,14 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel4);
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel3);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.DarkCyan;
             this.guna2GradientPanel1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1300, 641);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(975, 521);
             this.guna2GradientPanel1.TabIndex = 1;
             // 
             // guna2GradientPanel5
@@ -81,31 +84,35 @@
             this.guna2GradientPanel5.Controls.Add(this.BillCount);
             this.guna2GradientPanel5.Controls.Add(this.label5);
             this.guna2GradientPanel5.Controls.Add(this.ButtonBill);
-            this.guna2GradientPanel5.Location = new System.Drawing.Point(930, 10);
+            this.guna2GradientPanel5.Location = new System.Drawing.Point(698, 8);
+            this.guna2GradientPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel5.Name = "guna2GradientPanel5";
-            this.guna2GradientPanel5.Size = new System.Drawing.Size(320, 150);
+            this.guna2GradientPanel5.Size = new System.Drawing.Size(240, 122);
             this.guna2GradientPanel5.TabIndex = 2;
             // 
             // BillCount
             // 
             this.BillCount.AutoSize = true;
+            this.BillCount.BackColor = System.Drawing.Color.Transparent;
             this.BillCount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillCount.ForeColor = System.Drawing.Color.White;
-            this.BillCount.Location = new System.Drawing.Point(30, 100);
+            this.BillCount.Location = new System.Drawing.Point(22, 81);
+            this.BillCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BillCount.Name = "BillCount";
-            this.BillCount.Size = new System.Drawing.Size(27, 31);
+            this.BillCount.Size = new System.Drawing.Size(23, 25);
             this.BillCount.TabIndex = 3;
             this.BillCount.Text = "0";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Red;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(30, 20);
+            this.label5.Location = new System.Drawing.Point(22, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(197, 31);
+            this.label5.Size = new System.Drawing.Size(160, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = " Số đơn được đặt ";
             // 
@@ -120,8 +127,9 @@
             this.ButtonBill.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonBill.ForeColor = System.Drawing.Color.White;
             this.ButtonBill.Location = new System.Drawing.Point(0, 0);
+            this.ButtonBill.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonBill.Name = "ButtonBill";
-            this.ButtonBill.Size = new System.Drawing.Size(320, 150);
+            this.ButtonBill.Size = new System.Drawing.Size(240, 122);
             this.ButtonBill.TabIndex = 5;
             this.ButtonBill.Click += new System.EventHandler(this.ButtonBill_Click);
             // 
@@ -131,31 +139,35 @@
             this.guna2GradientPanel4.Controls.Add(this.moneyDV);
             this.guna2GradientPanel4.Controls.Add(this.label3);
             this.guna2GradientPanel4.Controls.Add(this.ButtonDV);
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(500, 10);
+            this.guna2GradientPanel4.Location = new System.Drawing.Point(375, 8);
+            this.guna2GradientPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(320, 150);
+            this.guna2GradientPanel4.Size = new System.Drawing.Size(240, 122);
             this.guna2GradientPanel4.TabIndex = 1;
             // 
             // moneyDV
             // 
             this.moneyDV.AutoSize = true;
+            this.moneyDV.BackColor = System.Drawing.Color.Transparent;
             this.moneyDV.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moneyDV.ForeColor = System.Drawing.Color.White;
-            this.moneyDV.Location = new System.Drawing.Point(30, 100);
+            this.moneyDV.Location = new System.Drawing.Point(22, 81);
+            this.moneyDV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.moneyDV.Name = "moneyDV";
-            this.moneyDV.Size = new System.Drawing.Size(33, 31);
+            this.moneyDV.Size = new System.Drawing.Size(28, 25);
             this.moneyDV.TabIndex = 2;
             this.moneyDV.Text = "0 ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(30, 20);
+            this.label3.Location = new System.Drawing.Point(22, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 31);
+            this.label3.Size = new System.Drawing.Size(177, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Doanh thu dịch vụ  ";
             // 
@@ -170,50 +182,44 @@
             this.ButtonDV.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonDV.ForeColor = System.Drawing.Color.White;
             this.ButtonDV.Location = new System.Drawing.Point(0, 0);
+            this.ButtonDV.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonDV.Name = "ButtonDV";
-            this.ButtonDV.Size = new System.Drawing.Size(320, 150);
+            this.ButtonDV.Size = new System.Drawing.Size(240, 122);
             this.ButtonDV.TabIndex = 3;
             this.ButtonDV.Click += new System.EventHandler(this.ButtonDV_Click);
-            // 
-            // guna2GradientPanel3
-            // 
-            this.guna2GradientPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2GradientPanel3.Controls.Add(this.label1);
-            this.guna2GradientPanel3.Controls.Add(this.moneyP);
-            this.guna2GradientPanel3.Controls.Add(this.ButtonPhong);
-            this.guna2GradientPanel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(50, 10);
-            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(320, 150);
-            this.guna2GradientPanel3.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(30, 20);
+            this.label1.Location = new System.Drawing.Point(22, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 31);
+            this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Doanh thu phòng ";
             // 
             // moneyP
             // 
             this.moneyP.AutoSize = true;
+            this.moneyP.BackColor = System.Drawing.Color.Transparent;
             this.moneyP.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moneyP.ForeColor = System.Drawing.Color.White;
-            this.moneyP.Location = new System.Drawing.Point(30, 100);
+            this.moneyP.Location = new System.Drawing.Point(22, 81);
+            this.moneyP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.moneyP.Name = "moneyP";
-            this.moneyP.Size = new System.Drawing.Size(33, 31);
+            this.moneyP.Size = new System.Drawing.Size(28, 25);
             this.moneyP.TabIndex = 1;
             this.moneyP.Text = "0 ";
             // 
             // ButtonPhong
             // 
             this.ButtonPhong.Animated = true;
+            this.ButtonPhong.AutoRoundedCorners = true;
             this.ButtonPhong.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonPhong.BorderRadius = 60;
             this.ButtonPhong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.ButtonPhong.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ButtonPhong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -222,9 +228,11 @@
             this.ButtonPhong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ButtonPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonPhong.Location = new System.Drawing.Point(0, 0);
+            this.ButtonPhong.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonPhong.Name = "ButtonPhong";
-            this.ButtonPhong.Size = new System.Drawing.Size(320, 150);
+            this.ButtonPhong.Size = new System.Drawing.Size(240, 122);
             this.ButtonPhong.TabIndex = 2;
+            this.ButtonPhong.UseTransparentBackground = true;
             this.ButtonPhong.Click += new System.EventHandler(this.ButtonPhong_Click);
             // 
             // guna2GradientPanel2
@@ -233,9 +241,10 @@
             this.guna2GradientPanel2.Controls.Add(this.cbbsetmonths);
             this.guna2GradientPanel2.Controls.Add(this.chartBDT);
             this.guna2GradientPanel2.Controls.Add(this.chartBDD);
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 178);
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 145);
+            this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(1300, 463);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(975, 376);
             this.guna2GradientPanel2.TabIndex = 2;
             // 
             // cbbsetyears
@@ -248,9 +257,10 @@
             this.cbbsetyears.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbsetyears.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbsetyears.ItemHeight = 30;
-            this.cbbsetyears.Location = new System.Drawing.Point(456, 15);
+            this.cbbsetyears.Location = new System.Drawing.Point(342, 12);
+            this.cbbsetyears.Margin = new System.Windows.Forms.Padding(2);
             this.cbbsetyears.Name = "cbbsetyears";
-            this.cbbsetyears.Size = new System.Drawing.Size(841, 36);
+            this.cbbsetyears.Size = new System.Drawing.Size(632, 36);
             this.cbbsetyears.TabIndex = 6;
             this.cbbsetyears.SelectionChangeCommitted += new System.EventHandler(this.cbb_SelectionChangeCommitted);
             // 
@@ -265,61 +275,78 @@
             this.cbbsetmonths.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbsetmonths.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbbsetmonths.ItemHeight = 30;
-            this.cbbsetmonths.Location = new System.Drawing.Point(0, 16);
+            this.cbbsetmonths.Location = new System.Drawing.Point(0, 13);
+            this.cbbsetmonths.Margin = new System.Windows.Forms.Padding(2);
             this.cbbsetmonths.Name = "cbbsetmonths";
-            this.cbbsetmonths.Size = new System.Drawing.Size(450, 36);
+            this.cbbsetmonths.Size = new System.Drawing.Size(338, 36);
             this.cbbsetmonths.TabIndex = 5;
             this.cbbsetmonths.SelectionChangeCommitted += new System.EventHandler(this.cbb_SelectionChangeCommitted);
             // 
             // chartBDT
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartBDT.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartBDT.Legends.Add(legend1);
-            this.chartBDT.Location = new System.Drawing.Point(0, 58);
+            chartArea7.Name = "ChartArea1";
+            this.chartBDT.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chartBDT.Legends.Add(legend7);
+            this.chartBDT.Location = new System.Drawing.Point(0, 47);
+            this.chartBDT.Margin = new System.Windows.Forms.Padding(2);
             this.chartBDT.Name = "chartBDT";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.LegendText = "Doanh thu phòng\\n";
-            series1.Name = "DTP";
-            this.chartBDT.Series.Add(series1);
-            this.chartBDT.Size = new System.Drawing.Size(450, 402);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series10.Legend = "Legend1";
+            series10.LegendText = "Doanh thu phòng\\n";
+            series10.Name = "DTP";
+            this.chartBDT.Series.Add(series10);
+            this.chartBDT.Size = new System.Drawing.Size(338, 327);
             this.chartBDT.TabIndex = 4;
             this.chartBDT.Text = "chart1";
             // 
             // chartBDD
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartBDD.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartBDD.Legends.Add(legend2);
-            this.chartBDD.Location = new System.Drawing.Point(456, 58);
+            chartArea8.Name = "ChartArea1";
+            this.chartBDD.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.chartBDD.Legends.Add(legend8);
+            this.chartBDD.Location = new System.Drawing.Point(342, 47);
+            this.chartBDD.Margin = new System.Windows.Forms.Padding(2);
             this.chartBDD.Name = "chartBDD";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series2.Legend = "Legend1";
-            series2.LegendText = "Doanh thu phòng\\n";
-            series2.Name = "DTP";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.LegendText = "Doanh thu DV";
-            series3.Name = "DTDV";
-            this.chartBDD.Series.Add(series2);
-            this.chartBDD.Series.Add(series3);
-            this.chartBDD.Size = new System.Drawing.Size(841, 402);
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series11.Legend = "Legend1";
+            series11.LegendText = "Doanh thu phòng\\n";
+            series11.Name = "DTP";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series12.Legend = "Legend1";
+            series12.LegendText = "Doanh thu DV";
+            series12.Name = "DTDV";
+            this.chartBDD.Series.Add(series11);
+            this.chartBDD.Series.Add(series12);
+            this.chartBDD.Size = new System.Drawing.Size(631, 327);
             this.chartBDD.TabIndex = 3;
             this.chartBDD.Text = "chart2";
             // 
+            // guna2GradientPanel3
+            // 
+            this.guna2GradientPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2GradientPanel3.Controls.Add(this.label1);
+            this.guna2GradientPanel3.Controls.Add(this.moneyP);
+            this.guna2GradientPanel3.Controls.Add(this.ButtonPhong);
+            this.guna2GradientPanel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(44, 11);
+            this.guna2GradientPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(240, 122);
+            this.guna2GradientPanel3.TabIndex = 0;
+            // 
             // FormThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 641);
+            this.ClientSize = new System.Drawing.Size(975, 521);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormThongKe";
@@ -328,11 +355,11 @@
             this.guna2GradientPanel5.PerformLayout();
             this.guna2GradientPanel4.ResumeLayout(false);
             this.guna2GradientPanel4.PerformLayout();
-            this.guna2GradientPanel3.ResumeLayout(false);
-            this.guna2GradientPanel3.PerformLayout();
             this.guna2GradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartBDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDD)).EndInit();
+            this.guna2GradientPanel3.ResumeLayout(false);
+            this.guna2GradientPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,7 +375,6 @@
         private System.Windows.Forms.Label moneyDV;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button ButtonDV;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label moneyP;
         private Guna.UI2.WinForms.Guna2Button ButtonPhong;
@@ -357,5 +383,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbsetmonths;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBDT;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBDD;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
     }
 }

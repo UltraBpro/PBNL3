@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -24,7 +19,7 @@ namespace PBNL3
             int selectedPhong = -1;
             foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
             {
-                selectedPhong=Convert.ToInt32(row.Cells["MaPhong"].Value);
+                selectedPhong = Convert.ToInt32(row.Cells["MaPhong"].Value);
             }
             GuiPhongDi?.Invoke(this, selectedPhong);
             this.Close();
@@ -32,30 +27,33 @@ namespace PBNL3
         private void LoadForm(string kieuload)
         {
             using (DBEntities db = new DBEntities())
-            { var DSPhong = db.Phongs
-                    .Join(db.LoaiPhongs,
-              phong => phong.MaLoaiPhong,
-              loaiPhong => loaiPhong.MaLoaiPhong,
-              (phong, loaiPhong) => new {
-                  phong.MaPhong,
-                  loaiPhong.TenLoaiPhong,
-                  loaiPhong.DienTich,
-                  loaiPhong.SoGiuong,
-                  loaiPhong.GiaTien,
-                  phong.TinhTrang,
-                  phong.Tang,
-                  phong.ThuTu
-              })
-            .Select(p => new {
-                p.MaPhong,
-                p.TinhTrang,
-                p.Tang,
-                p.ThuTu,
-                p.TenLoaiPhong,
-                p.DienTich,
-                p.SoGiuong,
-                p.GiaTien
-            });
+            {
+                var DSPhong = db.Phongs
+                      .Join(db.LoaiPhongs,
+                phong => phong.MaLoaiPhong,
+                loaiPhong => loaiPhong.MaLoaiPhong,
+                (phong, loaiPhong) => new
+                {
+                    phong.MaPhong,
+                    loaiPhong.TenLoaiPhong,
+                    loaiPhong.DienTich,
+                    loaiPhong.SoGiuong,
+                    loaiPhong.GiaTien,
+                    phong.TinhTrang,
+                    phong.Tang,
+                    phong.ThuTu
+                })
+              .Select(p => new
+              {
+                  p.MaPhong,
+                  p.TinhTrang,
+                  p.Tang,
+                  p.ThuTu,
+                  p.TenLoaiPhong,
+                  p.DienTich,
+                  p.SoGiuong,
+                  p.GiaTien
+              });
                 switch (kieuload)
                 {
                     case "DatPhong":
@@ -68,7 +66,7 @@ namespace PBNL3
                         guna2DataGridView1.DataSource = DSPhong.ToList();
                         break;
                 }
-                
+
             }
         }
     }

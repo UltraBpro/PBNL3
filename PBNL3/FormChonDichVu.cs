@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -47,19 +43,21 @@ namespace PBNL3
             }
             else
                 foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
-            {
-                selectedDichVu = Convert.ToInt32(row.Cells["MaLoaiDichVu"].Value);
-            }
+                {
+                    selectedDichVu = Convert.ToInt32(row.Cells["MaLoaiDichVu"].Value);
+                }
             GuiDichVuDi?.Invoke(this, selectedDichVu);
             this.Close();
         }
 
         private void SwitchDVmoi_CheckedChanged(object sender, EventArgs e)
-        {using (DBEntities db = new DBEntities()) {
+        {
+            using (DBEntities db = new DBEntities())
+            {
                 if (SwitchDVmoi.Checked && db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu != "Quản lý") { SwitchDVmoi.Checked = false; MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này."); }
-                    }
-            if (SwitchDVmoi.Checked) { this.Size = new Size(618, 379);}
-            else { this.Size = new Size(618, 332);}
+            }
+            if (SwitchDVmoi.Checked) { this.Size = new Size(618, 379); }
+            else { this.Size = new Size(618, 332); }
             this.CenterToScreen();
         }
     }

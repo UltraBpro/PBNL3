@@ -55,7 +55,7 @@ namespace PBNL3
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(469, 218);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(469, 204);
             this.guna2GradientPanel1.TabIndex = 24;
             // 
             // TextBoxMKMoi
@@ -184,7 +184,7 @@ namespace PBNL3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 218);
+            this.ClientSize = new System.Drawing.Size(469, 204);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDoiMK";

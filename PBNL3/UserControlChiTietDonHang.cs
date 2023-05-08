@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
 {
     public partial class UserControlChiTietDonHang : UserControl
     {
-        DataTable dt=new DataTable();
+        DataTable dt = new DataTable();
         public UserControlChiTietDonHang()
         {
             InitializeComponent();
@@ -28,26 +23,26 @@ namespace PBNL3
         {
             dt.Clear();
             labelMaDon.Text = "Chi tiết đơn: " + MaDon;
-            using(DBEntities db=new DBEntities())
+            using (DBEntities db = new DBEntities())
             {
-                var Don=db.DonDatPhongs.Find(MaDon);
+                var Don = db.DonDatPhongs.Find(MaDon);
                 var DSDichVu = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == MaDon);
                 var PhongDat = db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == MaDon).FirstOrDefault();
                 var Phong = db.Phongs.Find(PhongDat.MaPhong);
                 var LoaiPhong = db.LoaiPhongs.Find(Phong.MaLoaiPhong);
                 var Khach = db.Khaches.Find(Don.MaKhach);
                 var NhanVienDat = db.NhanViens.Find(Don.MaNhanVienThucHien);
-                labelMaPhong.Text = "Mã phòng: "+Phong.MaPhong;labelTenLoaiPhong.Text = "Loại phòng: " + LoaiPhong.TenLoaiPhong;
-                labelTang.Text = "Tầng: " + Phong.Tang;labelThuTu.Text = "Thứ tự: " + Phong.ThuTu;labelGiaPhong.Text = PhongDat.GiaPhongDat.ToString();
-                labelMaKhach.Text = "Mã khách: " + Khach.MaKhach;labelTenKhach.Text = "Họ và tên: " + Khach.TenKhach;labelGioiTinhKhach.Text = "Giới tính: " + Khach.GioiTinh;
-                labelNgaySinhKhach.Text = "Ngày sinh: " + Khach.NgaySinh.Date;labelSDTKhach.Text = "SDT: " + Khach.SoDienThoai;
-                labelNgayNhan.Text = "Ngày nhận: "+Don.NgayDat;labelMaNVDat.Text = "Mã nhân viên đặt            : " + NhanVienDat.MaNhanVien;
-                labelTenNVDat.Text = "Họ và tên: "+NhanVienDat.TenNhanVien;labelGTNVDat.Text = "Giới tính: "+NhanVienDat.GioiTinh;labelChucVuNVDat.Text = "Chức vụ: "+NhanVienDat.ChucVu;                
+                labelMaPhong.Text = "Mã phòng: " + Phong.MaPhong; labelTenLoaiPhong.Text = "Loại phòng: " + LoaiPhong.TenLoaiPhong;
+                labelTang.Text = "Tầng: " + Phong.Tang; labelThuTu.Text = "Thứ tự: " + Phong.ThuTu; labelGiaPhong.Text = "Giá/Ngày: " + PhongDat.GiaPhongDat;
+                labelMaKhach.Text = "Mã khách: " + Khach.MaKhach; labelTenKhach.Text = "Họ và tên: " + Khach.TenKhach; labelGioiTinhKhach.Text = "Giới tính: " + Khach.GioiTinh;
+                labelNgaySinhKhach.Text = "Ngày sinh: " + Khach.NgaySinh.Date; labelSDTKhach.Text = "SDT: " + Khach.SoDienThoai;
+                labelNgayNhan.Text = "Ngày nhận: " + Don.NgayDat; labelMaNVDat.Text = "Mã nhân viên đặt            : " + NhanVienDat.MaNhanVien;
+                labelTenNVDat.Text = "Họ và tên: " + NhanVienDat.TenNhanVien; labelGTNVDat.Text = "Giới tính: " + NhanVienDat.GioiTinh; labelChucVuNVDat.Text = "Chức vụ: " + NhanVienDat.ChucVu;
                 if (Don.NgayTra != null)
                 {
                     var NhanVienThanhToan = db.NhanViens.Find(Don.MaNhanVienThanhToan);
                     labelNgayTra.Text = "Ngày trả    : " + Don.NgayTra; labelMaNVThanhToan.Text = "Mã nhân viên thanh toán: " + NhanVienThanhToan.MaNhanVien;
-                    labelTenNVThanhToan.Text = "Họ và tên: " + NhanVienThanhToan.TenNhanVien; labelGTNVThanhToan.Text = "Giới tính: "+NhanVienThanhToan.GioiTinh; labelChucVuNVThanhToan.Text = "Chức vụ: " + NhanVienThanhToan.ChucVu;
+                    labelTenNVThanhToan.Text = "Họ và tên: " + NhanVienThanhToan.TenNhanVien; labelGTNVThanhToan.Text = "Giới tính: " + NhanVienThanhToan.GioiTinh; labelChucVuNVThanhToan.Text = "Chức vụ: " + NhanVienThanhToan.ChucVu;
                     labelTongTien.Text = "Tổng tiền: " + Don.TongTien;
                 }
                 else
@@ -58,10 +53,11 @@ namespace PBNL3
                     Don.TongTien = songay * PhongDat.GiaPhongDat;
                     foreach (ChiTietDichVuDat DVSD in DSDichVu) Don.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong;
                     db.SaveChanges();
-                    labelTongTien.Text = "Tổng tiền: "+Don.TongTien;
+                    labelTongTien.Text = "Tổng tiền: " + Don.TongTien;
                 }
-                labelTinhTrangTToan.Text= "Tình trạng thanh toán: "+Don.TinhTrangThanhToan;
-                foreach(ChiTietDichVuDat DVvaSL in DSDichVu) {
+                labelTinhTrangTToan.Text = "Tình trạng thanh toán: " + Don.TinhTrangThanhToan;
+                foreach (ChiTietDichVuDat DVvaSL in DSDichVu)
+                {
                     var DVDaChon = db.LoaiDichVus.Find(DVvaSL.MaDichVu);
                     DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == DVvaSL.MaDichVu);
                     if (KtraDVDaCoChua == null)

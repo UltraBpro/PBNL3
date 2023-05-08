@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace PBNL3
 {
@@ -244,7 +239,9 @@ namespace PBNL3
                     row["MaDonDatPhong"] = item.MaDonDatPhong;
                     row["MaPhong"] = item.MaPhong;
                     dataTable.Rows.Add(row);
-                }                              
+                }
+                FormChonDon formChonDon = new FormChonDon(dataTable);
+                formChonDon.ShowDialog();
             }
             catch
             {
@@ -264,7 +261,7 @@ namespace PBNL3
         private void ButtonBill_Click(object sender, EventArgs e)
         {
             GetBillDetails();
-        }       
+        }
     }
 }
 
