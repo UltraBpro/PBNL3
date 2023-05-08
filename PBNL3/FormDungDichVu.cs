@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -60,8 +56,8 @@ namespace PBNL3
             MaDVDangChon = e;
             using (DBEntities db = new DBEntities())
             {
-                var DVDaChon=db.LoaiDichVus.Find(e);
-                ButtonChonDichVu.Text =  DVDaChon.TenDichVu;labelDonVi.Text = DVDaChon.DonVi;
+                var DVDaChon = db.LoaiDichVus.Find(e);
+                ButtonChonDichVu.Text = DVDaChon.TenDichVu; labelDonVi.Text = DVDaChon.DonVi;
                 ButtonThemDichVu.Enabled = true;
             }
         }
@@ -78,8 +74,9 @@ namespace PBNL3
             using (DBEntities db = new DBEntities())
             {
                 var DVDaChon = db.LoaiDichVus.Find(MaDVDangChon);
-                DataRow KtraDVDaCoChua =dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
-                if (KtraDVDaCoChua == null) {
+                DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
+                if (KtraDVDaCoChua == null)
+                {
                     DataRow newRow = dt.NewRow();
                     newRow["Mã dịch vụ"] = MaDVDangChon;
                     newRow["Tên dịch vụ"] = DVDaChon.TenDichVu;
@@ -88,8 +85,8 @@ namespace PBNL3
                     newRow["Số lượng"] = guna2NumericUpDown1.Value;
                     dt.Rows.Add(newRow);
                 }
-                else KtraDVDaCoChua["Số lượng"]= Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) +guna2NumericUpDown1.Value;
-                ButtonThemDichVu.Enabled = false; labelDonVi.Text = "ĐƠN VỊ"; ButtonChonDichVu.Text = "Chọn dịch vụ";guna2NumericUpDown1.Value = 1;
+                else KtraDVDaCoChua["Số lượng"] = Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) + guna2NumericUpDown1.Value;
+                ButtonThemDichVu.Enabled = false; labelDonVi.Text = "ĐƠN VỊ"; ButtonChonDichVu.Text = "Chọn dịch vụ"; guna2NumericUpDown1.Value = 1;
             }
         }
 
@@ -97,7 +94,7 @@ namespace PBNL3
         {
             using (DBEntities db = new DBEntities())
             {
-                int phongduochon= Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
                 var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
               don => don.MaDonDatPhong,
               phongdat => phongdat.MaDonDatPhong,
@@ -106,11 +103,11 @@ namespace PBNL3
                   don.MaDonDatPhong,
                   phongdat.MaPhong,
                   don.TinhTrangThanhToan
-              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán"&&p.MaPhong==phongduochon).FirstOrDefault();
-                foreach(DataRow dtr in dt.Rows)
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
+                foreach (DataRow dtr in dt.Rows)
                 {
                     int MaDV = Convert.ToInt32(dtr["Mã dịch vụ"]);
-                    var DichvuDaDat = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong&&p.MaDichVu==MaDV).FirstOrDefault();
+                    var DichvuDaDat = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong && p.MaDichVu == MaDV).FirstOrDefault();
                     if (DichvuDaDat == null)
                     {
                         ChiTietDichVuDat datdichvuchodon = new ChiTietDichVuDat();
@@ -118,7 +115,7 @@ namespace PBNL3
                         datdichvuchodon.MaDichVu = MaDV;
                         datdichvuchodon.SoLuong = Convert.ToInt32(dtr["Số lượng"]);
                         datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
-                        db.ChiTietDichVuDats.Add(datdichvuchodon); 
+                        db.ChiTietDichVuDats.Add(datdichvuchodon);
                     }
                     else DichvuDaDat.SoLuong += Convert.ToInt32(dtr["Số lượng"]);
                     db.SaveChanges();
@@ -131,7 +128,7 @@ namespace PBNL3
         {
             if (SwitchChiTiet.Checked) { this.Size = new Size(1337, 447); userControlChiTietDonHang1.Visible = true; }
             else { this.Size = new Size(539, 389); userControlChiTietDonHang1.Visible = false; }
-                this.CenterToScreen();
+            this.CenterToScreen();
         }
     }
 }

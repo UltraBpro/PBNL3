@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -17,7 +14,7 @@ namespace PBNL3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var StartingForm = new FormLogin();
-            StartingForm.Show();
+            if (!StartingForm.IsDisposed) StartingForm.Show();
             Application.Run();
         }
     }

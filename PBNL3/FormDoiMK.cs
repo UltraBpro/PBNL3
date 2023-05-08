@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -26,8 +21,8 @@ namespace PBNL3
         {
             using (DBEntities db = new DBEntities())
             {
-                var TKcu=db.TaiKhoans.Where(p=>p.MaNhanVien==NhanVienThucHien.MaNhanVien).FirstOrDefault();
-                if(TKcu.password==TextBoxMKCu.Text)
+                var TKcu = db.TaiKhoans.Where(p => p.MaNhanVien == NhanVienThucHien.MaNhanVien).FirstOrDefault();
+                if (TKcu.password == TextBoxMKCu.Text)
                 {
                     if (TextBoxMKMoi.Text == TextBoxXacNhan.Text) TKcu.password = TextBoxMKMoi.Text;
                     else MessageBox.Show("Mật khẩu xác nhận không đúng.");

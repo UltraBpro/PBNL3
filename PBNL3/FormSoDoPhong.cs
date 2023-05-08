@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -19,7 +14,7 @@ namespace PBNL3
             buttonList.Add(buttonChonPhong1); buttonList.Add(buttonChonPhong2); buttonList.Add(buttonChonPhong3);
             buttonList.Add(buttonChonPhong4); buttonList.Add(buttonChonPhong5); buttonList.Add(buttonChonPhong6);
             buttonList.Add(buttonChonPhong7); buttonList.Add(buttonChonPhong8); buttonList.Add(buttonChonPhong9);
-            CheckTTrangPhong(null,null);
+            CheckTTrangPhong(null, null);
         }
         public void CheckTTrangPhong(object sender, FormClosedEventArgs e)
         {
@@ -35,7 +30,7 @@ namespace PBNL3
         private void ButtonPhong_Click(object sender, EventArgs e)
         {
             int MaPhong = int.Parse(((Button)sender).Name.Substring(15));
-            Color TTrangPhong=((Button)sender).BackColor;
+            Color TTrangPhong = ((Button)sender).BackColor;
             string TrangThaiForm2 = ((FormManHinhChinh)this.Parent.Parent.Parent).labelTrangThai.Text;
             switch (TrangThaiForm2)
             {
@@ -49,8 +44,8 @@ namespace PBNL3
                         DatPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;
                         DatPhong.FormClosed += CheckTTrangPhong;
                     }
-                        break;
-                    
+                    break;
+
                 case "Sử dụng dịch vụ":
                     if (TTrangPhong != Color.Red) MessageBox.Show("Phòng này còn trống.");
                     else

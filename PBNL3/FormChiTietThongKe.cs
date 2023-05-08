@@ -1,12 +1,6 @@
-﻿using Guna.UI2.WinForms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PBNL3
@@ -23,7 +17,7 @@ namespace PBNL3
             using (DBEntities db = new DBEntities())
             {
                 if (type)
-                {                   
+                {
                     labeTitle.Text = "Chi tiết phòng: ";
                     var p = db.DonDatPhongs
                                         .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && (selectedMonth == 0 || d.NgayTra.Value.Month == selectedMonth) && d.NgayTra.Value.Year == selectedYear)
@@ -37,14 +31,14 @@ namespace PBNL3
                                             TenLoaiPhong = g.FirstOrDefault().p3.TenLoaiPhong,
                                             Tang = g.FirstOrDefault().dp2.p2.Tang,
                                             ThuTu = g.FirstOrDefault().dp2.p2.ThuTu,
-                                            GiaPhongDat = g.FirstOrDefault().dp2.dp1.p1.GiaPhongDat,                                              
+                                            GiaPhongDat = g.FirstOrDefault().dp2.dp1.p1.GiaPhongDat,
                                         });
                     DataTable dataTable = new DataTable();
                     dataTable.Columns.Add("Mã phòng", typeof(int));
                     dataTable.Columns.Add("Tên loại phòng", typeof(string));
                     dataTable.Columns.Add("Tầng", typeof(int));
                     dataTable.Columns.Add("Thứ tự", typeof(int));
-                    dataTable.Columns.Add("Giá phòng đặt", typeof(float));                    
+                    dataTable.Columns.Add("Giá phòng đặt", typeof(float));
                     foreach (var item in p)
                     {
                         DataRow row = dataTable.NewRow();
@@ -52,7 +46,7 @@ namespace PBNL3
                         row["Tên loại phòng"] = item.TenLoaiPhong;
                         row["Tầng"] = item.Tang;
                         row["Thứ tự"] = item.ThuTu;
-                        row["Giá phòng đặt"] = item.GiaPhongDat;                        
+                        row["Giá phòng đặt"] = item.GiaPhongDat;
                         dataTable.Rows.Add(row);
                     }
                     dgvThongKe.DataSource = dataTable;
@@ -90,7 +84,7 @@ namespace PBNL3
                         dataTable.Rows.Add(row);
                     }
                     dgvThongKe.DataSource = dataTable;
-                }                                  
+                }
             }
         }
 

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Media;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Interop;
-using FontAwesome.Sharp;
 
 namespace PBNL3
 {
@@ -67,6 +59,7 @@ namespace PBNL3
 
         private void OpenChildForm()
         {
+            panel4.Controls.Clear();
             FormSoDoPhong childForm = new FormSoDoPhong();
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -106,7 +99,7 @@ namespace PBNL3
         {
             if (WindowState == FormWindowState.Normal)
                 WindowState = FormWindowState.Maximized;
-            else 
+            else
                 WindowState = FormWindowState.Normal;
         }
 
@@ -142,7 +135,7 @@ namespace PBNL3
                 NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
                 labelMaNV.Text = NV.MaNhanVien.ToString();
                 labelTenNV.Text = NV.TenNhanVien;
-                labelChucVu.Text = NV.ChucVu;if (NV.ChucVu == "Quản lý") quảnLýToolStripMenuItem.Enabled = true;
+                labelChucVu.Text = NV.ChucVu; if (NV.ChucVu == "Quản lý") quảnLýToolStripMenuItem.Enabled = true;
             }
         }
         private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
@@ -225,16 +218,20 @@ namespace PBNL3
             this.Enabled = false;
             ListNV.FormClosed += FormHoiSinh;
         }
-        public void FormHoiSinh(object sender, FormClosedEventArgs e)
-        {
-            this.Enabled = true;
-            this.Focus();
-        }
 
         private void ThongKeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FormThongKe ThongKhe = new FormThongKe();
-            ThongKhe.ShowDialog();
+            ThongKhe.Show();
+            this.Enabled = false;
+            ThongKhe.FormClosed += FormHoiSinh;
+        }
+
+        public void FormHoiSinh(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+            this.Focus();
+            OpenChildForm();
         }
 
     }

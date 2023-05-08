@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
 
 namespace PBNL3
 {
@@ -31,7 +26,7 @@ namespace PBNL3
         }
         private void LuuDangNhap(string username, string password)
         {
-            byte[] encryptedData = ProtectedData.Protect(Encoding.UTF8.GetBytes(username + "|" + password+"|" + SwitchRemember.Checked.ToString()), null, DataProtectionScope.CurrentUser);
+            byte[] encryptedData = ProtectedData.Protect(Encoding.UTF8.GetBytes(username + "|" + password + "|" + SwitchRemember.Checked.ToString()), null, DataProtectionScope.CurrentUser);
             File.WriteAllBytes("LoginInfo.txt", encryptedData);
         }
         private bool LoadDangNhap()
@@ -49,7 +44,7 @@ namespace PBNL3
                     Login(username, password);
                 }
             }
-            catch {}
+            catch { }
             return false;
         }
 
@@ -59,7 +54,7 @@ namespace PBNL3
             string password = TextBoxPass.Text;
             Login(username, password);
         }
-        private void Login(string username,string password)
+        private void Login(string username, string password)
         {
             using (DBEntities db = new DBEntities())
             {
@@ -82,9 +77,10 @@ namespace PBNL3
         private Timer timer = new Timer();
         bool nani = false;
         private void timer_Tick(object sender, EventArgs e)
-        {if(nani)
+        {
+            if (nani)
                 guna2ImageButton1.Image = Properties.Resources.Cheems2;
-        else guna2ImageButton1.Image = Properties.Resources.Cheems0;
+            else guna2ImageButton1.Image = Properties.Resources.Cheems0;
             nani = !nani;
         }
 
