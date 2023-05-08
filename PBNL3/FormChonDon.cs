@@ -12,12 +12,19 @@ namespace PBNL3
 {
     public partial class FormChonDon : Form
     {
-        public FormChonDon()
+        public FormChonDon(DataTable dataTable = null)
         {
             InitializeComponent();
-            using (DBEntities db = new DBEntities())
+            if (dataTable != null)
             {
-                guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaPhong, p.MaDonDatPhong}).OrderBy(p=>p.MaDonDatPhong).ToList();
+                guna2DataGridView1.DataSource = dataTable;
+            }
+            else
+            {
+                using (DBEntities db = new DBEntities())
+                {
+                    guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
+                }
             }
         }
 

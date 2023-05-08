@@ -236,6 +236,7 @@ namespace PBNL3
             FormThongKe ThongKhe = new FormThongKe();
             ThongKhe.ShowDialog();
         }
+
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

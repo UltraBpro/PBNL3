@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labeTitle = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.dgvThongKe = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ButtonConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.dgvThongKe = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
             this.SuspendLayout();
@@ -45,10 +45,9 @@
             this.labeTitle.AutoSize = true;
             this.labeTitle.BackColor = System.Drawing.Color.Cyan;
             this.labeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labeTitle.Location = new System.Drawing.Point(15, 15);
-            this.labeTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labeTitle.Location = new System.Drawing.Point(11, 12);
             this.labeTitle.Name = "labeTitle";
-            this.labeTitle.Size = new System.Drawing.Size(165, 25);
+            this.labeTitle.Size = new System.Drawing.Size(136, 20);
             this.labeTitle.TabIndex = 1;
             this.labeTitle.Text = "Chi tiết phòng:  ";
             // 
@@ -57,41 +56,11 @@
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Cyan;
             this.guna2GradientPanel1.Controls.Add(this.dgvThongKe);
             this.guna2GradientPanel1.Controls.Add(this.labeTitle);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(12, 12);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(9, 10);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(973, 388);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(730, 315);
             this.guna2GradientPanel1.TabIndex = 2;
-            // 
-            // ButtonConfirm
-            // 
-            this.ButtonConfirm.Animated = true;
-            this.ButtonConfirm.AutoRoundedCorners = true;
-            this.ButtonConfirm.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonConfirm.BorderRadius = 21;
-            this.ButtonConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ButtonConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ButtonConfirm.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ButtonConfirm.ForeColor = System.Drawing.Color.White;
-            this.ButtonConfirm.Location = new System.Drawing.Point(410, 407);
-            this.ButtonConfirm.Margin = new System.Windows.Forms.Padding(4);
-            this.ButtonConfirm.Name = "ButtonConfirm";
-            this.ButtonConfirm.Size = new System.Drawing.Size(171, 44);
-            this.ButtonConfirm.TabIndex = 4;
-            this.ButtonConfirm.Text = "Confirm";
-            this.ButtonConfirm.UseTransparentBackground = true;
-            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
-            // 
-            // guna2GradientPanel2
-            // 
-            this.guna2GradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.DarkCyan;
-            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(997, 464);
-            this.guna2GradientPanel2.TabIndex = 5;
             // 
             // dgvThongKe
             // 
@@ -120,14 +89,13 @@
             this.dgvThongKe.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvThongKe.EnableHeadersVisualStyles = true;
             this.dgvThongKe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvThongKe.Location = new System.Drawing.Point(20, 71);
-            this.dgvThongKe.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvThongKe.Location = new System.Drawing.Point(15, 58);
             this.dgvThongKe.MultiSelect = false;
             this.dgvThongKe.Name = "dgvThongKe";
             this.dgvThongKe.ReadOnly = true;
             this.dgvThongKe.RowHeadersVisible = false;
             this.dgvThongKe.RowHeadersWidth = 51;
-            this.dgvThongKe.Size = new System.Drawing.Size(933, 292);
+            this.dgvThongKe.Size = new System.Drawing.Size(700, 237);
             this.dgvThongKe.TabIndex = 14;
             this.dgvThongKe.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvThongKe.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -151,14 +119,47 @@
             this.dgvThongKe.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvThongKe.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // ButtonConfirm
+            // 
+            this.ButtonConfirm.Animated = true;
+            this.ButtonConfirm.AutoRoundedCorners = true;
+            this.ButtonConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonConfirm.BorderRadius = 17;
+            this.ButtonConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonConfirm.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonConfirm.ForeColor = System.Drawing.Color.White;
+            this.ButtonConfirm.Location = new System.Drawing.Point(308, 331);
+            this.ButtonConfirm.Name = "ButtonConfirm";
+            this.ButtonConfirm.Size = new System.Drawing.Size(128, 36);
+            this.ButtonConfirm.TabIndex = 4;
+            this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.UseTransparentBackground = true;
+            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
+            // 
+            // guna2GradientPanel2
+            // 
+            this.guna2GradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.White;
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.DarkCyan;
+            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(748, 377);
+            this.guna2GradientPanel2.TabIndex = 5;
+            // 
             // FormChiTietThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(997, 464);
+            this.ClientSize = new System.Drawing.Size(748, 377);
             this.Controls.Add(this.ButtonConfirm);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.guna2GradientPanel2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormChiTietThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChiTietThongKe";

@@ -38,7 +38,7 @@ namespace PBNL3
                 var Khach = db.Khaches.Find(Don.MaKhach);
                 var NhanVienDat = db.NhanViens.Find(Don.MaNhanVienThucHien);
                 labelMaPhong.Text = "Mã phòng: "+Phong.MaPhong;labelTenLoaiPhong.Text = "Loại phòng: " + LoaiPhong.TenLoaiPhong;
-                labelTang.Text = "Tầng: " + Phong.Tang;labelThuTu.Text = "Thứ tự: " + Phong.ThuTu;labelGiaPhong.Text = PhongDat.GiaPhongDat.ToString();
+                labelTang.Text = "Tầng: " + Phong.Tang;labelThuTu.Text = "Thứ tự: " + Phong.ThuTu;labelGiaPhong.Text ="Giá/Ngày: "+PhongDat.GiaPhongDat;
                 labelMaKhach.Text = "Mã khách: " + Khach.MaKhach;labelTenKhach.Text = "Họ và tên: " + Khach.TenKhach;labelGioiTinhKhach.Text = "Giới tính: " + Khach.GioiTinh;
                 labelNgaySinhKhach.Text = "Ngày sinh: " + Khach.NgaySinh.Date;labelSDTKhach.Text = "SDT: " + Khach.SoDienThoai;
                 labelNgayNhan.Text = "Ngày nhận: "+Don.NgayDat;labelMaNVDat.Text = "Mã nhân viên đặt            : " + NhanVienDat.MaNhanVien;
