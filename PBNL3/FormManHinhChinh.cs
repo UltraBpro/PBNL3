@@ -231,6 +231,11 @@ namespace PBNL3
             this.Focus();
         }
 
+        private void ThongKeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormThongKe ThongKhe = new FormThongKe();
+            ThongKhe.ShowDialog();
+        }
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

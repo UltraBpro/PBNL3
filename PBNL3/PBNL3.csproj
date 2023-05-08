@@ -55,12 +55,20 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -97,6 +105,12 @@
     </Compile>
     <Compile Include="DonDatPhong.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormChiTietThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChiTietThongKe.Designer.cs">
+      <DependentUpon>FormChiTietThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="FormChonDichVu.cs">
       <SubType>Form</SubType>
@@ -158,6 +172,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThongKe.Designer.cs">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTraPhong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +216,9 @@
     <Compile Include="UserControlChiTietDonHang.Designer.cs">
       <DependentUpon>UserControlChiTietDonHang.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormChiTietThongKe.resx">
+      <DependentUpon>FormChiTietThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormChonDichVu.resx">
       <DependentUpon>FormChonDichVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThongKe.resx">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTraPhong.resx">
       <DependentUpon>FormTraPhong.cs</DependentUpon>
