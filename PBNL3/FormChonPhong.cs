@@ -69,5 +69,28 @@ namespace PBNL3
 
             }
         }
+
+        private void ButtonDoiLoaiPhong_Click(object sender, EventArgs e)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                if (db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu == "Quản lý")
+                {
+                    int selectedPhong = 0;
+                    foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
+                    {
+                        selectedPhong = Convert.ToInt32(row.Cells["MaPhong"].Value);
+                    }
+                    FormChonLoaiPhong DoiLP = new FormChonLoaiPhong(selectedPhong);
+                    DoiLP.FormClosed += ReloadForm;
+                    DoiLP.ShowDialog();
+                }
+                else MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này.");
+            }
+        }
+        public void ReloadForm(object sender, FormClosedEventArgs e)
+        {
+            LoadForm("LietKe");
+        }
     }
 }

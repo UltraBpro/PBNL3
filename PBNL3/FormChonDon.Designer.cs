@@ -33,9 +33,9 @@ namespace PBNL3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
             this.ButtonConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.userControlChiTietDonHang1 = new PBNL3.UserControlChiTietDonHang();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,14 +53,6 @@ namespace PBNL3
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(923, 460);
             this.guna2GradientPanel1.TabIndex = 3;
-            // 
-            // userControlChiTietDonHang1
-            // 
-            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
-            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(153, 15);
-            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
-            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
-            this.userControlChiTietDonHang1.TabIndex = 4;
             // 
             // ButtonConfirm
             // 
@@ -139,12 +131,21 @@ namespace PBNL3
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.guna2DataGridView1.SelectionChanged += new System.EventHandler(this.guna2DataGridView1_SelectionChanged);
             // 
+            // userControlChiTietDonHang1
+            // 
+            this.userControlChiTietDonHang1.BackColor = System.Drawing.Color.Cyan;
+            this.userControlChiTietDonHang1.Location = new System.Drawing.Point(153, 15);
+            this.userControlChiTietDonHang1.Name = "userControlChiTietDonHang1";
+            this.userControlChiTietDonHang1.Size = new System.Drawing.Size(767, 391);
+            this.userControlChiTietDonHang1.TabIndex = 4;
+            // 
             // FormChonDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(923, 460);
             this.Controls.Add(this.guna2GradientPanel1);
+            this.MaximizeBox = false;
             this.Name = "FormChonDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormChonDon";

@@ -145,6 +145,12 @@
     <Compile Include="FormChonKhach.Designer.cs">
       <DependentUpon>FormChonKhach.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChonLoaiPhong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChonLoaiPhong.Designer.cs">
+      <DependentUpon>FormChonLoaiPhong.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChonNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormChonKhach.resx">
       <DependentUpon>FormChonKhach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChonLoaiPhong.resx">
+      <DependentUpon>FormChonLoaiPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChonNhanVien.resx">
       <DependentUpon>FormChonNhanVien.cs</DependentUpon>

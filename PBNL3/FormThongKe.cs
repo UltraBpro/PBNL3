@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace PBNL3
 {
@@ -49,7 +54,7 @@ namespace PBNL3
                         .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p => p.MaDonDatPhong, (d, p) => new { d, p })
                         .Select(dp => new { dp.p.GiaPhongDat, dp.d.NgayDat, dp.d.NgayTra }))
                     {
-                        totalP += dp.GiaPhongDat * ((dp.NgayTra.Value - dp.NgayDat).TotalDays);
+                        totalP += dp.GiaPhongDat * ((int)(dp.NgayTra.Value - dp.NgayDat).TotalDays + 1);
                     }
                 }
                 else
@@ -61,7 +66,7 @@ namespace PBNL3
                             .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p => p.MaDonDatPhong, (d, p) => new { d, p })
                             .Select(dp => new { dp.p.GiaPhongDat, dp.d.NgayDat, dp.d.NgayTra }))
                         {
-                            totalP += dp.GiaPhongDat * ((dp.NgayTra.Value - dp.NgayDat).TotalDays);
+                            totalP += dp.GiaPhongDat * ((int)(dp.NgayTra.Value - dp.NgayDat).TotalDays + 1);
                         }
                     }
                 }
@@ -222,7 +227,6 @@ namespace PBNL3
         {
             try
             {
-                //:D
                 DBEntities db = new DBEntities();
                 int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
                 int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
@@ -264,4 +268,3 @@ namespace PBNL3
         }
     }
 }
-

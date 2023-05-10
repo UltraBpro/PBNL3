@@ -95,13 +95,13 @@ namespace PBNL3
             WindowState = FormWindowState.Minimized;
         }
 
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Normal)
-                WindowState = FormWindowState.Maximized;
-            else
-                WindowState = FormWindowState.Normal;
-        }
+        //private void iconButton5_Click(object sender, EventArgs e)
+        //{
+        //    if (WindowState == FormWindowState.Normal)
+        //        WindowState = FormWindowState.Maximized;
+        //    else
+        //        WindowState = FormWindowState.Normal;
+        //}
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
@@ -234,6 +234,13 @@ namespace PBNL3
             OpenChildForm();
         }
 
+        private void LoaiPhongtoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChonLoaiPhong loaiP = new FormChonLoaiPhong();
+            loaiP.Show();
+            this.Enabled = false;
+            loaiP.FormClosed += FormHoiSinh;
+        }
     }
     // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien

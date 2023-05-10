@@ -23,7 +23,6 @@ namespace PBNL3
                     p.SoDienThoai
                 }).ToList();
             }
-            guna2DataGridView1.AllowUserToAddRows = true;
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)

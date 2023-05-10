@@ -61,7 +61,7 @@ namespace PBNL3
                     if (TTrangPhong != Color.Red) MessageBox.Show("Phòng này còn trống.");
                     else
                     {
-                        FormTraPhong TraPhong = new FormTraPhong();
+                        FormTraPhong TraPhong = new FormTraPhong(MaPhong);
                         TraPhong.Show();
                         ((FormManHinhChinh)this.Parent.Parent.Parent).Enabled = false;
                         TraPhong.FormClosed += ((FormManHinhChinh)this.Parent.Parent.Parent).FormHoiSinh;

@@ -233,6 +233,7 @@ namespace PBNL3
             this.ClientSize = new System.Drawing.Size(1063, 428);
             this.Controls.Add(this.guna2GradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormTraPhong";
             this.ShowIcon = false;
             this.guna2GradientPanel1.ResumeLayout(false);

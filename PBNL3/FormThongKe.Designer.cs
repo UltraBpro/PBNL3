@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.BillCount = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@
             this.moneyDV = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ButtonDV = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.moneyP = new System.Windows.Forms.Label();
             this.ButtonPhong = new Guna.UI2.WinForms.Guna2Button();
@@ -52,14 +53,13 @@
             this.cbbsetmonths = new Guna.UI2.WinForms.Guna2ComboBox();
             this.chartBDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartBDD = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2GradientPanel1.SuspendLayout();
             this.guna2GradientPanel5.SuspendLayout();
             this.guna2GradientPanel4.SuspendLayout();
+            this.guna2GradientPanel3.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDD)).BeginInit();
-            this.guna2GradientPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -188,6 +188,19 @@
             this.ButtonDV.TabIndex = 3;
             this.ButtonDV.Click += new System.EventHandler(this.ButtonDV_Click);
             // 
+            // guna2GradientPanel3
+            // 
+            this.guna2GradientPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2GradientPanel3.Controls.Add(this.label1);
+            this.guna2GradientPanel3.Controls.Add(this.moneyP);
+            this.guna2GradientPanel3.Controls.Add(this.ButtonPhong);
+            this.guna2GradientPanel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.guna2GradientPanel3.Location = new System.Drawing.Point(44, 11);
+            this.guna2GradientPanel3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
+            this.guna2GradientPanel3.Size = new System.Drawing.Size(240, 122);
+            this.guna2GradientPanel3.TabIndex = 0;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -284,60 +297,47 @@
             // 
             // chartBDT
             // 
-            chartArea7.Name = "ChartArea1";
-            this.chartBDT.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chartBDT.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chartBDT.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartBDT.Legends.Add(legend1);
             this.chartBDT.Location = new System.Drawing.Point(0, 47);
             this.chartBDT.Margin = new System.Windows.Forms.Padding(2);
             this.chartBDT.Name = "chartBDT";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series10.Legend = "Legend1";
-            series10.LegendText = "Doanh thu phòng\\n";
-            series10.Name = "DTP";
-            this.chartBDT.Series.Add(series10);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Doanh thu phòng\\n";
+            series1.Name = "DTP";
+            this.chartBDT.Series.Add(series1);
             this.chartBDT.Size = new System.Drawing.Size(338, 327);
             this.chartBDT.TabIndex = 4;
             this.chartBDT.Text = "chart1";
             // 
             // chartBDD
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartBDD.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.chartBDD.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.chartBDD.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartBDD.Legends.Add(legend2);
             this.chartBDD.Location = new System.Drawing.Point(342, 47);
             this.chartBDD.Margin = new System.Windows.Forms.Padding(2);
             this.chartBDD.Name = "chartBDD";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series11.Legend = "Legend1";
-            series11.LegendText = "Doanh thu phòng\\n";
-            series11.Name = "DTP";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series12.Legend = "Legend1";
-            series12.LegendText = "Doanh thu DV";
-            series12.Name = "DTDV";
-            this.chartBDD.Series.Add(series11);
-            this.chartBDD.Series.Add(series12);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Doanh thu phòng\\n";
+            series2.Name = "DTP";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.LegendText = "Doanh thu DV";
+            series3.Name = "DTDV";
+            this.chartBDD.Series.Add(series2);
+            this.chartBDD.Series.Add(series3);
             this.chartBDD.Size = new System.Drawing.Size(631, 327);
             this.chartBDD.TabIndex = 3;
             this.chartBDD.Text = "chart2";
-            // 
-            // guna2GradientPanel3
-            // 
-            this.guna2GradientPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2GradientPanel3.Controls.Add(this.label1);
-            this.guna2GradientPanel3.Controls.Add(this.moneyP);
-            this.guna2GradientPanel3.Controls.Add(this.ButtonPhong);
-            this.guna2GradientPanel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(44, 11);
-            this.guna2GradientPanel3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(240, 122);
-            this.guna2GradientPanel3.TabIndex = 0;
             // 
             // FormThongKe
             // 
@@ -347,6 +347,7 @@
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "FormThongKe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormThongKe";
@@ -355,11 +356,11 @@
             this.guna2GradientPanel5.PerformLayout();
             this.guna2GradientPanel4.ResumeLayout(false);
             this.guna2GradientPanel4.PerformLayout();
+            this.guna2GradientPanel3.ResumeLayout(false);
+            this.guna2GradientPanel3.PerformLayout();
             this.guna2GradientPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartBDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDD)).EndInit();
-            this.guna2GradientPanel3.ResumeLayout(false);
-            this.guna2GradientPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }

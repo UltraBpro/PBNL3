@@ -244,6 +244,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimizeBox = false;
             this.Name = "FormSoDoPhong";
             this.Text = "Sơ đồ phòng";
             this.groupBox1.ResumeLayout(false);
