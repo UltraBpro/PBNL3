@@ -133,6 +133,7 @@ namespace PBNL3
         }
         private void SetText(bool type)
         {
+            cbbsetyears.Items.Remove("Chọn năm");
             try
             {
                 if (type)
@@ -207,7 +208,7 @@ namespace PBNL3
         }
         private void cbb_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            SetText(cbbsetmonths.SelectedIndex == 0 ? false : true);
+            SetText(cbbsetmonths.SelectedIndex != 0);
         }
         private void GetPDVDetails(bool type)
         {
