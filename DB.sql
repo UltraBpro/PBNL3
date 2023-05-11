@@ -18,13 +18,15 @@ CREATE TABLE Phong (
     MaPhong INT PRIMARY KEY,
     MaLoaiPhong INT NOT NULL,
     TinhTrang NVARCHAR(50) NOT NULL,
-    ViTri NVARCHAR(50) NOT NULL,
+    Tang INT NOT NULL,
+	ThuTu INT NOT NULL,
     CONSTRAINT FK_LoaiPhong_Phong FOREIGN KEY (MaLoaiPhong) REFERENCES LoaiPhong(MaLoaiPhong)
 );
 
 CREATE TABLE Khach (
     MaKhach INT PRIMARY KEY,
     TenKhach NVARCHAR(50) NOT NULL,
+	CCCD VARCHAR(50) NOT NULL,
     NgaySinh DATE NOT NULL,
     GioiTinh NVARCHAR(10) NOT NULL,
     SoDienThoai NVARCHAR(20) NOT NULL
@@ -42,7 +44,8 @@ CREATE TABLE NhanVien (
 CREATE TABLE LoaiDichVu (
     MaLoaiDichVu INT PRIMARY KEY,
     TenDichVu NVARCHAR(50) NOT NULL,
-    DonGia FLOAT NOT NULL
+    DonGia FLOAT NOT NULL,
+	DonVi NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE DonDatPhong (
@@ -50,10 +53,10 @@ CREATE TABLE DonDatPhong (
     MaKhach INT NOT NULL,
     TinhTrangThanhToan NVARCHAR(50) NOT NULL,
     NgayDat DATETIME NOT NULL,
-    NgayTra DATETIME NOT NULL,
-    GiaTien FLOAT NOT NULL,
+    NgayTra DATETIME,
+    TongTien FLOAT,
     MaNhanVienThucHien INT NOT NULL,
-    MaNhanVienThanhToan INT NOT NULL,
+    MaNhanVienThanhToan INT,
     CONSTRAINT FK_Khach_DonDatPhong FOREIGN KEY (MaKhach) REFERENCES Khach(MaKhach),
     CONSTRAINT FK_NhanVien_DonDatPhong_ThucHien FOREIGN KEY (MaNhanVienThucHien) REFERENCES NhanVien(MaNhanVien),
     CONSTRAINT FK_NhanVien_DonDatPhong_ThanhToan FOREIGN KEY (MaNhanVienThanhToan) REFERENCES NhanVien(MaNhanVien)
