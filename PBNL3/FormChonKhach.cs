@@ -38,6 +38,7 @@ namespace PBNL3
                     newKhach.GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ";
                     newKhach.NgaySinh = DateTimePickerNgaySinh.Value;
                     newKhach.SoDienThoai = TextBoxSDT.Text;
+                    newKhach.CCCD = TextBoxCCCD.Text;
                     db.Khaches.Add(newKhach); db.SaveChanges();
                     selectedKhach = newKhach.MaKhach;
                 }

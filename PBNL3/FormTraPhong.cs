@@ -42,7 +42,6 @@ namespace PBNL3
                   phongdat.MaPhong,
                   don.TinhTrangThanhToan
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
-                userControlChiTietDonHang1.LoadDon(TimDonDatDichVu.MaDonDatPhong);
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
                 var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
                 var PhongDat = db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
@@ -83,5 +82,10 @@ namespace PBNL3
             this.Show();
         }
 
+        private void ButtonChonPhong_TextChanged(object sender, EventArgs e)
+        {
+            int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+            userControlChiTietDonHang1.LoadPhong(phongduochon);
+        }
     }
 }

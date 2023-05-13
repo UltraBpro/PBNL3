@@ -43,6 +43,7 @@
           </Key>
           <Property Name="MaKhach" Type="int" Nullable="false" />
           <Property Name="TenKhach" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CCCD" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NgaySinh" Type="date" Nullable="false" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="SoDienThoai" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -304,6 +305,7 @@
           </Key>
           <Property Name="MaKhach" Type="Int32" Nullable="false" />
           <Property Name="TenKhach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoDienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
@@ -566,6 +568,7 @@
               <MappingFragment StoreEntitySet="Khach">
                 <ScalarProperty Name="MaKhach" ColumnName="MaKhach" />
                 <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />

@@ -22,6 +22,7 @@ namespace PBNL3
     
         public int MaKhach { get; set; }
         public string TenKhach { get; set; }
+        public string CCCD { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string SoDienThoai { get; set; }
