@@ -13,12 +13,9 @@ namespace PBNL3
             if (MaPhong != null)
             {
                 ButtonChonPhong.Enabled = false;
-                ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
-                userControlChiTietDonHang1.LoadPhong((int)MaPhong);
-                ButtonXacNhan.Enabled = true;
+                NhanDSPhongVaTinhTien(null, (int)MaPhong);
             }
         }
-
         private void ButtonChonPhong_Click(object sender, EventArgs e)
         {
             FormChonPhong chonPhong = new FormChonPhong("GoiDichVu");
@@ -35,6 +32,7 @@ namespace PBNL3
             using (DBEntities db = new DBEntities())
             {
                 int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                userControlChiTietDonHang1.LoadPhong(phongduochon);
                 var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
               don => don.MaDonDatPhong,
               phongdat => phongdat.MaDonDatPhong,
@@ -53,7 +51,7 @@ namespace PBNL3
                 TextBoxTienPhong.Text = songay.ToString() + " ngày: " + (songay * PhongDat.GiaPhongDat).ToString();
                 int sodichvu = 0;
                 foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong; sodichvu++; }
-                DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien; db.SaveChanges();
+                db.SaveChanges();
                 TextBoxTienDV.Text = sodichvu.ToString() + " dịch vụ: " + (DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
                 guna2TextBox1.Text = DonDat.TongTien.ToString();
             }
@@ -74,6 +72,7 @@ namespace PBNL3
               }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
                 var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
                 DonDat.NgayTra = thoigiantinh;
+                DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien;
                 DonDat.TinhTrangThanhToan = "Đã thanh toán"; db.SaveChanges();
                 db.Phongs.Find(phongduochon).TinhTrang = "Trống"; db.SaveChanges();
                 this.Close();

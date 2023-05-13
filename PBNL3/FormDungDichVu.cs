@@ -15,7 +15,7 @@ namespace PBNL3
             if (MaPhong != null)
             {
                 ButtonChonPhong.Enabled = false;
-                ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
+                NhanDSPhong(null, (int)MaPhong);
                 ButtonXacNhan.Enabled = true;
             }
             dt.Columns.Add("Mã dịch vụ", typeof(int));
