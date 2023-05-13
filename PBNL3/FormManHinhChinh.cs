@@ -109,7 +109,6 @@ namespace PBNL3
         }
 
 
-        // Đoạn sau được viết bởi thằng l*n Tuấn
         private Timer timer = new Timer();
         bool nah = false;
         private void timer_Tick(object sender, EventArgs e)
@@ -242,7 +241,6 @@ namespace PBNL3
             loaiP.FormClosed += FormHoiSinh;
         }
     }
-    // Lồn Bơ Đầu Buồi bias chúa
     public static class NhanVienThucHien
     {
         public static int MaNhanVien { get; set; }
