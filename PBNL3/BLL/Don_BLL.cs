@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,21 +10,28 @@ namespace PBNL3.BLL
 {
     internal class Don_BLL
     {        
-        public object GetDonDatDichVu(int phongduochon)
+        public int GetMaDonDatPhongThongQuaPhong(int phongduochon)
         {
             using (DBEntities db = new DBEntities())
             {
                 var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
-                  don => don.MaDonDatPhong,
-                  phongdat => phongdat.MaDonDatPhong,
-                  (don, phongdat) => new
-                  {
-                      don.MaDonDatPhong,
-                      phongdat.MaPhong,
-                      don.TinhTrangThanhToan
-                  }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault(); 
-                return TimDonDatDichVu;
+              don => don.MaDonDatPhong,
+              phongdat => phongdat.MaDonDatPhong,
+              (don, phongdat) => new
+              {
+                  don.MaDonDatPhong,
+                  phongdat.MaPhong,
+                  don.TinhTrangThanhToan
+              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
+                return TimDonDatDichVu.MaDonDatPhong;
             }
+        }
+        public DonDatPhong GetDonDat(int MaDonDatPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.DonDatPhongs.Find(MaDonDatPhong);
+            }       
         }
         public static double GetTotalBill(int selectedMonth, int selectedYear, bool type)
         {
@@ -52,6 +60,33 @@ namespace PBNL3.BLL
                 return totalBill;
             }
         }
+        public void LuuTongTien(int MaDonThaoTac,double tongTien)
+        {
+            using(DBEntities db = new DBEntities())
+            {
+                DonDatPhong don = db.DonDatPhongs.Find(MaDonThaoTac);
+                if (don != null)
+                {
+                    don.TongTien = tongTien;
+                    db.SaveChanges();
+                }
+            }
+        }
+        public void LuuThongTinThanhToan(int MaDonThaoTac, DateTime ngayTra, int maNV)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                DonDatPhong don = db.DonDatPhongs.Find(MaDonThaoTac);
+                if (don != null)
+                {
+                    don.TinhTrangThanhToan = "Đã thanh toán";
+                    don.NgayTra = ngayTra;
+                    don.MaNhanVienThanhToan= maNV;
+                    db.SaveChanges();
+                }
+            }
+        }
+     
         public DataTable GetBillDetails(int selectedMonth, int selectedYear)
         {
             DBEntities db = new DBEntities();

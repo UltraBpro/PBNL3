@@ -16,6 +16,13 @@ namespace PBNL3.BLL
                 return db.LoaiDichVus.ToList();
             }
         }
+        public List<ChiTietDichVuDat> LayDSDichVuDaSuDung(int MaDonDatPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == MaDonDatPhong).ToList();
+            }
+        }
         public int ThemDichVu(string tenDichVu, double donGia, string donVi)
         {
             using (DBEntities db = new DBEntities())

@@ -9,6 +9,13 @@ namespace PBNL3.BLL
 {
     internal class Khach_BLL
     {
+        public Khach GetKhach(int MaKhach)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.Khaches.Find(MaKhach);
+            }
+        }
         public List<Khach> LayDSKhach()
         {
             using (DBEntities db = new DBEntities())

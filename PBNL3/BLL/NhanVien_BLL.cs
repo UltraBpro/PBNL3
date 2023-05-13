@@ -8,6 +8,13 @@ namespace PBNL3.BLL
 {
     internal class NhanVien_BLL
     {
+        public NhanVien GetNV(int MaNV)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.NhanViens.Find(MaNV);
+            }
+        }
         public List<NhanVien> LayDSNhanVien()
         {
             using (DBEntities db = new DBEntities())

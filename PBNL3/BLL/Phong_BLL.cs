@@ -11,6 +11,20 @@ namespace PBNL3.BLL
 {
     internal class Phong_BLL
     {
+        public Phong GetPhong(int MaPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.Phongs.Find(MaPhong);
+            }
+        }
+        public LoaiPhong GetLoaiPhong(int MaLoaiPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.LoaiPhongs.Find(MaLoaiPhong);
+            }
+        }
         public List<ChiTietPhongDat> LayDSChiTietPhongDat()
         {
             using (DBEntities db = new DBEntities())
@@ -69,6 +83,13 @@ namespace PBNL3.BLL
                 }
             }
         }
+        public ChiTietPhongDat GetPhongDat(int MaDonDatPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                return db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == MaDonDatPhong).FirstOrDefault();
+            }
+        }
         public int ThemLoaiPhong(string tenLoaiPhong, int soGiuong, int dienTich, string ghiChu, double giaTien)
         {
             using (DBEntities db = new DBEntities())
@@ -121,6 +142,15 @@ namespace PBNL3.BLL
                 db.SaveChanges();
 
                 room.TinhTrang = "Kín";
+                db.SaveChanges();
+            }
+        }
+        public void TraPhong(int maPhong)
+        {
+            using (DBEntities db = new DBEntities())
+            {
+                var Phong = db.Phongs.Find(maPhong);
+                Phong.TinhTrang = "Trống";
                 db.SaveChanges();
             }
         }

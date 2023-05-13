@@ -203,7 +203,6 @@ namespace PBNL3
             this.ButtonChonPhong.Size = new System.Drawing.Size(205, 48);
             this.ButtonChonPhong.TabIndex = 33;
             this.ButtonChonPhong.Text = "Chọn phòng";
-            this.ButtonChonPhong.TextChanged += new System.EventHandler(this.ButtonChonPhong_TextChanged);
             this.ButtonChonPhong.Click += new System.EventHandler(this.ButtonChonPhong_Click);
             // 
             // label1
