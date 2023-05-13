@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -32,28 +33,22 @@ namespace PBNL3
             ButtonXacNhan.Enabled = true;
             using (DBEntities db = new DBEntities())
             {
-                int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
-                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
-              don => don.MaDonDatPhong,
-              phongdat => phongdat.MaDonDatPhong,
-              (don, phongdat) => new
-              {
-                  don.MaDonDatPhong,
-                  phongdat.MaPhong,
-                  don.TinhTrangThanhToan
-              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
-                var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
-                var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
-                var PhongDat = db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
-                thoigiantinh = DateTime.Now;
-                int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays + 1;
-                DonDat.TongTien = songay * PhongDat.GiaPhongDat;
-                TextBoxTienPhong.Text = songay.ToString() + " ngày: " + (songay * PhongDat.GiaPhongDat).ToString();
-                int sodichvu = 0;
-                foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong; sodichvu++; }
-                DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien; db.SaveChanges();
-                TextBoxTienDV.Text = sodichvu.ToString() + " dịch vụ: " + (DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
-                guna2TextBox1.Text = DonDat.TongTien.ToString();
+                //int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+                //Don_BLL don_BLL = new Don_BLL();
+                //var TimDonDatDichVu = don_BLL.GetDonDatDichVu(phongduochon);
+                //userControlChiTietDonHang1.LoadDon(TimDonDatDichVu.MaDonDatPhong);
+                //var DonDat = db.DonDatPhongs.Find(TimDonDatDichVu.MaDonDatPhong);
+                //var DSDichVuSD = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong);
+                //var PhongDat = db.ChiTietPhongDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong).FirstOrDefault();
+                //thoigiantinh = DateTime.Now;
+                //int songay = (int)DateTime.Now.Subtract(DonDat.NgayDat).TotalDays + 1;
+                //DonDat.TongTien = songay * PhongDat.GiaPhongDat;
+                //TextBoxTienPhong.Text = songay.ToString() + " ngày: " + (songay * PhongDat.GiaPhongDat).ToString();
+                //int sodichvu = 0;
+                //foreach (ChiTietDichVuDat DVSD in DSDichVuSD) { DonDat.TongTien += DVSD.GiaDichVuDat * DVSD.SoLuong; sodichvu++; }
+                //DonDat.MaNhanVienThanhToan = NhanVienThucHien.MaNhanVien; db.SaveChanges();
+                //TextBoxTienDV.Text = sodichvu.ToString() + " dịch vụ: " + (DonDat.TongTien - songay * PhongDat.GiaPhongDat).ToString();
+                //guna2TextBox1.Text = DonDat.TongTien.ToString();
             }
         }
         private void ButtonXacNhan_Click(object sender, EventArgs e)
@@ -82,10 +77,5 @@ namespace PBNL3
             this.Show();
         }
 
-        private void ButtonChonPhong_TextChanged(object sender, EventArgs e)
-        {
-            int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
-            userControlChiTietDonHang1.LoadPhong(phongduochon);
-        }
     }
 }

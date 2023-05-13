@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,18 +20,18 @@ namespace PBNL3
 
         private void ButtonXacNhan_Click(object sender, EventArgs e)
         {
-            using (DBEntities db = new DBEntities())
+
+            try
             {
-                var TKcu = db.TaiKhoans.Where(p => p.MaNhanVien == NhanVienThucHien.MaNhanVien).FirstOrDefault();
-                if (TKcu.password == TextBoxMKCu.Text)
-                {
-                    if (TextBoxMKMoi.Text == TextBoxXacNhan.Text) TKcu.password = TextBoxMKMoi.Text;
-                    else MessageBox.Show("Mật khẩu xác nhận không đúng.");
-                    db.SaveChanges();
-                    this.Close();
-                }
-                else MessageBox.Show("Mật khẩu cũ không đúng.");
+                Account_BLL account_BLL = new Account_BLL();
+                account_BLL.DoiMatKhau(TextBoxMKCu.Text, TextBoxMKMoi.Text, TextBoxXacNhan.Text);
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -16,13 +18,11 @@ namespace PBNL3
             }
             else
             {
-                using (DBEntities db = new DBEntities())
-                {
-                    guna2DataGridView1.DataSource = db.ChiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
-                }
+                Phong_BLL phong_BLL = new Phong_BLL();
+                List<ChiTietPhongDat> chiTietPhongDats = phong_BLL.LayDSChiTietPhongDat();
+                guna2DataGridView1.DataSource = chiTietPhongDats.Select(p => new { p.MaDonDatPhong, p.MaPhong }).ToList();
             }
         }
-
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             this.Close();

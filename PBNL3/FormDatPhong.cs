@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -44,23 +45,8 @@ namespace PBNL3
         {
             int khachduocchon = Convert.ToInt32(ButtonChonKhach.Text.Substring(0, ButtonChonKhach.Text.Length - 1).Split(':')[1].Trim());
             int phongduocchon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
-            using (DBEntities db = new DBEntities())
-            {
-                DonDatPhong newdon = new DonDatPhong();
-                newdon.MaDonDatPhong = (db.DonDatPhongs.Max(x => (int?)x.MaDonDatPhong) ?? 0) + 1;
-                newdon.MaNhanVienThucHien = NhanVienThucHien.MaNhanVien;
-                newdon.NgayDat = guna2DateTimePicker1.Value;
-                newdon.MaKhach = khachduocchon;
-                newdon.TinhTrangThanhToan = "Chưa thanh toán";
-                db.DonDatPhongs.Add(newdon); db.SaveChanges();
-                ChiTietPhongDat phongdat = new ChiTietPhongDat();
-                phongdat.MaDonDatPhong = newdon.MaDonDatPhong;
-                phongdat.MaPhong = phongduocchon;
-                var PhongDangThaoTac = db.Phongs.Find(phongdat.MaPhong);
-                phongdat.GiaPhongDat = db.LoaiPhongs.Find(PhongDangThaoTac.MaLoaiPhong).GiaTien;
-                db.ChiTietPhongDats.Add(phongdat); db.SaveChanges();
-                PhongDangThaoTac.TinhTrang = "Kín"; db.SaveChanges();
-            }
+            Phong_BLL phong_BLL = new Phong_BLL();
+            phong_BLL.DatPhong(NhanVienThucHien.MaNhanVien, khachduocchon, phongduocchon, guna2DateTimePicker1.Value);
             this.Close();
         }
         private void NhanDSKhach(object sender, int e)

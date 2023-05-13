@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -18,14 +19,13 @@ namespace PBNL3
         }
         public void CheckTTrangPhong(object sender, FormClosedEventArgs e)
         {
-            using (DBEntities db = new DBEntities())
+
+            foreach (Button ButtonPhong in buttonList)
             {
-                foreach (Button ButtonPhong in buttonList)
-                {
-                    if (db.Phongs.Find(Convert.ToInt32(ButtonPhong.Name.Substring(15))).TinhTrang == "Trống") ButtonPhong.BackColor = Color.Green;
-                    else ButtonPhong.BackColor = Color.Red;
-                }
+                if (Phong_BLL.GetTTrangPhong(ButtonPhong) == "Trống") ButtonPhong.BackColor = Color.Green;
+                else ButtonPhong.BackColor = Color.Red;
             }
+
         }
         private void ButtonPhong_Click(object sender, EventArgs e)
         {
