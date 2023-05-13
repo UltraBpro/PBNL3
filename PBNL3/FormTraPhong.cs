@@ -14,6 +14,8 @@ namespace PBNL3
             {
                 ButtonChonPhong.Enabled = false;
                 ButtonChonPhong.Text = "Mã phòng đã chọn: " + MaPhong + ".";
+                userControlChiTietDonHang1.LoadPhong((int)MaPhong);
+                ButtonXacNhan.Enabled = true;
             }
         }
 
@@ -80,12 +82,6 @@ namespace PBNL3
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
             this.Show();
-        }
-
-        private void ButtonChonPhong_TextChanged(object sender, EventArgs e)
-        {
-            int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
-            userControlChiTietDonHang1.LoadPhong(phongduochon);
         }
     }
 }
