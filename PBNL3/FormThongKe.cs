@@ -43,41 +43,30 @@ namespace PBNL3
             }
             cbbsetyears.SelectedIndex = 0;
         }
-        
+
         private void SetText(bool type)
-        {           
-            try
+        {
+            Phong_BLL phong_BLL = new Phong_BLL();
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            Don_BLL don_BLL = new Don_BLL();
+            if (type)
             {
-                cbbsetyears.Items.Remove("Chọn năm");
-                if (type)
-                {
-                    int selectedMonth = int.Parse(cbbsetmonths.SelectedItem.ToString());
-                    int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
-                    moneyP.Text = Phong_BLL.GetTotalPhong(selectedMonth, selectedYear, type).ToString();
-                    moneyDV.Text = DichVu_BLL.GetTotalDV(selectedMonth, selectedYear, type).ToString();
-                    BillCount.Text = Don_BLL.GetTotalBill(selectedMonth, selectedYear, type).ToString();
-                    SetBDT();
-                    SetBDD();
-                }
-                else
-                {
-                    SetBDD();
-                    int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
-                    moneyP.Text = Phong_BLL.GetTotalPhong(0, selectedYear, type).ToString();
-                    moneyDV.Text = DichVu_BLL.GetTotalDV(0, selectedYear, type).ToString();
-                    BillCount.Text = Don_BLL.GetTotalBill(0, selectedYear, type).ToString();
-                    chartBDT.Series["DTP"].Points.Clear();
-                }
+                int selectedMonth = int.Parse(cbbsetmonths.SelectedItem.ToString());
+                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                moneyP.Text = phong_BLL.GetTotalPhong(selectedMonth, selectedYear, type).ToString();
+                moneyDV.Text = dichVu_BLL.GetTotalDV(selectedMonth, selectedYear, type).ToString();
+                BillCount.Text = don_BLL.GetTotalBill(selectedMonth, selectedYear, type).ToString();
+                SetBDT();
+                SetBDD();
             }
-            catch
+            else
             {
-                SetCBBMonths();
-                moneyP.Text = "0";
-                moneyDV.Text = "0";
-                BillCount.Text = "0";
+                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                moneyP.Text = phong_BLL.GetTotalPhong(0, selectedYear, type).ToString();
+                moneyDV.Text = dichVu_BLL.GetTotalDV(0, selectedYear, type).ToString();
+                BillCount.Text = don_BLL.GetTotalBill(0, selectedYear, type).ToString();
+                SetBDD();
                 chartBDT.Series["DTP"].Points.Clear();
-                chartBDD.Series["DTP"].Points.Clear();
-                chartBDD.Series["DTDV"].Points.Clear();
             }
         }
         private void SetBDT()
@@ -106,14 +95,16 @@ namespace PBNL3
             List<Double> dataDTP = new List<double>();
             for (int i = 1; i <= 12; i++)
             {
-                double totalP = Phong_BLL.GetTotalPhong(i, selectedYear, true);
+                Phong_BLL phong_BLL = new Phong_BLL();
+                double totalP = phong_BLL.GetTotalPhong(i, selectedYear, true);
                 dataDTP.Add(totalP);
             }
             AddNewSeries("DTP", dataDTP);
             List<Double> dataDTDV = new List<double>();
             for (int i = 1; i <= 12; i++)
             {
-                double totalDV = DichVu_BLL.GetTotalDV(i, selectedYear, true);
+                DichVu_BLL dichVu_BLL = new DichVu_BLL();
+                double totalDV = dichVu_BLL.GetTotalDV(i, selectedYear, true);
                 dataDTDV.Add(totalDV);
             }
             AddNewSeries("DTDV", dataDTDV);
@@ -160,6 +151,12 @@ namespace PBNL3
             {
                 MessageBox.Show("Chọn năm hợp lệ!");
             }
+        }
+
+        private void cbbsetyears_DropDown(object sender, EventArgs e)
+        {
+            cbbsetyears.Items.Remove("Chọn năm");
+            cbbsetyears.SelectedIndex = 0;
         }
     }
 }

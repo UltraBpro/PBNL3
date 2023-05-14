@@ -32,8 +32,8 @@ namespace PBNL3
             int selectedKhach = -1;            
             if (SwitchKhachMoi.Checked)
             {
-                BLL.Khach_BLL editBLL = new BLL.Khach_BLL();
-                selectedKhach = editBLL.ThemKhachMoi(TextBoxHoVaTen.Text, radioButtonNam.Checked ? "Nam" : "Nữ", DateTimePickerNgaySinh.Value, TextBoxSDT.Text, TextBoxCCCD.Text);
+                BLL.Khach_BLL khach_BLL = new BLL.Khach_BLL();
+                selectedKhach = khach_BLL.ThemKhachMoi(TextBoxHoVaTen.Text, radioButtonNam.Checked ? "Nam" : "Nữ", DateTimePickerNgaySinh.Value, TextBoxSDT.Text, TextBoxCCCD.Text);
             }
             else
             {

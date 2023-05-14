@@ -55,7 +55,8 @@ namespace PBNL3
         private void NhanDSDichVu(object sender, int e)
         {
             MaDVDangChon = e;
-            var DVDaChon = DichVu_BLL.TimMaDV(e);
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            var DVDaChon = dichVu_BLL.TimDV(e);
             ButtonChonDichVu.Text = DVDaChon.TenDichVu; labelDonVi.Text = DVDaChon.DonVi;
             ButtonThemDichVu.Enabled = true;
         }
@@ -69,7 +70,8 @@ namespace PBNL3
         }
         private void ButtonThemDichVu_Click(object sender, EventArgs e)
         {
-            var DVDaChon = DichVu_BLL.TimMaDV(MaDVDangChon);
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            var DVDaChon = dichVu_BLL.TimDV(MaDVDangChon);
             DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
             if (KtraDVDaCoChua == null)
             {

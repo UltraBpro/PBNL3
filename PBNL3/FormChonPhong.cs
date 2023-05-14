@@ -34,7 +34,8 @@ namespace PBNL3
 
         private void ButtonDoiLoaiPhong_Click(object sender, EventArgs e)
         {
-            if (NhanVien_BLL.TimChucVu() == "Quản lý")
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            if (nhanVien_BLL.TimChucVu() == "Quản lý")
             {
                 int selectedPhong = 0;
                 foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)

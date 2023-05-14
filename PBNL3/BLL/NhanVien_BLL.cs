@@ -8,48 +8,47 @@ namespace PBNL3.BLL
 {
     internal class NhanVien_BLL
     {
+        private DBEntities db;
+
+        public NhanVien_BLL()
+        {
+            db = new DBEntities();
+        }
         public NhanVien GetNV(int MaNV)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.NhanViens.Find(MaNV);
-            }
+
+            return db.NhanViens.Find(MaNV);
+
         }
         public List<NhanVien> LayDSNhanVien()
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.NhanViens.ToList();
-            }
+            return db.NhanViens.ToList();
         }
         public void ThemNhanVien(string tenNhanVien, bool gioiTinh, DateTime ngayNhanViec, double luong, string chucVu)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                NhanVien newNhanVien = new NhanVien();
-                newNhanVien.MaNhanVien = (db.NhanViens.Max(x => (int?)x.MaNhanVien) ?? 0) + 1;
-                newNhanVien.TenNhanVien = tenNhanVien;
-                newNhanVien.GioiTinh = gioiTinh ? "Nam" : "Nữ";
-                newNhanVien.NgayNhanViec = ngayNhanViec;
-                newNhanVien.Luong = luong;
-                newNhanVien.ChucVu = chucVu;
-                db.NhanViens.Add(newNhanVien);
-                db.SaveChanges();
-            }
+
+            NhanVien newNhanVien = new NhanVien();
+            newNhanVien.MaNhanVien = (db.NhanViens.Max(x => (int?)x.MaNhanVien) ?? 0) + 1;
+            newNhanVien.TenNhanVien = tenNhanVien;
+            newNhanVien.GioiTinh = gioiTinh ? "Nam" : "Nữ";
+            newNhanVien.NgayNhanViec = ngayNhanViec;
+            newNhanVien.Luong = luong;
+            newNhanVien.ChucVu = chucVu;
+            db.NhanViens.Add(newNhanVien);
+            db.SaveChanges();
+
         }
         public NhanVien TimNhanVien(int MaTaiKhoan)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
-            }
+
+            return db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
+
         }
-        public static string TimChucVu()
+        public string TimChucVu()
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu.ToString();
-            }
+
+            return db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu.ToString();
+
         }       
     }
 }

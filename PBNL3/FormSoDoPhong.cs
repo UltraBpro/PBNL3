@@ -22,7 +22,8 @@ namespace PBNL3
 
             foreach (Button ButtonPhong in buttonList)
             {
-                if (Phong_BLL.GetTTrangPhong(ButtonPhong) == "Trống") ButtonPhong.BackColor = Color.Green;
+                Phong_BLL phong_BLL = new Phong_BLL();
+                if (phong_BLL.GetTTrangPhong(ButtonPhong) == "Trống") ButtonPhong.BackColor = Color.Green;
                 else ButtonPhong.BackColor = Color.Red;
             }
 

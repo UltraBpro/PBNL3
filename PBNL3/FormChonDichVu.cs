@@ -46,8 +46,9 @@ namespace PBNL3
         }
 
         private void SwitchDVmoi_CheckedChanged(object sender, EventArgs e)
-        {           
-              if (SwitchDVmoi.Checked && NhanVien_BLL.TimChucVu() != "Quản lý") { SwitchDVmoi.Checked = false; MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này."); }
+        {
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+              if (SwitchDVmoi.Checked && nhanVien_BLL.TimChucVu() != "Quản lý") { SwitchDVmoi.Checked = false; MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này."); }
             
             if (SwitchDVmoi.Checked) { this.Size = new Size(618, 379); }
             else { this.Size = new Size(618, 332); }

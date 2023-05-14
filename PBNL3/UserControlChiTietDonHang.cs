@@ -32,7 +32,7 @@ namespace PBNL3
                 var Don = don_BLL.GetDonDat(MaDon);
                 var DSDichVu = dichVu_BLL.LayDSDichVuDaSuDung(MaDon);
                 var PhongDat = phong_BLL.GetPhongDat(MaDon);
-                var Phong = phong_BLL.GetPhong(MaDon);
+                var Phong = phong_BLL.GetPhong(PhongDat.MaPhong);
                 var LoaiPhong = phong_BLL.GetLoaiPhong(Phong.MaLoaiPhong);
                 var Khach = khach_BLL.GetKhach(Don.MaKhach);
                 var NhanVienDat = nhanVien_BLL.GetNV(Don.MaNhanVienThucHien);
@@ -60,8 +60,8 @@ namespace PBNL3
                 }
                 labelTinhTrangTToan.Text = "Tình trạng thanh toán: " + Don.TinhTrangThanhToan;
             foreach (ChiTietDichVuDat DVvaSL in DSDichVu)
-            {
-                var DVDaChon = DichVu_BLL.TimMaDV(DVvaSL.MaDichVu);
+            {               
+                var DVDaChon = dichVu_BLL.TimDV(DVvaSL.MaDichVu);
                 DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == DVvaSL.MaDichVu);
                 if (KtraDVDaCoChua == null)
                 {

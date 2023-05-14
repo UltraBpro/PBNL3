@@ -8,42 +8,36 @@ namespace PBNL3.BLL
 {
     internal class Account_BLL
     {
+        private DBEntities db;
+
+        public Account_BLL()
+        {
+            db = new DBEntities();
+        }
         public TaiKhoan GetAccount(string username)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.TaiKhoans.Single(p => p.username == username);
-            }
-        }
-        public NhanVien FindAccount(int MaTaiKhoan)
-        {
-            using (DBEntities db = new DBEntities())
-            {
-                return db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
-            }
-        }
+            return db.TaiKhoans.Single(p => p.username == username);
+        }        
         public void DoiMatKhau(string matKhauCu, string matKhauMoi, string xacNhanMatKhauMoi)
         {
-            using (DBEntities db = new DBEntities())
+            var TKcu = db.TaiKhoans.Where(p => p.MaNhanVien == NhanVienThucHien.MaNhanVien).FirstOrDefault();
+            if (TKcu.password == matKhauCu)
             {
-                var TKcu = db.TaiKhoans.Where(p => p.MaNhanVien == NhanVienThucHien.MaNhanVien).FirstOrDefault();
-                if (TKcu.password == matKhauCu)
+                if (matKhauMoi == xacNhanMatKhauMoi)
                 {
-                    if (matKhauMoi == xacNhanMatKhauMoi)
-                    {
-                        TKcu.password = matKhauMoi;
-                        db.SaveChanges();
-                    }
-                    else
-                    {
-                        throw new Exception("Mật khẩu xác nhận không đúng.");
-                    }
+                    TKcu.password = matKhauMoi;
+                    db.SaveChanges();
                 }
                 else
                 {
-                    throw new Exception("Mật khẩu cũ không đúng.");
+                    throw new Exception("Mật khẩu xác nhận không đúng.");
                 }
+            }
+            else
+            {
+                throw new Exception("Mật khẩu cũ không đúng.");
             }
         }
     }
 }
+
