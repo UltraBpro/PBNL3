@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using PBNL3.BLL;
 using System;
 using System.Drawing;
 using System.IO;
@@ -109,6 +110,7 @@ namespace PBNL3
         }
 
 
+        // Đoạn sau được viết bởi thằng l*n Tuấn
         private Timer timer = new Timer();
         bool nah = false;
         private void timer_Tick(object sender, EventArgs e)
@@ -128,14 +130,12 @@ namespace PBNL3
         }
         private void LoadNhanVien(int MaTaiKhoan)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                var NV = db.TaiKhoans.Find(MaTaiKhoan).NhanVien;
-                NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
-                labelMaNV.Text = NV.MaNhanVien.ToString();
-                labelTenNV.Text = NV.TenNhanVien;
-                labelChucVu.Text = NV.ChucVu; if (NV.ChucVu == "Quản lý") quảnLýToolStripMenuItem.Enabled = true;
-            }
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            var NV = nhanVien_BLL.TimNhanVien(MaTaiKhoan);
+            NhanVienThucHien.MaNhanVien = NV.MaNhanVien;
+            labelMaNV.Text = NV.MaNhanVien.ToString();
+            labelTenNV.Text = NV.TenNhanVien;
+            labelChucVu.Text = NV.ChucVu; if (NV.ChucVu == "Quản lý") quảnLýToolStripMenuItem.Enabled = true;
         }
         private void DatPhongToolStripMenuItem_Click(object sender, EventArgs e)
         {

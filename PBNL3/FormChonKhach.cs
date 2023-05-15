@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,42 +14,34 @@ namespace PBNL3
         public FormChonKhach()
         {
             InitializeComponent();
-            using (DBEntities db = new DBEntities())
+            Khach_BLL khach_BLL = new Khach_BLL();
+            List<Khach> khaches= khach_BLL.LayDSKhach();
+            guna2DataGridView1.DataSource = khaches.Select(p => new
             {
-                guna2DataGridView1.DataSource = db.Khaches.Select(p => new
-                {
-                    p.MaKhach,
-                    p.TenKhach,
-                    p.GioiTinh,
-                    p.NgaySinh,
-                    p.SoDienThoai
-                }).ToList();
-            }
+                p.MaKhach,
+                p.TenKhach,
+                p.GioiTinh,
+                p.NgaySinh,
+                p.SoDienThoai
+            }).ToList();
+
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
-            int selectedKhach = -1;
+            int selectedKhach = -1;            
             if (SwitchKhachMoi.Checked)
             {
-                using (DBEntities db = new DBEntities())
-                {
-                    Khach newKhach = new Khach();
-                    newKhach.MaKhach = (db.Khaches.Max(x => (int?)x.MaKhach) ?? 0) + 1;
-                    newKhach.TenKhach = TextBoxHoVaTen.Text;
-                    newKhach.GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ";
-                    newKhach.NgaySinh = DateTimePickerNgaySinh.Value;
-                    newKhach.SoDienThoai = TextBoxSDT.Text;
-                    newKhach.CCCD = TextBoxCCCD.Text;
-                    db.Khaches.Add(newKhach); db.SaveChanges();
-                    selectedKhach = newKhach.MaKhach;
-                }
+                BLL.Khach_BLL khach_BLL = new BLL.Khach_BLL();
+                selectedKhach = khach_BLL.ThemKhachMoi(TextBoxHoVaTen.Text, radioButtonNam.Checked ? "Nam" : "Nữ", DateTimePickerNgaySinh.Value, TextBoxSDT.Text, TextBoxCCCD.Text);
             }
             else
+            {
                 foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
                 {
                     selectedKhach = Convert.ToInt32(row.Cells["MaKhach"].Value);
                 }
+            }
             GuiKhachDi?.Invoke(this, selectedKhach);
             this.Close();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -11,35 +13,26 @@ namespace PBNL3
         public FormChonNhanVien()
         {
             InitializeComponent();
-            using (DBEntities db = new DBEntities())
+
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            List<NhanVien> nhanViens = nhanVien_BLL.LayDSNhanVien();
+            guna2DataGridView1.DataSource = nhanViens.Select(p => new
             {
-                guna2DataGridView1.DataSource = db.NhanViens.Select(p => new
-                {
-                    p.MaNhanVien,
-                    p.TenNhanVien,
-                    p.GioiTinh,
-                    p.NgayNhanViec,
-                    p.ChucVu,
-                    p.Luong
-                }).ToList();
-            }
+                p.MaNhanVien,
+                p.TenNhanVien,
+                p.GioiTinh,
+                p.NgayNhanViec,
+                p.ChucVu,
+                p.Luong
+            }).ToList();
         }
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             if (SwitchNVMoi.Checked)
             {
-                using (DBEntities db = new DBEntities())
-                {
-                    NhanVien newNhanVien = new NhanVien();
-                    newNhanVien.MaNhanVien = (db.NhanViens.Max(x => (int?)x.MaNhanVien) ?? 0) + 1;
-                    newNhanVien.TenNhanVien = TextBoxHoVaTen.Text;
-                    newNhanVien.GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ";
-                    newNhanVien.NgayNhanViec = DateTimePickerNgaySinh.Value;
-                    newNhanVien.Luong = Convert.ToDouble(TextBoxLuong.Text);
-                    newNhanVien.ChucVu = TextBoxChucVu.Text;
-                    db.NhanViens.Add(newNhanVien); db.SaveChanges();
-                }
+                NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+                nhanVien_BLL.ThemNhanVien(TextBoxHoVaTen.Text, radioButtonNam.Checked, DateTimePickerNgaySinh.Value, Convert.ToDouble(TextBoxLuong.Text), TextBoxChucVu.Text);       
             }
             this.Close();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.IO;
 using System.Linq;
 using System.Media;
@@ -56,23 +57,22 @@ namespace PBNL3
         }
         private void Login(string username, string password)
         {
-            using (DBEntities db = new DBEntities())
+            try
             {
-                try
+                Account_BLL account_BLL = new Account_BLL();
+                var s = account_BLL.GetAccount(username);
+                if (s.password == password)
                 {
-                    var s = db.TaiKhoans.Single(p => p.username == username);
-                    if (s.password == password)
-                    {
-                        if (SwitchRemember.Checked) LuuDangNhap(username, password);
-                        else File.Delete("LoginInfo.txt");
-                        FormManHinhChinh fMainMenu = new FormManHinhChinh(s.MaTK);
-                        fMainMenu.Show();
-                        this.Close();
-                    }
-                    else MessageBox.Show("Sai tài khoản hoặc mật khẩu.");
+                    if (SwitchRemember.Checked) LuuDangNhap(username, password);
+                    else File.Delete("LoginInfo.txt");
+                    FormManHinhChinh fMainMenu = new FormManHinhChinh(s.MaTK);
+                    fMainMenu.Show();
+                    this.Close();
                 }
-                catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
+                else MessageBox.Show("Sai tài khoản hoặc mật khẩu.");
             }
+            catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
+
         }
         private Timer timer = new Timer();
         bool nani = false;

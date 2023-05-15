@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,22 +15,22 @@ namespace PBNL3
     {
         public event EventHandler<int> GuiLoaiPhongDi;
         int? MaPhong = null;
-        public FormChonLoaiPhong(int? MPhg=null)
+        public FormChonLoaiPhong(int? MPhg = null)
         {
             InitializeComponent();
             MaPhong = MPhg;
-            using (DBEntities db = new DBEntities())
+
+            Phong_BLL phong_BLL = new Phong_BLL();
+            List<LoaiPhong> loaiPhongs = phong_BLL.LayDSLoaiPhong();
+            guna2DataGridView1.DataSource = loaiPhongs.Select(p => new
             {
-                guna2DataGridView1.DataSource = db.LoaiPhongs.Select(p => new
-                {
-                    p.MaLoaiPhong,
-                    p.TenLoaiPhong,
-                    p.SoGiuong,
-                    p.DienTich,
-                    p.GiaTien,
-                    p.GhiChu
-                }).ToList();
-            }
+                p.MaLoaiPhong,
+                p.TenLoaiPhong,
+                p.SoGiuong,
+                p.DienTich,
+                p.GiaTien,
+                p.GhiChu
+            }).ToList();
         }
 
         private void SwitchKhachMoi_CheckedChanged(object sender, EventArgs e)
@@ -43,28 +44,20 @@ namespace PBNL3
         {
             int selectedLP = -1;
             if (SwitchLoaiPhong.Checked)
-            {
-                using (DBEntities db = new DBEntities())
-                {
-                    LoaiPhong newLP = new LoaiPhong();
-                    newLP.MaLoaiPhong = (db.LoaiPhongs.Max(x => (int?)x.MaLoaiPhong) ?? 0) + 1;
-                    newLP.TenLoaiPhong = TextBoxTenLoaiPhong.Text;
-                    newLP.SoGiuong = Convert.ToInt32(TextBoxSoGiuong.Text);
-                    newLP.DienTich = Convert.ToInt32(TextBoxDienTich.Text);
-                    newLP.GhiChu = TextBoxNote.Text;
-                    newLP.GiaTien = Convert.ToDouble(TextBoxGiaTien.Text);
-                    db.LoaiPhongs.Add(newLP); db.SaveChanges();
-                    selectedLP = newLP.MaLoaiPhong;
-                }
+            {               
+                    Phong_BLL phong_BLL = new Phong_BLL();
+                    selectedLP = phong_BLL.ThemLoaiPhong(TextBoxTenLoaiPhong.Text, Convert.ToInt32(TextBoxSoGiuong.Text), Convert.ToInt32(TextBoxDienTich.Text), TextBoxNote.Text, Convert.ToDouble(TextBoxGiaTien.Text));
+                
             }
             else
                 foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
                 {
                     selectedLP = Convert.ToInt32(row.Cells["MaLoaiPhong"].Value);
                 }
-            if(MaPhong!=null) using (DBEntities db = new DBEntities())
+            if(MaPhong!=null) 
                 {
-                    db.Phongs.Find(MaPhong).MaLoaiPhong=selectedLP;db.SaveChanges();
+                    Phong_BLL phong_BLL = new Phong_BLL();
+                    phong_BLL.GanMaLoaiPhongChoPhong(MaPhong, selectedLP);
                 }
             GuiLoaiPhongDi?.Invoke(this, selectedLP);
             this.Close();

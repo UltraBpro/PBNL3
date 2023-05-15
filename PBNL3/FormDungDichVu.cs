@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PBNL3.BLL;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,7 +18,6 @@ namespace PBNL3
             {
                 ButtonChonPhong.Enabled = false;
                 NhanDSPhong(null, (int)MaPhong);
-                ButtonXacNhan.Enabled = true;
             }
             dt.Columns.Add("Mã dịch vụ", typeof(int));
             dt.Columns.Add("Tên dịch vụ", typeof(string));
@@ -54,12 +55,10 @@ namespace PBNL3
         private void NhanDSDichVu(object sender, int e)
         {
             MaDVDangChon = e;
-            using (DBEntities db = new DBEntities())
-            {
-                var DVDaChon = db.LoaiDichVus.Find(e);
-                ButtonChonDichVu.Text = DVDaChon.TenDichVu; labelDonVi.Text = DVDaChon.DonVi;
-                ButtonThemDichVu.Enabled = true;
-            }
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            var DVDaChon = dichVu_BLL.TimDV(e);
+            ButtonChonDichVu.Text = DVDaChon.TenDichVu; labelDonVi.Text = DVDaChon.DonVi;
+            ButtonThemDichVu.Enabled = true;
         }
         private void FormHoiSinh(object sender, FormClosedEventArgs e)
         {
@@ -71,58 +70,31 @@ namespace PBNL3
         }
         private void ButtonThemDichVu_Click(object sender, EventArgs e)
         {
-            using (DBEntities db = new DBEntities())
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            var DVDaChon = dichVu_BLL.TimDV(MaDVDangChon);
+            DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
+            if (KtraDVDaCoChua == null)
             {
-                var DVDaChon = db.LoaiDichVus.Find(MaDVDangChon);
-                DataRow KtraDVDaCoChua = dt.Rows.Cast<DataRow>().FirstOrDefault(row => Convert.ToInt32(row["Mã dịch vụ"]) == MaDVDangChon);
-                if (KtraDVDaCoChua == null)
-                {
-                    DataRow newRow = dt.NewRow();
-                    newRow["Mã dịch vụ"] = MaDVDangChon;
-                    newRow["Tên dịch vụ"] = DVDaChon.TenDichVu;
-                    newRow["Đơn giá"] = DVDaChon.DonGia;
-                    newRow["Đơn vị"] = DVDaChon.DonVi;
-                    newRow["Số lượng"] = guna2NumericUpDown1.Value;
-                    dt.Rows.Add(newRow);
-                }
-                else KtraDVDaCoChua["Số lượng"] = Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) + guna2NumericUpDown1.Value;
+                DataRow newRow = dt.NewRow();
+                newRow["Mã dịch vụ"] = MaDVDangChon;
+                newRow["Tên dịch vụ"] = DVDaChon.TenDichVu;
+                newRow["Đơn giá"] = DVDaChon.DonGia;
+                newRow["Đơn vị"] = DVDaChon.DonVi;
+                newRow["Số lượng"] = guna2NumericUpDown1.Value;
+                dt.Rows.Add(newRow);
+            }
+            else KtraDVDaCoChua["Số lượng"] = Convert.ToInt32(KtraDVDaCoChua["Số lượng"]) + guna2NumericUpDown1.Value;
                 ButtonThemDichVu.Enabled = false; labelDonVi.Text = "ĐƠN VỊ"; ButtonChonDichVu.Text = "Chọn dịch vụ"; guna2NumericUpDown1.Value = 1;
             }
-        }
+
 
         private void ButtonXacNhan_Click(object sender, EventArgs e)
         {
-            using (DBEntities db = new DBEntities())
-            {
-                int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
-                var TimDonDatDichVu = db.DonDatPhongs.Join(db.ChiTietPhongDats,
-              don => don.MaDonDatPhong,
-              phongdat => phongdat.MaDonDatPhong,
-              (don, phongdat) => new
-              {
-                  don.MaDonDatPhong,
-                  phongdat.MaPhong,
-                  don.TinhTrangThanhToan
-              }).Where(p => p.TinhTrangThanhToan != "Đã thanh toán" && p.MaPhong == phongduochon).FirstOrDefault();
-                foreach (DataRow dtr in dt.Rows)
-                {
-                    int MaDV = Convert.ToInt32(dtr["Mã dịch vụ"]);
-                    var DichvuDaDat = db.ChiTietDichVuDats.Where(p => p.MaDonDatPhong == TimDonDatDichVu.MaDonDatPhong && p.MaDichVu == MaDV).FirstOrDefault();
-                    if (DichvuDaDat == null)
-                    {
-                        ChiTietDichVuDat datdichvuchodon = new ChiTietDichVuDat();
-                        datdichvuchodon.MaDonDatPhong = TimDonDatDichVu.MaDonDatPhong;
-                        datdichvuchodon.MaDichVu = MaDV;
-                        datdichvuchodon.SoLuong = Convert.ToInt32(dtr["Số lượng"]);
-                        datdichvuchodon.GiaDichVuDat = Convert.ToInt32(dtr["Đơn giá"]);
-                        db.ChiTietDichVuDats.Add(datdichvuchodon);
-                    }
-                    else DichvuDaDat.SoLuong += Convert.ToInt32(dtr["Số lượng"]);
-                    db.SaveChanges();
-                }
-                this.Close();
-            }
-        }
+            int phongduochon = Convert.ToInt32(ButtonChonPhong.Text.Substring(0, ButtonChonPhong.Text.Length - 1).Split(':')[1].Trim());
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            dichVu_BLL.DatDichVu(dt, phongduochon);
+            this.Close();
+        }      
 
         private void SwitchChiTiet_CheckedChanged(object sender, EventArgs e)
         {
