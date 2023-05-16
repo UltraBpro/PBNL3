@@ -62,5 +62,26 @@ namespace PBNL3
             GuiLoaiPhongDi?.Invoke(this, selectedLP);
             this.Close();
         }
+
+        private void ButtonXoa_Click(object sender, EventArgs e)
+        {
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            if (nhanVien_BLL.TimChucVu() != "Quản lý") MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này.");
+            else
+            {
+                Phong_BLL phong_BLL = new Phong_BLL();
+                phong_BLL.XoaLoaiPhong(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaLoaiPhong"].Value));
+                List<LoaiPhong> loaiPhongs = phong_BLL.LayDSLoaiPhong();
+                guna2DataGridView1.DataSource = loaiPhongs.Select(p => new
+                {
+                    p.MaLoaiPhong,
+                    p.TenLoaiPhong,
+                    p.SoGiuong,
+                    p.DienTich,
+                    p.GiaTien,
+                    p.GhiChu
+                }).ToList();
+            }
+        }
     }
 }

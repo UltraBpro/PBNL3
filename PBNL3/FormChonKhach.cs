@@ -52,5 +52,25 @@ namespace PBNL3
             else { this.Size = new Size(618, 332); labelNgaySinh.Visible = false; }
             this.CenterToScreen();
         }
+
+        private void ButtonXoa_Click(object sender, EventArgs e)
+        {
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            if (nhanVien_BLL.TimChucVu() != "Quản lý") MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này.");
+            else
+            {
+                Khach_BLL khach_BLL = new Khach_BLL();
+                khach_BLL.XoaKhach(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaKhach"].Value));
+                List<Khach> khaches = khach_BLL.LayDSKhach();
+                guna2DataGridView1.DataSource = khaches.Select(p => new
+                {
+                    p.MaKhach,
+                    p.TenKhach,
+                    p.GioiTinh,
+                    p.NgaySinh,
+                    p.SoDienThoai
+                }).ToList();
+            }
+        }
     }
 }

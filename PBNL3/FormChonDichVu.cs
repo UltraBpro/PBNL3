@@ -54,5 +54,25 @@ namespace PBNL3
             else { this.Size = new Size(618, 332); }
             this.CenterToScreen();
         }
+
+        private void ButtonXoa_Click(object sender, EventArgs e)
+        {
+            NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
+            if(nhanVien_BLL.TimChucVu()!= "Quản lý") MessageBox.Show("Bạn không đủ quyền hạn thực hiện chức năng này.");
+            else
+            {
+                DichVu_BLL dichVu_BLL = new DichVu_BLL();
+                dichVu_BLL.XoaDV(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaLoaiDichVu"].Value));
+                List<LoaiDichVu> loaiDichVus = dichVu_BLL.LayDSDichVu();
+                guna2DataGridView1.DataSource = loaiDichVus
+                    .Select(p => new
+                    {
+                        p.MaLoaiDichVu,
+                        p.TenDichVu,
+                        p.DonGia,
+                        p.DonVi,
+                    }).ToList();
+            }
+        }
     }
 }
