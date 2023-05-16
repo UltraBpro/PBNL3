@@ -40,7 +40,7 @@ namespace PBNL3.BLL
         }
         public TaiKhoan CheckTK(int MaNhanVien)
         {
-            return db.TaiKhoans.Where(p => p.MaNhanVien == MaNhanVien).FirstOrDefault();
+            return db.TaiKhoans.Where(p => p.MaNhanVien == MaNhanVien&&p.Activated==true).FirstOrDefault();
         }
         public void ThemTaiKhoan(int MaNhanVien,string usn,string pass)
         {

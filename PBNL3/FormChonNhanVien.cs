@@ -62,9 +62,9 @@ namespace PBNL3
             {
                 Account_BLL account_BLL = new Account_BLL();
                 TaiKhoan tempAcc = account_BLL.CheckTK(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaNhanVien"].Value));
-                if (tempAcc == null)
+                if (tempAcc != null)
                 {
-                    MessageBox.Show("Chưa có tài khoản nào được cấp cho nhân viên này");
+                    MessageBox.Show("Có tài khoản đã được cấp cho nhân viên này, vui lòng liên hệ admin để xóa tài khoản trước.");
                 }
                 else nhanVien_BLL.XoaNhanVien(Convert.ToInt32(guna2DataGridView1.SelectedRows[0].Cells["MaNhanVien"].Value));
                 List<NhanVien> nhanViens = nhanVien_BLL.LayDSNhanVien();
