@@ -31,6 +31,7 @@ namespace PBNL3.BLL
             newDV.TenDichVu = tenDichVu;
             newDV.DonGia = donGia;
             newDV.DonVi = donVi.ToUpper();
+            newDV.Activated = true;
             db.LoaiDichVus.Add(newDV);
             db.SaveChanges();
             return newDV.MaLoaiDichVu;

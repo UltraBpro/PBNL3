@@ -37,6 +37,7 @@ namespace PBNL3.BLL
             newKhach.NgaySinh = ngaySinh;
             newKhach.SoDienThoai = soDienThoai;
             newKhach.CCCD = CCCD;
+            newKhach.Activated = true;
             db.Khaches.Add(newKhach);
             db.SaveChanges();
             return newKhach.MaKhach;

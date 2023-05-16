@@ -34,6 +34,7 @@ namespace PBNL3.BLL
             newNhanVien.NgayNhanViec = ngayNhanViec;
             newNhanVien.Luong = luong;
             newNhanVien.ChucVu = chucVu;
+            newNhanVien.Activated = true;
             db.NhanViens.Add(newNhanVien);
             db.SaveChanges();
             return newNhanVien.MaNhanVien;

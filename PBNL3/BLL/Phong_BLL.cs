@@ -98,6 +98,7 @@ namespace PBNL3.BLL
             newLP.DienTich = dienTich;
             newLP.GhiChu = ghiChu;
             newLP.GiaTien = giaTien;
+            newLP.Activated = true;
             db.LoaiPhongs.Add(newLP); db.SaveChanges();
             return newLP.MaLoaiPhong;
 

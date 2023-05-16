@@ -49,6 +49,7 @@ namespace PBNL3.BLL
             newTK.username = usn;
             newTK.password = pass;
             newTK.MaNhanVien = MaNhanVien;
+            newTK.Activated = true;
             db.TaiKhoans.Add(newTK);db.SaveChanges();
         }
         public void XoaTaiKhoan(int MaNhanVien)
