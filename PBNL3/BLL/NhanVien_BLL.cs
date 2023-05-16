@@ -24,7 +24,7 @@ namespace PBNL3.BLL
         {
             return db.NhanViens.ToList();
         }
-        public void ThemNhanVien(string tenNhanVien, bool gioiTinh, DateTime ngayNhanViec, double luong, string chucVu)
+        public int ThemNhanVien(string tenNhanVien, bool gioiTinh, DateTime ngayNhanViec, double luong, string chucVu)
         {
 
             NhanVien newNhanVien = new NhanVien();
@@ -36,6 +36,7 @@ namespace PBNL3.BLL
             newNhanVien.ChucVu = chucVu;
             db.NhanViens.Add(newNhanVien);
             db.SaveChanges();
+            return newNhanVien.MaNhanVien;
 
         }
         public NhanVien TimNhanVien(int MaTaiKhoan)
@@ -46,9 +47,12 @@ namespace PBNL3.BLL
         }
         public string TimChucVu()
         {
-
             return db.NhanViens.Find(NhanVienThucHien.MaNhanVien).ChucVu.ToString();
-
-        }       
+        }
+        public void XoaNhanVien(int MaNhanVien)
+        {
+            db.NhanViens.Find(MaNhanVien).Activated = false;
+            db.SaveChanges();
+        }
     }
 }

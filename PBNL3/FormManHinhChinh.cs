@@ -120,14 +120,7 @@ namespace PBNL3
             else guna2ImageButton1.Image = Properties.Resources.Cheems0;
             nah = !nah;
         }
-        private void guna2ImageButton1_MouseDown(object sender, EventArgs e)
-        {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
-            player.Play();
-            labelTrangThai.Text = "Trang chủ";
-            iconPictureBox1.IconChar = IconChar.Home;
-            DisableButton(); leftBorderBtn.Visible = false;
-        }
+
         private void LoadNhanVien(int MaTaiKhoan)
         {
             NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
@@ -239,6 +232,15 @@ namespace PBNL3
             loaiP.Show();
             this.Enabled = false;
             loaiP.FormClosed += FormHoiSinh;
+        }
+
+        private void guna2ImageButton1_MouseDown(object sender, MouseEventArgs e)
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
+            player.Play();
+            labelTrangThai.Text = "Trang chủ";
+            iconPictureBox1.IconChar = IconChar.Home;
+            DisableButton(); leftBorderBtn.Visible = false;
         }
     }
     public static class NhanVienThucHien

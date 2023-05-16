@@ -10,6 +10,7 @@ namespace PBNL3
 {
     public partial class FormChonNhanVien : Form
     {
+        public event EventHandler<int> GuiNVDi;
         public FormChonNhanVien()
         {
             InitializeComponent();
@@ -29,11 +30,20 @@ namespace PBNL3
 
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
+            int selectedNV = -1;
             if (SwitchNVMoi.Checked)
             {
                 NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
-                nhanVien_BLL.ThemNhanVien(TextBoxHoVaTen.Text, radioButtonNam.Checked, DateTimePickerNgaySinh.Value, Convert.ToDouble(TextBoxLuong.Text), TextBoxChucVu.Text);       
+                selectedNV=nhanVien_BLL.ThemNhanVien(TextBoxHoVaTen.Text, radioButtonNam.Checked, DateTimePickerNgaySinh.Value, Convert.ToDouble(TextBoxLuong.Text), TextBoxChucVu.Text);       
             }
+            else
+            {
+                foreach (DataGridViewRow row in guna2DataGridView1.SelectedRows)
+                {
+                    selectedNV = Convert.ToInt32(row.Cells["MaNhanVien"].Value);
+                }
+            }
+            GuiNVDi?.Invoke(this, selectedNV);
             this.Close();
         }
 

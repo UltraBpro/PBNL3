@@ -24,6 +24,7 @@ namespace PBNL3
         public string TenDichVu { get; set; }
         public double DonGia { get; set; }
         public string DonVi { get; set; }
+        public bool Activated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDichVuDat> ChiTietDichVuDats { get; set; }

@@ -18,6 +18,7 @@ namespace PBNL3
         public string username { get; set; }
         public string password { get; set; }
         public Nullable<int> MaNhanVien { get; set; }
+        public bool Activated { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
     }

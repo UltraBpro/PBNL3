@@ -60,13 +60,14 @@ namespace PBNL3
             try
             {
                 Account_BLL account_BLL = new Account_BLL();
+                NhanVien_BLL nhanVien_BLL = new NhanVien_BLL();
                 var s = account_BLL.GetAccount(username);
                 if (s.password == password)
                 {
                     if (SwitchRemember.Checked) LuuDangNhap(username, password);
                     else File.Delete("LoginInfo.txt");
-                    FormManHinhChinh fMainMenu = new FormManHinhChinh(s.MaTK);
-                    fMainMenu.Show();
+                    if (nhanVien_BLL.TimNhanVien(s.MaTK).ChucVu == "Admin") { FormAdmin fAdmin = new FormAdmin(s.MaTK); fAdmin.Show(); }
+                    else { FormManHinhChinh fMainMenu = new FormManHinhChinh(s.MaTK); fMainMenu.Show(); }
                     this.Close();
                 }
                 else MessageBox.Show("Sai tài khoản hoặc mật khẩu.");

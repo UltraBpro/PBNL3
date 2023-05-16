@@ -8,9 +8,16 @@ namespace PBNL3
 {
     public partial class FormDoiMK : Form
     {
-        public FormDoiMK()
+        int? MaNVdangcap=null;
+        public FormDoiMK(int? MaNV=null)
         {
             InitializeComponent();
+            if (MaNV != null)
+            {
+                MaNVdangcap = MaNV;
+                labelDong1.Text = "Tên tài khoản";TextBoxMKCu.UseSystemPasswordChar = false;
+                labelDong2.Text = "Mật khẩu";
+            }
         }
 
         private void TextBoxMKMoi_TextChanged(object sender, EventArgs e)
@@ -20,18 +27,19 @@ namespace PBNL3
 
         private void ButtonXacNhan_Click(object sender, EventArgs e)
         {
-
+                Account_BLL account_BLL = new Account_BLL();
             try
             {
-                Account_BLL account_BLL = new Account_BLL();
-                account_BLL.DoiMatKhau(TextBoxMKCu.Text, TextBoxMKMoi.Text, TextBoxXacNhan.Text);
-                this.Close();
+                if (MaNVdangcap != null) account_BLL.DoiMatKhau(TextBoxMKCu.Text, TextBoxMKMoi.Text, TextBoxXacNhan.Text);
+                else
+                    if (TextBoxMKMoi.Text == TextBoxXacNhan.Text) account_BLL.ThemTaiKhoan((int)MaNVdangcap, TextBoxMKCu.Text, TextBoxMKMoi.Text);
+                else MessageBox.Show("Mật khẩu nhập lại sai.");
+                    this.Close();
             }
-            catch (Exception ex)
+            catch (Exception x)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(x.Message);
             }
-
         }
     }
 }

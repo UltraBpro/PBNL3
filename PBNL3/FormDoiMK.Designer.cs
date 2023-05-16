@@ -31,11 +31,11 @@ namespace PBNL3
         {
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.TextBoxMKMoi = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelDong2 = new System.Windows.Forms.Label();
             this.TextBoxMKCu = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelDong1 = new System.Windows.Forms.Label();
             this.TextBoxXacNhan = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelDong3 = new System.Windows.Forms.Label();
             this.ButtonXacNhan = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -43,11 +43,11 @@ namespace PBNL3
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.Controls.Add(this.TextBoxMKMoi);
-            this.guna2GradientPanel1.Controls.Add(this.label4);
+            this.guna2GradientPanel1.Controls.Add(this.labelDong2);
             this.guna2GradientPanel1.Controls.Add(this.TextBoxMKCu);
-            this.guna2GradientPanel1.Controls.Add(this.label3);
+            this.guna2GradientPanel1.Controls.Add(this.labelDong1);
             this.guna2GradientPanel1.Controls.Add(this.TextBoxXacNhan);
-            this.guna2GradientPanel1.Controls.Add(this.label2);
+            this.guna2GradientPanel1.Controls.Add(this.labelDong3);
             this.guna2GradientPanel1.Controls.Add(this.ButtonXacNhan);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
@@ -83,15 +83,15 @@ namespace PBNL3
             this.TextBoxMKMoi.UseSystemPasswordChar = true;
             this.TextBoxMKMoi.TextChanged += new System.EventHandler(this.TextBoxMKMoi_TextChanged);
             // 
-            // label4
+            // labelDong2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(23, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Mật khẩu mới";
+            this.labelDong2.AutoSize = true;
+            this.labelDong2.BackColor = System.Drawing.Color.Transparent;
+            this.labelDong2.Location = new System.Drawing.Point(23, 81);
+            this.labelDong2.Name = "labelDong2";
+            this.labelDong2.Size = new System.Drawing.Size(71, 13);
+            this.labelDong2.TabIndex = 46;
+            this.labelDong2.Text = "Mật khẩu mới";
             // 
             // TextBoxMKCu
             // 
@@ -117,15 +117,15 @@ namespace PBNL3
             this.TextBoxMKCu.TabIndex = 45;
             this.TextBoxMKCu.UseSystemPasswordChar = true;
             // 
-            // label3
+            // labelDong1
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(23, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Mật khẩu cũ";
+            this.labelDong1.AutoSize = true;
+            this.labelDong1.BackColor = System.Drawing.Color.Transparent;
+            this.labelDong1.Location = new System.Drawing.Point(23, 39);
+            this.labelDong1.Name = "labelDong1";
+            this.labelDong1.Size = new System.Drawing.Size(67, 13);
+            this.labelDong1.TabIndex = 44;
+            this.labelDong1.Text = "Mật khẩu cũ";
             // 
             // TextBoxXacNhan
             // 
@@ -151,15 +151,15 @@ namespace PBNL3
             this.TextBoxXacNhan.TabIndex = 43;
             this.TextBoxXacNhan.UseSystemPasswordChar = true;
             // 
-            // label2
+            // labelDong3
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(23, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 42;
-            this.label2.Text = "Xác nhận mật khẩu";
+            this.labelDong3.AutoSize = true;
+            this.labelDong3.BackColor = System.Drawing.Color.Transparent;
+            this.labelDong3.Location = new System.Drawing.Point(23, 123);
+            this.labelDong3.Name = "labelDong3";
+            this.labelDong3.Size = new System.Drawing.Size(100, 13);
+            this.labelDong3.TabIndex = 42;
+            this.labelDong3.Text = "Xác nhận mật khẩu";
             // 
             // ButtonXacNhan
             // 
@@ -177,7 +177,7 @@ namespace PBNL3
             this.ButtonXacNhan.Name = "ButtonXacNhan";
             this.ButtonXacNhan.Size = new System.Drawing.Size(180, 41);
             this.ButtonXacNhan.TabIndex = 41;
-            this.ButtonXacNhan.Text = "Xác nhận đổi mật khẩu";
+            this.ButtonXacNhan.Text = "Xác nhận";
             this.ButtonXacNhan.Click += new System.EventHandler(this.ButtonXacNhan_Click);
             // 
             // FormDoiMK
@@ -201,11 +201,11 @@ namespace PBNL3
 
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxMKMoi;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelDong2;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxMKCu;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelDong1;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxXacNhan;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelDong3;
         private Guna.UI2.WinForms.Guna2Button ButtonXacNhan;
     }
 }

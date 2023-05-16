@@ -17,7 +17,7 @@ namespace PBNL3.BLL
         public TaiKhoan GetAccount(string username)
         {
             return db.TaiKhoans.Single(p => p.username == username);
-        }        
+        } 
         public void DoiMatKhau(string matKhauCu, string matKhauMoi, string xacNhanMatKhauMoi)
         {
             var TKcu = db.TaiKhoans.Where(p => p.MaNhanVien == NhanVienThucHien.MaNhanVien).FirstOrDefault();
@@ -37,6 +37,24 @@ namespace PBNL3.BLL
             {
                 throw new Exception("Mật khẩu cũ không đúng.");
             }
+        }
+        public TaiKhoan CheckTK(int MaNhanVien)
+        {
+            return db.TaiKhoans.Where(p => p.MaNhanVien == MaNhanVien).FirstOrDefault();
+        }
+        public void ThemTaiKhoan(int MaNhanVien,string usn,string pass)
+        {
+            TaiKhoan newTK = new TaiKhoan();
+            newTK.MaTK= (db.TaiKhoans.Max(x => (int?)x.MaTK) ?? 0) + 1;
+            newTK.username = usn;
+            newTK.password = pass;
+            newTK.MaNhanVien = MaNhanVien;
+            db.TaiKhoans.Add(newTK);db.SaveChanges();
+        }
+        public void XoaTaiKhoan(int MaNhanVien)
+        {
+            db.TaiKhoans.Where(p => p.MaNhanVien == MaNhanVien).FirstOrDefault().Activated = false;
+            db.SaveChanges();
         }
     }
 }

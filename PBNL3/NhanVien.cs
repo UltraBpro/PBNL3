@@ -28,6 +28,7 @@ namespace PBNL3
         public double Luong { get; set; }
         public string ChucVu { get; set; }
         public System.DateTime NgayNhanViec { get; set; }
+        public bool Activated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonDatPhong> DonDatPhongs { get; set; }

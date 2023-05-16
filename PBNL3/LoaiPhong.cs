@@ -26,6 +26,7 @@ namespace PBNL3
         public int SoGiuong { get; set; }
         public double GiaTien { get; set; }
         public string GhiChu { get; set; }
+        public bool Activated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Phong> Phongs { get; set; }

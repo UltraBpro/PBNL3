@@ -26,6 +26,7 @@ namespace PBNL3
         public System.DateTime NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string SoDienThoai { get; set; }
+        public bool Activated { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonDatPhong> DonDatPhongs { get; set; }
