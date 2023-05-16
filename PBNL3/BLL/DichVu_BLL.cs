@@ -17,7 +17,7 @@ namespace PBNL3.BLL
         }
         public List<LoaiDichVu> LayDSDichVu()
         {
-            return db.LoaiDichVus.ToList();
+            return db.LoaiDichVus.Where(p => p.Activated == true).ToList();
         }
         public List<ChiTietDichVuDat> LayDSDichVuDaSuDung(int MaDonDatPhong)
         {
@@ -167,7 +167,13 @@ namespace PBNL3.BLL
                     dataTable.Rows.Add(row);
                 }
                 return dataTable;
-            }          
+            }
+
+        }
+        public void XoaDV(int MaDV)
+        {
+            db.LoaiDichVus.Find(MaDV).Activated = false;
+            db.SaveChanges();
         }
     }
 }

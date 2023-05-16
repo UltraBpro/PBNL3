@@ -22,7 +22,7 @@ namespace PBNL3.BLL
         }
         public List<NhanVien> LayDSNhanVien()
         {
-            return db.NhanViens.ToList();
+            return db.NhanViens.Where(p=>p.Activated==true).ToList();
         }
         public int ThemNhanVien(string tenNhanVien, bool gioiTinh, DateTime ngayNhanViec, double luong, string chucVu)
         {

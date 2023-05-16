@@ -16,7 +16,7 @@ namespace PBNL3.BLL
         }
         public TaiKhoan GetAccount(string username)
         {
-            return db.TaiKhoans.Single(p => p.username == username);
+            return db.TaiKhoans.Single(p => p.username == username&&p.Activated==true) ;
         } 
         public void DoiMatKhau(string matKhauCu, string matKhauMoi, string xacNhanMatKhauMoi)
         {

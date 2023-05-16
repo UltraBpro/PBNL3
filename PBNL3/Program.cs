@@ -13,7 +13,7 @@ namespace PBNL3
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var StartingForm = new FormAdmin(1);
+            var StartingForm = new FormLogin();
             if (!StartingForm.IsDisposed) StartingForm.Show();
             Application.Run();
         }

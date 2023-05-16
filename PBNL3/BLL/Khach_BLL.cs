@@ -24,7 +24,7 @@ namespace PBNL3.BLL
         public List<Khach> LayDSKhach()
         {
 
-            return db.Khaches.ToList();
+            return db.Khaches.Where(p => p.Activated == true).ToList();
 
         }
         public int ThemKhachMoi(string tenKhach, string gioiTinh, DateTime ngaySinh, string soDienThoai, string CCCD)
@@ -40,6 +40,11 @@ namespace PBNL3.BLL
             db.Khaches.Add(newKhach);
             db.SaveChanges();
             return newKhach.MaKhach;
-        }                            
+        }
+        public void XoaKhach(int MaKhach)
+        {
+            db.Khaches.Find(MaKhach).Activated = false;
+            db.SaveChanges();
+        }
     }    
 }

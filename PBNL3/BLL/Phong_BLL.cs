@@ -33,7 +33,12 @@ namespace PBNL3.BLL
         }
         public List<LoaiPhong> LayDSLoaiPhong()
         {
-            return db.LoaiPhongs.ToList();
+            return db.LoaiPhongs.Where(p => p.Activated == true).ToList();
+        }
+        public void XoaLoaiPhong(int MaLoaiP)
+        {
+            db.LoaiPhongs.Find(MaLoaiP).Activated = false;
+            db.SaveChanges();
         }
         public IEnumerable<object> LoadPhong(string kieuload)
         {

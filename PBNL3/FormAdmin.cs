@@ -75,7 +75,8 @@ namespace PBNL3
                         TaiKhoan tempAcc = account_BLL.CheckTK(MaNVNhan);
                         if (tempAcc != null)
                         {
-                            MessageBox.Show("Đã có 1 tài khoản được cấp cho nhân viên này với username: " + tempAcc.username);
+                            if (tempAcc.Activated == true) MessageBox.Show("Đã có 1 tài khoản được cấp cho nhân viên này với username: " + tempAcc.username);
+                            else MessageBox.Show("Đã có 1 tài khoản được cấp cho nhân viên này với username: " + tempAcc.username + " và đã được thu hồi");
                         }
                         else { 
                             FormDoiMK ThatRaLaFormAddTK = new FormDoiMK(MaNVNhan);
@@ -96,7 +97,6 @@ namespace PBNL3
                         else
                         {
                             account_BLL.XoaTaiKhoan(MaNVNhan);
-                            nhanVien_BLL.XoaNhanVien(MaNVNhan);
                         }
                         break;
                     }
@@ -142,6 +142,14 @@ namespace PBNL3
         {
             FormDoiMK doiMK = new FormDoiMK();
             doiMK.ShowDialog();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            File.Delete("LoginInfo.txt");
+            FormLogin LoginLai = new FormLogin();
+            LoginLai.Show();
+            this.Close();
         }
     }
 }
