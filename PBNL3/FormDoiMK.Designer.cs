@@ -110,12 +110,11 @@ namespace PBNL3
             this.TextBoxMKCu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxMKCu.Location = new System.Drawing.Point(142, 25);
             this.TextBoxMKCu.Name = "TextBoxMKCu";
-            this.TextBoxMKCu.PasswordChar = '●';
+            this.TextBoxMKCu.PasswordChar = '\0';
             this.TextBoxMKCu.PlaceholderText = "";
             this.TextBoxMKCu.SelectedText = "";
             this.TextBoxMKCu.Size = new System.Drawing.Size(310, 36);
             this.TextBoxMKCu.TabIndex = 45;
-            this.TextBoxMKCu.UseSystemPasswordChar = true;
             // 
             // labelDong1
             // 

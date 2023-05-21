@@ -44,13 +44,17 @@ namespace PBNL3.BLL
         }
         public void ThemTaiKhoan(int MaNhanVien,string usn,string pass)
         {
-            TaiKhoan newTK = new TaiKhoan();
-            newTK.MaTK= (db.TaiKhoans.Max(x => (int?)x.MaTK) ?? 0) + 1;
-            newTK.username = usn;
-            newTK.password = pass;
-            newTK.MaNhanVien = MaNhanVien;
-            newTK.Activated = true;
-            db.TaiKhoans.Add(newTK);db.SaveChanges();
+            if (db.TaiKhoans.Where(p => p.username == usn).FirstOrDefault() == null)
+            {
+                TaiKhoan newTK = new TaiKhoan();
+                newTK.MaTK = (db.TaiKhoans.Max(x => (int?)x.MaTK) ?? 0) + 1;
+                newTK.username = usn;
+                newTK.password = pass;
+                newTK.MaNhanVien = MaNhanVien;
+                newTK.Activated = true;
+                db.TaiKhoans.Add(newTK); db.SaveChanges();
+            }
+            else throw new Exception("Username này đã tồn tại.");
         }
         public void XoaTaiKhoan(int MaNhanVien)
         {

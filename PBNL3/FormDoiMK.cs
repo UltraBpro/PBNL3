@@ -15,9 +15,10 @@ namespace PBNL3
             if (MaNV != null)
             {
                 MaNVdangcap = MaNV;
-                labelDong1.Text = "Tên tài khoản";TextBoxMKCu.UseSystemPasswordChar = false;
+                labelDong1.Text = "Tên tài khoản";
                 labelDong2.Text = "Mật khẩu";
             }
+            else TextBoxMKCu.UseSystemPasswordChar = true;
         }
 
         private void TextBoxMKMoi_TextChanged(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace PBNL3
                 Account_BLL account_BLL = new Account_BLL();
             try
             {
-                if (MaNVdangcap != null) account_BLL.DoiMatKhau(TextBoxMKCu.Text, TextBoxMKMoi.Text, TextBoxXacNhan.Text);
+                if (MaNVdangcap == null) account_BLL.DoiMatKhau(TextBoxMKCu.Text, TextBoxMKMoi.Text, TextBoxXacNhan.Text);
                 else
                     if (TextBoxMKMoi.Text == TextBoxXacNhan.Text) account_BLL.ThemTaiKhoan((int)MaNVdangcap, TextBoxMKCu.Text, TextBoxMKMoi.Text);
                 else MessageBox.Show("Mật khẩu nhập lại sai.");
