@@ -169,7 +169,86 @@ namespace PBNL3.BLL
                 }
                 return dataTable;
             }
+        }
+        public DataTable GetDGVByDay(DateTime Start, DateTime End, bool type)
+        {
 
+            if (type)
+            {
+                var p = db.DonDatPhongs
+                                    .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End)
+                                    .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p1 => p1.MaDonDatPhong, (d, p1) => new { d, p1 })
+                                    .Join(db.Phongs, dp1 => dp1.p1.MaPhong, p2 => p2.MaPhong, (dp1, p2) => new { dp1, p2 })
+                                    .Join(db.LoaiPhongs, dp2 => dp2.p2.MaLoaiPhong, p3 => p3.MaLoaiPhong, (dp2, p3) => new { dp2, p3 })
+                                    .GroupBy(x => x.dp2.dp1.p1.MaPhong)
+                                    .Select(g => new
+                                    {
+                                        MaPhong = g.Key,
+                                        TenLoaiPhong = g.FirstOrDefault().p3.TenLoaiPhong,
+                                        Tang = g.FirstOrDefault().dp2.p2.Tang,
+                                        ThuTu = g.FirstOrDefault().dp2.p2.ThuTu,
+                                        GiaPhongDat = g.FirstOrDefault().dp2.dp1.p1.GiaPhongDat,
+                                    });
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("Mã phòng", typeof(int));
+                dataTable.Columns.Add("Tên loại phòng", typeof(string));
+                dataTable.Columns.Add("Tầng", typeof(int));
+                dataTable.Columns.Add("Thứ tự", typeof(int));
+                dataTable.Columns.Add("Giá phòng đặt", typeof(float));
+                foreach (var item in p)
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["Mã phòng"] = item.MaPhong;
+                    row["Tên loại phòng"] = item.TenLoaiPhong;
+                    row["Tầng"] = item.Tang;
+                    row["Thứ tự"] = item.ThuTu;
+                    row["Giá phòng đặt"] = item.GiaPhongDat;
+                    dataTable.Rows.Add(row);
+                }
+                return dataTable;
+            }
+            else
+            {
+                var dv = db.DonDatPhongs
+                        .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End)
+                        .Join(db.ChiTietDichVuDats, d => d.MaDonDatPhong, ctdv => ctdv.MaDonDatPhong, (d, ctdv) => new { d, ctdv })
+                        .Join(db.LoaiDichVus, dv1 => dv1.ctdv.MaDichVu, ldv => ldv.MaLoaiDichVu, (dv1, ldv) => new { dv1, ldv })
+                        .GroupBy(x => x.ldv.MaLoaiDichVu)
+                        .Select(g => new
+                        {
+                            MaLoaiDichVu = g.Key,
+                            TenDichVu = g.FirstOrDefault().ldv.TenDichVu,
+                            Gia = g.FirstOrDefault().dv1.ctdv.GiaDichVuDat,
+                            SoLuongDaDat = g.Sum(x => x.dv1.ctdv.SoLuong)
+                        });
+                DataTable dataTable = new DataTable();
+                dataTable.Columns.Add("Mã loại dịch vụ", typeof(int));
+                dataTable.Columns.Add("Tên dịch vụ", typeof(string));
+                dataTable.Columns.Add("Giá dịch vụ đặt", typeof(float));
+                dataTable.Columns.Add("Số lượng đã đặt", typeof(int));
+                foreach (var item in dv)
+                {
+                    DataRow row = dataTable.NewRow();
+                    row["Mã loại dịch vụ"] = item.MaLoaiDichVu;
+                    row["Tên dịch vụ"] = item.TenDichVu;
+                    row["Giá dịch vụ đặt"] = item.Gia;
+                    row["Số lượng đã đặt"] = item.SoLuongDaDat;
+                    dataTable.Rows.Add(row);
+                }
+                return dataTable;
+            }
+        }
+        public double GetTotalDVByDay(DateTime Start, DateTime End)
+        {
+            double totalDV = 0;
+            foreach (var ddv in db.DonDatPhongs
+                .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End)
+                .Join(db.ChiTietDichVuDats, d => d.MaDonDatPhong, dv => dv.MaDonDatPhong, (d, dv) => new { d, dv })
+                .Select(ddv => new { ddv.dv.GiaDichVuDat, ddv.dv.SoLuong }))
+            {
+                totalDV += ddv.GiaDichVuDat * ddv.SoLuong;
+            }
+            return totalDV;
         }
         public void XoaDV(int MaDV)
         {

@@ -36,10 +36,12 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ButtonConfirm = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel5 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.BillCount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ButtonBill = new Guna.UI2.WinForms.Guna2Button();
+            this.ButtonTKNgay = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.moneyDV = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +51,8 @@
             this.moneyP = new System.Windows.Forms.Label();
             this.ButtonPhong = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.EndLB = new System.Windows.Forms.Label();
+            this.StartLB = new System.Windows.Forms.Label();
             this.cbbsetyears = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbsetmonths = new Guna.UI2.WinForms.Guna2ComboBox();
             this.chartBDT = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -64,7 +68,9 @@
             // 
             // guna2GradientPanel1
             // 
+            this.guna2GradientPanel1.Controls.Add(this.ButtonConfirm);
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel5);
+            this.guna2GradientPanel1.Controls.Add(this.ButtonTKNgay);
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel4);
             this.guna2GradientPanel1.Controls.Add(this.guna2GradientPanel3);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,8 +81,29 @@
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1300, 641);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1300, 753);
             this.guna2GradientPanel1.TabIndex = 1;
+            // 
+            // ButtonConfirm
+            // 
+            this.ButtonConfirm.Animated = true;
+            this.ButtonConfirm.AutoRoundedCorners = true;
+            this.ButtonConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonConfirm.BorderRadius = 21;
+            this.ButtonConfirm.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonConfirm.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonConfirm.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonConfirm.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonConfirm.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonConfirm.ForeColor = System.Drawing.Color.White;
+            this.ButtonConfirm.Location = new System.Drawing.Point(907, 700);
+            this.ButtonConfirm.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonConfirm.Name = "ButtonConfirm";
+            this.ButtonConfirm.Size = new System.Drawing.Size(250, 44);
+            this.ButtonConfirm.TabIndex = 7;
+            this.ButtonConfirm.Text = "Confirm";
+            this.ButtonConfirm.UseTransparentBackground = true;
+            this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
             // guna2GradientPanel5
             // 
@@ -130,6 +157,27 @@
             this.ButtonBill.Size = new System.Drawing.Size(320, 150);
             this.ButtonBill.TabIndex = 5;
             this.ButtonBill.Click += new System.EventHandler(this.ButtonBill_Click);
+            // 
+            // ButtonTKNgay
+            // 
+            this.ButtonTKNgay.Animated = true;
+            this.ButtonTKNgay.AutoRoundedCorners = true;
+            this.ButtonTKNgay.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonTKNgay.BorderRadius = 21;
+            this.ButtonTKNgay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonTKNgay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonTKNgay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonTKNgay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonTKNgay.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonTKNgay.ForeColor = System.Drawing.Color.White;
+            this.ButtonTKNgay.Location = new System.Drawing.Point(129, 700);
+            this.ButtonTKNgay.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonTKNgay.Name = "ButtonTKNgay";
+            this.ButtonTKNgay.Size = new System.Drawing.Size(250, 44);
+            this.ButtonTKNgay.TabIndex = 7;
+            this.ButtonTKNgay.Text = "Thống kê theo ngày ";
+            this.ButtonTKNgay.UseTransparentBackground = true;
+            this.ButtonTKNgay.Click += new System.EventHandler(this.ButtonTKNgay_Click);
             // 
             // guna2GradientPanel4
             // 
@@ -244,6 +292,8 @@
             // 
             // guna2GradientPanel2
             // 
+            this.guna2GradientPanel2.Controls.Add(this.EndLB);
+            this.guna2GradientPanel2.Controls.Add(this.StartLB);
             this.guna2GradientPanel2.Controls.Add(this.cbbsetyears);
             this.guna2GradientPanel2.Controls.Add(this.cbbsetmonths);
             this.guna2GradientPanel2.Controls.Add(this.chartBDT);
@@ -251,8 +301,30 @@
             this.guna2GradientPanel2.Location = new System.Drawing.Point(0, 178);
             this.guna2GradientPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(1300, 463);
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(1300, 513);
             this.guna2GradientPanel2.TabIndex = 2;
+            // 
+            // EndLB
+            // 
+            this.EndLB.AutoSize = true;
+            this.EndLB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EndLB.Location = new System.Drawing.Point(608, 74);
+            this.EndLB.Name = "EndLB";
+            this.EndLB.Size = new System.Drawing.Size(55, 23);
+            this.EndLB.TabIndex = 8;
+            this.EndLB.Text = "label2";
+            this.EndLB.Visible = false;
+            // 
+            // StartLB
+            // 
+            this.StartLB.AutoSize = true;
+            this.StartLB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartLB.Location = new System.Drawing.Point(394, 74);
+            this.StartLB.Name = "StartLB";
+            this.StartLB.Size = new System.Drawing.Size(55, 23);
+            this.StartLB.TabIndex = 7;
+            this.StartLB.Text = "label2";
+            this.StartLB.Visible = false;
             // 
             // cbbsetyears
             // 
@@ -296,7 +368,7 @@
             this.chartBDT.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartBDT.Legends.Add(legend1);
-            this.chartBDT.Location = new System.Drawing.Point(0, 58);
+            this.chartBDT.Location = new System.Drawing.Point(0, 109);
             this.chartBDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartBDT.Name = "chartBDT";
             series1.ChartArea = "ChartArea1";
@@ -315,7 +387,7 @@
             this.chartBDD.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartBDD.Legends.Add(legend2);
-            this.chartBDD.Location = new System.Drawing.Point(456, 58);
+            this.chartBDD.Location = new System.Drawing.Point(459, 109);
             this.chartBDD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartBDD.Name = "chartBDD";
             series2.ChartArea = "ChartArea1";
@@ -338,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1300, 641);
+            this.ClientSize = new System.Drawing.Size(1300, 753);
             this.Controls.Add(this.guna2GradientPanel2);
             this.Controls.Add(this.guna2GradientPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -354,6 +426,7 @@
             this.guna2GradientPanel3.ResumeLayout(false);
             this.guna2GradientPanel3.PerformLayout();
             this.guna2GradientPanel2.ResumeLayout(false);
+            this.guna2GradientPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartBDD)).EndInit();
             this.ResumeLayout(false);
@@ -380,5 +453,9 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBDT;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBDD;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
+        private Guna.UI2.WinForms.Guna2Button ButtonTKNgay;
+        private Guna.UI2.WinForms.Guna2Button ButtonConfirm;
+        private System.Windows.Forms.Label EndLB;
+        private System.Windows.Forms.Label StartLB;
     }
 }

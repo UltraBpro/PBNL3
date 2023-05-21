@@ -106,5 +106,33 @@ namespace PBNL3.BLL
             }
             return dataTable;
         }
+        public DataTable GetBillDetailsByDay(DateTime Start, DateTime End)
+        {
+            var bill = db.DonDatPhongs
+                        .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End)
+                        .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p => p.MaDonDatPhong, (d, p) => new { d, p })
+                        .Select(dp => new { dp.d.MaDonDatPhong, dp.p.MaPhong });
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("MaDonDatPhong", typeof(int));
+            dataTable.Columns.Add("MaPhong", typeof(int));
+            foreach (var item in bill)
+            {
+                DataRow row = dataTable.NewRow();
+                row["MaDonDatPhong"] = item.MaDonDatPhong;
+                row["MaPhong"] = item.MaPhong;
+                dataTable.Rows.Add(row);
+            }
+            return dataTable;
+        }
+        public double GetTotalBillByDay(DateTime Start, DateTime End)
+        {
+            double totalBill = 0;
+            foreach (var donDatPhong in db.DonDatPhongs
+                .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End))
+            {
+                totalBill++;
+            }
+            return totalBill;
+        }
     }
 }

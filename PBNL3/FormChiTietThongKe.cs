@@ -13,7 +13,12 @@ namespace PBNL3
             InitializeComponent();
             SetDGV(selectedMonth, selectedYear, type);
         }
-        public void SetDGV(int selectedMonth, int selectedYear, bool type)
+        public FormChiTietThongKe(DateTime Start, DateTime End, bool type)
+        {
+            InitializeComponent();
+            SetDGVByDay(Start, End, type);
+        }
+        public void SetTitle(bool type)
         {
             if (type)
             {
@@ -23,10 +28,21 @@ namespace PBNL3
             {
                 labeTitle.Text = "Chi tiết dịch vụ: ";
             }
+        }
+        public void SetDGV(int selectedMonth, int selectedYear, bool type)
+        {
+            SetTitle(type);
             DichVu_BLL dichVu_BLL = new DichVu_BLL();
             DataTable dataTable = dichVu_BLL.GetDGV(selectedMonth, selectedYear, type);
             dgvThongKe.DataSource = dataTable;
         }
+        public void SetDGVByDay(DateTime Start, DateTime End, bool type)
+        {
+            SetTitle(type);
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            DataTable dataTable = dichVu_BLL.GetDGVByDay(Start, End, type);
+            dgvThongKe.DataSource = dataTable;
+        }        
         private void ButtonConfirm_Click(object sender, EventArgs e)
         {
             this.Close();

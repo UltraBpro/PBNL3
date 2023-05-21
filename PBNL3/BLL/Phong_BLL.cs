@@ -176,6 +176,18 @@ namespace PBNL3.BLL
                 }
             }
             return totalP;
-        }                     
+        }
+        public double GetTotalPhongByDay(DateTime Start, DateTime End)
+        {
+            double totalP = 0;
+            foreach (var dp in db.DonDatPhongs
+                    .Where(d => d.TinhTrangThanhToan == "Đã thanh toán" && d.NgayTra >= Start && d.NgayTra <= End)
+                    .Join(db.ChiTietPhongDats, d => d.MaDonDatPhong, p => p.MaDonDatPhong, (d, p) => new { d, p })
+                    .Select(dp => new { dp.p.GiaPhongDat, dp.d.NgayDat, dp.d.NgayTra }))
+            {
+                totalP += dp.GiaPhongDat * ((int)(dp.NgayTra.Value - dp.NgayDat).TotalDays + 1);
+            }
+            return totalP;
+        }
     }
 }

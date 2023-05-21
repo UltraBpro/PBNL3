@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml.Serialization;
 
 namespace PBNL3
@@ -49,6 +50,8 @@ namespace PBNL3
             Phong_BLL phong_BLL = new Phong_BLL();
             DichVu_BLL dichVu_BLL = new DichVu_BLL();
             Don_BLL don_BLL = new Don_BLL();
+            StartLB.Visible = false;
+            EndLB.Visible = false;
             if (type)
             {
                 int selectedMonth = int.Parse(cbbsetmonths.SelectedItem.ToString());
@@ -89,6 +92,17 @@ namespace PBNL3
                 chartBDD.Series[seriesName].Points.AddXY((i + 1).ToString(), data[i]);
             }
         }
+        private void AddNewSeriesDate(string seriesName, DateTime startDate, List<double> data)
+        {
+            chartBDD.Series[seriesName].Points.Clear();
+            chartBDD.ChartAreas[0].AxisX.Interval = 1;
+            DateTime currentDate = startDate;
+            foreach (double value in data)
+            {
+                chartBDD.Series[seriesName].Points.AddXY(currentDate.ToString("dd/MM"), value);
+                currentDate = currentDate.AddDays(1);
+            }
+        }
         private void SetBDD()
         {
             int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
@@ -110,6 +124,36 @@ namespace PBNL3
             AddNewSeries("DTDV", dataDTDV);
             cbbsetmonths.Enabled = true;
         }
+        private void SetBDDByDay()
+        {
+            try
+            {
+                List<double> dataDTP = new List<double>();
+                for (DateTime date = Start; date <= End.AddDays(-1); date = date.AddDays(1))
+                {
+                    Phong_BLL phong_BLL = new Phong_BLL();
+                    double totalP = phong_BLL.GetTotalPhongByDay(date, End);
+                    dataDTP.Add(totalP);
+                }
+                AddNewSeriesDate("DTP", Start, dataDTP);
+                List<double> dataDTDV = new List<double>();
+                for (DateTime date = Start; date <= End.AddDays(-1); date = date.AddDays(1))
+                {
+                    DichVu_BLL dichVu_BLL = new DichVu_BLL();
+                    double totalDV = dichVu_BLL.GetTotalDVByDay(date, End);
+                    dataDTDV.Add(totalDV);
+                }
+                AddNewSeriesDate("DTDV", Start, dataDTDV);
+            }
+            catch
+            {
+                SetCBBMonths();
+                SetCBBYears();               
+                chartBDT.Series["DTP"].Points.Clear();
+                chartBDD.Series["DTP"].Points.Clear();
+                chartBDD.Series["DTDV"].Points.Clear();
+            }
+        }
         private void cbb_SelectionChangeCommitted(object sender, EventArgs e)
         {            
             SetText(cbbsetmonths.SelectedIndex != 0);          
@@ -118,10 +162,21 @@ namespace PBNL3
         {
             try
             {
-                int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
-                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
-                FormChiTietThongKe formChiTietThongKe = new FormChiTietThongKe(selectedMonth, selectedYear, type);
-                formChiTietThongKe.ShowDialog();
+                if (cbbsetmonths.Enabled)
+                {
+                    int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
+                    int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                    FormChiTietThongKe formChiTietThongKe = new FormChiTietThongKe(selectedMonth, selectedYear, type);
+                    formChiTietThongKe.ShowDialog();
+                }
+                else
+                {
+                    FormThongKeTheoNgay formThongKeTheoNgay = new FormThongKeTheoNgay();
+                    formThongKeTheoNgay.GuiNgayDi += GetDay;
+                    FormChiTietThongKe formChiTietThongKe = new FormChiTietThongKe(Start, End, type);
+                    formChiTietThongKe.SetDGVByDay(Start, End, type);
+                    formChiTietThongKe.ShowDialog();
+                }
             }
             catch
             {
@@ -140,12 +195,24 @@ namespace PBNL3
         {            
             try
             {
-                int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
-                int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
-                Don_BLL don_BLL = new Don_BLL();
-                DataTable dataTable = don_BLL.GetBillDetails(selectedMonth, selectedYear);
-                FormChonDon formChonDon = new FormChonDon(dataTable);
-                formChonDon.ShowDialog();
+                if (cbbsetmonths.Enabled)
+                {
+                    int selectedMonth = cbbsetmonths.SelectedIndex == 0 ? 0 : int.Parse(cbbsetmonths.SelectedItem.ToString());
+                    int selectedYear = int.Parse(cbbsetyears.SelectedItem.ToString());
+                    Don_BLL don_BLL = new Don_BLL();
+                    DataTable dataTable = don_BLL.GetBillDetails(selectedMonth, selectedYear);
+                    FormChonDon formChonDon = new FormChonDon(dataTable);
+                    formChonDon.ShowDialog();
+                }
+                else
+                {
+                    FormThongKeTheoNgay formThongKeTheoNgay = new FormThongKeTheoNgay();
+                    formThongKeTheoNgay.GuiNgayDi += GetDay;
+                    Don_BLL don_BLL = new Don_BLL();
+                    DataTable dataTable = don_BLL.GetBillDetailsByDay(Start, End);
+                    FormChonDon formChonDon = new FormChonDon(dataTable);
+                    formChonDon.ShowDialog();
+                }
             }
             catch 
             {
@@ -154,9 +221,64 @@ namespace PBNL3
         }
 
         private void cbbsetyears_DropDown(object sender, EventArgs e)
-        {
+        {           
             cbbsetyears.Items.Remove("Chọn năm");
             cbbsetyears.SelectedIndex = 0;
+        }
+        private void ButtonTKNgay_Click(object sender, EventArgs e)
+        {
+            FormThongKeTheoNgay formThongKeTheoNgay = new FormThongKeTheoNgay();
+            formThongKeTheoNgay.GuiNgayDi += GetDay;
+            formThongKeTheoNgay.ShowDialog();
+            SetTextByDay();
+        }
+        private DateTime Start;
+        private DateTime End;
+        private void GetDay(object sender, List<DateTime> e)
+        {
+            Start = e[0].Date;
+            End = e[1].AddDays(1).AddTicks(-1);
+        }
+        public void SetTextByDay()
+        {
+            SetCBBMonths();
+            SetCBBYears();
+            SetLable();           
+            Phong_BLL phong_BLL = new Phong_BLL();
+            DichVu_BLL dichVu_BLL = new DichVu_BLL();
+            Don_BLL don_BLL = new Don_BLL();
+            moneyP.Text = phong_BLL.GetTotalPhongByDay(Start, End.AddDays(1)).ToString();
+            moneyDV.Text = dichVu_BLL.GetTotalDVByDay(Start, End).ToString();
+            BillCount.Text = don_BLL.GetTotalBillByDay(Start, End).ToString();
+            SetBDT();
+            SetBDDByDay();
+        }
+        private void SetLable()
+        {
+            try
+            {
+                StartLB.Visible = true;
+                EndLB.Visible = true;
+                if (Start.Date == End.AddDays(-1).Date)
+                {
+                    StartLB.Text = " Trong ngày " + Start.Date.ToString("dd/MM/yyyy");
+                    EndLB.Visible = false;
+                }
+                else
+                {
+                    StartLB.Text = " Từ " + Start.Date.ToString("dd/MM/yyyy");
+                    EndLB.Text = " Đến " + End.AddDays(-1).Date.ToString("dd/MM/yyyy");
+                }
+            }
+            catch 
+            {
+                StartLB.Visible = false;
+                EndLB.Visible = false;
+            }
+        }
+        private void ButtonConfirm_Click(object sender, EventArgs e)
+        {
+            this.Close();           
         }
     }
 }
