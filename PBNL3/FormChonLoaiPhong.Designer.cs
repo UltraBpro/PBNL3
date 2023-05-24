@@ -33,6 +33,7 @@ namespace PBNL3
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.ButtonXoa = new Guna.UI2.WinForms.Guna2Button();
             this.TextBoxDienTich = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxSoGiuong = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxGiaTien = new Guna.UI2.WinForms.Guna2TextBox();
@@ -42,7 +43,6 @@ namespace PBNL3
             this.TextBoxNote = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxTenLoaiPhong = new Guna.UI2.WinForms.Guna2TextBox();
             this.ButtonConfirm = new Guna.UI2.WinForms.Guna2Button();
-            this.ButtonXoa = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,26 @@ namespace PBNL3
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(602, 297);
             this.guna2GradientPanel1.TabIndex = 3;
+            // 
+            // ButtonXoa
+            // 
+            this.ButtonXoa.Animated = true;
+            this.ButtonXoa.AutoRoundedCorners = true;
+            this.ButtonXoa.BackColor = System.Drawing.Color.Transparent;
+            this.ButtonXoa.BorderRadius = 17;
+            this.ButtonXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ButtonXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ButtonXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ButtonXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ButtonXoa.ForeColor = System.Drawing.Color.White;
+            this.ButtonXoa.Location = new System.Drawing.Point(171, 255);
+            this.ButtonXoa.Name = "ButtonXoa";
+            this.ButtonXoa.Size = new System.Drawing.Size(68, 36);
+            this.ButtonXoa.TabIndex = 48;
+            this.ButtonXoa.Text = "Xóa";
+            this.ButtonXoa.UseTransparentBackground = true;
+            this.ButtonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
             // 
             // TextBoxDienTich
             // 
@@ -291,26 +311,6 @@ namespace PBNL3
             this.ButtonConfirm.UseTransparentBackground = true;
             this.ButtonConfirm.Click += new System.EventHandler(this.ButtonConfirm_Click);
             // 
-            // ButtonXoa
-            // 
-            this.ButtonXoa.Animated = true;
-            this.ButtonXoa.AutoRoundedCorners = true;
-            this.ButtonXoa.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonXoa.BorderRadius = 17;
-            this.ButtonXoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonXoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ButtonXoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ButtonXoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ButtonXoa.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ButtonXoa.ForeColor = System.Drawing.Color.White;
-            this.ButtonXoa.Location = new System.Drawing.Point(171, 255);
-            this.ButtonXoa.Name = "ButtonXoa";
-            this.ButtonXoa.Size = new System.Drawing.Size(68, 36);
-            this.ButtonXoa.TabIndex = 48;
-            this.ButtonXoa.Text = "Xóa";
-            this.ButtonXoa.UseTransparentBackground = true;
-            this.ButtonXoa.Click += new System.EventHandler(this.ButtonXoa_Click);
-            // 
             // FormChonLoaiPhong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,8 +320,8 @@ namespace PBNL3
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormChonLoaiPhong";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormChonLoaiPhong";
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
