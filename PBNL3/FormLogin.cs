@@ -14,9 +14,6 @@ namespace PBNL3
         public FormLogin()
         {
             InitializeComponent();
-            timer.Interval = 500;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
             LoadDangNhap();
         }
 
@@ -75,20 +72,6 @@ namespace PBNL3
             catch (Exception) { MessageBox.Show("Sai tài khoản hoặc mật khẩu."); }
 
         }
-        private Timer timer = new Timer();
-        bool nani = false;
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            if (nani)
-                guna2ImageButton1.Image = Properties.Resources.Cheems2;
-            else guna2ImageButton1.Image = Properties.Resources.Cheems0;
-            nani = !nani;
-        }
 
-        private void guna2ImageButton1_MouseDown(object sender, MouseEventArgs e)
-        {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
-            player.Play();
-        }
     }
 }

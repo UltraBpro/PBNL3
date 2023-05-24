@@ -21,9 +21,6 @@ namespace PBNL3
             panel2.Controls.Add(leftBorderBtn);
             OpenChildForm();
             LoadNhanVien(MaTaiKhoan);
-            timer.Interval = 500;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
         }
 
         private void ActivateButton(object senderBtn, Color color)
@@ -109,17 +106,6 @@ namespace PBNL3
             Application.Exit();
         }
 
-
-        // Đoạn sau được viết bởi thằng l*n Tuấn
-        private Timer timer = new Timer();
-        bool nah = false;
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            if (nah)
-                guna2ImageButton1.Image = Properties.Resources.Cheems2;
-            else guna2ImageButton1.Image = Properties.Resources.Cheems0;
-            nah = !nah;
-        }
 
         private void LoadNhanVien(int MaTaiKhoan)
         {
@@ -234,10 +220,8 @@ namespace PBNL3
             loaiP.FormClosed += FormHoiSinh;
         }
 
-        private void guna2ImageButton1_MouseDown(object sender, MouseEventArgs e)
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
-            SoundPlayer player = new SoundPlayer(Properties.Resources.BonkSoundEffect);
-            player.Play();
             labelTrangThai.Text = "Trang chủ";
             iconPictureBox1.IconChar = IconChar.Home;
             DisableButton(); leftBorderBtn.Visible = false;
